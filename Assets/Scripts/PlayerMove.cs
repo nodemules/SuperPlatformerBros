@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -10,11 +7,24 @@ namespace Assets.Scripts
     {
         public int Speed = 10;
         public int JumpPower = 1250;
-        private bool _facingRight = true;
 
-        void Update()
+        private bool _facingRight = true;
+        private Rigidbody2D _playerRigidbody;
+        
+        private Collider2D _playerCollider;
+        private GameObject[] _platforms;
+
+        public void Start()
         {
-            Move(Input.GetAxis("Horizontal"));
+            _playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+            _playerCollider = gameObject.GetComponent<Collider2D>();
+            _platforms = GameObject.FindGameObjectsWithTag("Platforms");
+        }
+
+        public void Update()
+        {
+            float moveX = Input.GetAxis("Horizontal");
+            Move(moveX);
         }
 
         private void Move(float moveX)
@@ -24,8 +34,9 @@ namespace Assets.Scripts
                 Jump();
             }
 
-            bool moving = Double.Equals(moveX, 0.0f);
+
             bool movingRight = moveX > 0.0f;
+            bool moving = !Equals(moveX, 0.0f);
 
             if (moving)
             {
@@ -45,27 +56,22 @@ namespace Assets.Scripts
                 }
             }
 
-            Rigidbody2D playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
-            playerRigidbody.velocity = new Vector2(moveX * Speed, playerRigidbody.velocity.y);
+            _playerRigidbody.velocity = new Vector2(moveX * Speed, _playerRigidbody.velocity.y);
         }
 
         private void Jump()
         {
-            Rigidbody2D playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
-            playerRigidbody.AddForce(Vector2.up * JumpPower);
+            _playerRigidbody.AddForce(Vector2.up * JumpPower);
         }
 
         // TODO - make this work with collider detection with platform tagged GameObjects
         private void JumpWithPlatformCollider()
         {
-            Rigidbody2D playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
-            Collider2D playerCollider = gameObject.GetComponent<Collider2D>();
-            GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platforms");
-            print(platforms.Length + " platforms found");
+            print(_platforms.Length + " platforms found");
             bool onGround = false;
-            foreach (GameObject platform in platforms)
+            foreach (GameObject platform in _platforms)
             {
-                onGround = playerRigidbody.IsTouching(platform.GetComponent<Collider2D>());
+                onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());
                 print("Checking a platform, onGround=" + onGround);
                 if (onGround)
                 {
@@ -75,7 +81,7 @@ namespace Assets.Scripts
 
             if (onGround)
             {
-                playerRigidbody.AddForce(Vector2.up * JumpPower);
+                _playerRigidbody.AddForce(Vector2.up * JumpPower);
             }
         }
 
@@ -84,6 +90,7 @@ namespace Assets.Scripts
             _facingRight = !_facingRight;
             Vector2 localScale = gameObject.transform.localScale;
             localScale.x *= -1;
+            print("localScale.x=" + localScale.x);
             transform.localScale = localScale;
         }
     }
