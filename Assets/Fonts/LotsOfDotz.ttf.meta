@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ecc2b653940a84b5bb2d20cc086b4df2
+timeCreated: 1516246638
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: LotsOfDotz
+  fontNames:
+  - LotsOfDotz
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

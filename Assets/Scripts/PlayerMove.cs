@@ -6,19 +6,21 @@ namespace Assets.Scripts
     public class PlayerMove : MonoBehaviour
     {
         public int Speed = 10;
-        public int JumpPower = 1250;
+        public int JumpPower = 2500;
 
         private bool _facingRight = true;
         private Rigidbody2D _playerRigidbody;
         
         private Collider2D _playerCollider;
         private GameObject[] _platforms;
+        private GameObject[] _blocks;
 
         public void Start()
         {
             _playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
             _playerCollider = gameObject.GetComponent<Collider2D>();
             _platforms = GameObject.FindGameObjectsWithTag("Platforms");
+            _blocks = GameObject.FindGameObjectsWithTag("Blocks");
         }
 
         public void Update()
@@ -61,14 +63,9 @@ namespace Assets.Scripts
 
         private void Jump()
         {
-            _playerRigidbody.AddForce(Vector2.up * JumpPower);
-        }
-
-        // TODO - make this work with collider detection with platform tagged GameObjects
-        private void JumpWithPlatformCollider()
-        {
             print(_platforms.Length + " platforms found");
             bool onGround = false;
+            bool touchingBlock = false;
             foreach (GameObject platform in _platforms)
             {
                 onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());
@@ -79,7 +76,17 @@ namespace Assets.Scripts
                 }
             }
 
-            if (onGround)
+            foreach (GameObject block in _blocks)
+            {
+                touchingBlock = _playerCollider.IsTouching(block.GetComponent<Collider2D>());
+                print("Checking a block, touchingBlock=" + touchingBlock);
+                if (touchingBlock)
+                {
+                    break;
+                }
+            }
+
+            if (onGround || touchingBlock)
             {
                 _playerRigidbody.AddForce(Vector2.up * JumpPower);
             }
