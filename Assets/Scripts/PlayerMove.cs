@@ -10,7 +10,7 @@ namespace Assets.Scripts
 
         private bool _facingRight = true;
         private Rigidbody2D _playerRigidbody;
-        
+
         private Collider2D _playerCollider;
         private GameObject[] _platforms;
         private GameObject[] _blocks;
@@ -45,12 +45,10 @@ namespace Assets.Scripts
                 if (!movingRight && _facingRight)
                 {
                     FlipPlayerX();
-                    print("Turning to the left, moveX=" + moveX);
                 }
                 else if (movingRight && !_facingRight)
                 {
                     FlipPlayerX();
-                    print("Turning to the right, moveX=" + moveX);
                 }
                 else
                 {
@@ -63,13 +61,11 @@ namespace Assets.Scripts
 
         private void Jump()
         {
-            print(_platforms.Length + " platforms found");
             bool onGround = false;
             bool touchingBlock = false;
             foreach (GameObject platform in _platforms)
             {
                 onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());
-                print("Checking a platform, onGround=" + onGround);
                 if (onGround)
                 {
                     break;
@@ -79,7 +75,6 @@ namespace Assets.Scripts
             foreach (GameObject block in _blocks)
             {
                 touchingBlock = _playerCollider.IsTouching(block.GetComponent<Collider2D>());
-                print("Checking a block, touchingBlock=" + touchingBlock);
                 if (touchingBlock)
                 {
                     break;
@@ -97,7 +92,6 @@ namespace Assets.Scripts
             _facingRight = !_facingRight;
             Vector2 localScale = gameObject.transform.localScale;
             localScale.x *= -1;
-            print("localScale.x=" + localScale.x);
             transform.localScale = localScale;
         }
     }
