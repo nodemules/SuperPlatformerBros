@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts
+namespace Player
 {
     public class Player : MonoBehaviour, IKillable
     {
@@ -37,12 +35,21 @@ namespace Assets.Scripts
         {
             _dead = true;
             _playerHealth = 0;
-            gameObject.transform.Rotate(0, 0, 90);
-            Animator animator = gameObject.GetComponent<Animator>();
-            animator.enabled = false;
+            
             PlayerMove movement = gameObject.GetComponent<PlayerMove>();
-            movement.enabled = false;
+            Animator animator = gameObject.GetComponent<Animator>();
 
+            int z = 90;
+
+            if (!movement.IsFacingRight())
+            {
+                z *= -1;
+            }
+            
+            gameObject.transform.Rotate(0, 0, z);
+            
+            movement.enabled = false;
+            animator.enabled = false;
         }
     }
 }

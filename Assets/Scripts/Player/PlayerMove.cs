@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts
+namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
@@ -14,6 +13,11 @@ namespace Assets.Scripts
         private Collider2D _playerCollider;
         private GameObject[] _platforms;
         private GameObject[] _blocks;
+
+        public bool IsFacingRight()
+        {
+            return _facingRight;
+        }
 
         public void Start()
         {
