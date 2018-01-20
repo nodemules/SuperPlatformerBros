@@ -11,9 +11,7 @@ namespace Environment
             Player.Player player = other.collider.GetComponent<Player.Player>();
             if (player != null)
             {
-                print("Player wins, Game Over");
-                ApplicationState.Ending = 1;
-                SceneManager.LoadScene("GameOver");
+                LevelController.NextLevel();
             }
         }
     }

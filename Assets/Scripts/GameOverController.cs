@@ -56,7 +56,7 @@ public class GameOverController : MonoBehaviour
             case -1:
                 _endingText = GameObject.Find("YouDeadText");
                 break;
-            case 1:
+            case -100:
                 _endingText = GameObject.Find("YouWinText");
                 break;
             default:

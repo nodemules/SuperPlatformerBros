@@ -17,6 +17,7 @@ namespace Assets.Scripts
         public void Start()
         {
             _player = GameObject.FindGameObjectWithTag("Player");
+            
             _originalMinVector = MinVector;
             _originalMaxVector = MaxVector;
         }
