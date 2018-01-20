@@ -46,12 +46,10 @@ namespace Enemy
 
         protected void OnCollisionEnter2D(Collision2D other)
         {
-            print("Colliding with something!");
             Collider2D otherCollider = other.collider;
             IKillable killable = otherCollider.GetComponent<IKillable>();
             if (killable != null)
             {
-                print("Killing something!");
                 killable.Kill();
             }
         }

@@ -28,7 +28,6 @@ namespace Enemy
 
         private void StopFlying()
         {
-            print("Stopping flying");
             _isFlying = false;
             Rigidbody.velocity = new Vector2(0, 0);
         }
@@ -43,8 +42,6 @@ namespace Enemy
             if (!_isFlying)
             {
                 _isFlying = true;
-                string direction = Direction == -1 ? "Down" : "Up";
-                print("Starting flying [" + direction + "] at " + Speed + " units per second");
             }
 
             Rigidbody.velocity = new Vector2(0, Speed * Direction);
@@ -55,7 +52,6 @@ namespace Enemy
                     // Moving Left
                     if (transform.position.y <= _lowerBound)
                     {
-                        print("Too far down, turning around");
                         TurnAround();
                     }
 
@@ -64,7 +60,6 @@ namespace Enemy
                     //Moving Right
                     if (transform.position.y >= _upperBound)
                     {
-                        print("Too far up, turning around");
                         TurnAround();
                     }
 

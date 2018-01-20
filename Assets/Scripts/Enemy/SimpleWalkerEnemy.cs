@@ -29,7 +29,6 @@ namespace Enemy
 
         private void StopWalking()
         {
-            print("Stopping walking");
             _isWalking = false;
             Rigidbody.velocity = new Vector2(0, Rigidbody.velocity.y);
         }
@@ -44,8 +43,6 @@ namespace Enemy
             if (!_isWalking)
             {
                 _isWalking = true;
-                string direction = Direction == -1 ? "Left" : "Right";
-                print("Starting walking [" + direction + "] at " + Speed + " units per second");
             }
 
             Rigidbody.velocity = new Vector2(Speed * Direction, Rigidbody.velocity.y);
@@ -56,16 +53,14 @@ namespace Enemy
                     // Moving Left
                     if (transform.position.x <= _leftBound)
                     {
-                        print("Too far left, turning around");
                         TurnAround();
                     }
 
                     break;
                 case 1:
-                    //Moving Right
+                    // Moving Right
                     if (transform.position.x >= _rightBound)
                     {
-                        print("Too far right, turning around");
                         TurnAround();
                     }
 
@@ -88,13 +83,11 @@ namespace Enemy
             Wall wall = otherCollider.GetComponent<IBoundary>() as Wall;
             if (wall != null)
             {
-                print("Collided with a wall");
                 if (wall.IsObstacle)
                 {
                     TurnAround();
                 }
             }
-            
         }
     }
 }

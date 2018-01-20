@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -48,7 +49,9 @@ namespace Player
             gameObject.transform.Rotate(0, 0, z);
 
             // Stop the game
-            Time.timeScale = 0;
+            ApplicationState.Ending = -1;
+            print("Player has died, Game over");
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
