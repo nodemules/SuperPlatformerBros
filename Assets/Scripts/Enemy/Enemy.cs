@@ -52,6 +52,12 @@ namespace Enemy
             {
                 killable.Kill();
             }
+
+            IEnemy enemy = otherCollider.GetComponent<IEnemy>();
+            if (enemy != null)
+            {
+                TurnAround();
+            }
         }
     }
 }
