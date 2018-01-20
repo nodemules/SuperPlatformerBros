@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 
-namespace Assets.Scripts
+public class OutOfBounds : MonoBehaviour, IBoundary
 {
-    public class OutOfBounds : MonoBehaviour
+    public bool IsObstacle
     {
-        public void OnTriggerEnter2D(Collider2D other)
+        get { return false; }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        IKillable killable = other.GetComponent<IKillable>();
+        if (killable != null)
         {
-            IKillable killable = other.GetComponent<IKillable>();
-            if (killable != null)
-            {
-                killable.Kill();
-            }
+            killable.Kill();
         }
     }
 }
