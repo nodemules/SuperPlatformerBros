@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Environment;
+using Interfaces;
+using UnityEngine;
 
 namespace Player
 {
@@ -7,12 +9,13 @@ namespace Player
         public int Speed = 10;
         public int JumpPower = 2500;
 
-        private bool _facingRight = true;
+        private bool _facingRight;
         private Rigidbody2D _playerRigidbody;
 
         private Collider2D _playerCollider;
         private GameObject[] _platforms;
         private GameObject[] _blocks;
+        private Wall[] _walls;
 
         public bool IsFacingRight()
         {
@@ -25,6 +28,7 @@ namespace Player
             _playerCollider = gameObject.GetComponent<Collider2D>();
             _platforms = GameObject.FindGameObjectsWithTag("Platforms");
             _blocks = GameObject.FindGameObjectsWithTag("Blocks");
+            _walls = FindObjectsOfType<Wall>();
         }
 
         public void Update()
@@ -67,6 +71,7 @@ namespace Player
         {
             bool onGround = false;
             bool touchingBlock = false;
+            bool touchingWall = false;
             foreach (GameObject platform in _platforms)
             {
                 onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());
@@ -85,7 +90,16 @@ namespace Player
                 }
             }
 
-            if (onGround || touchingBlock)
+            foreach (Wall wall in _walls)
+            {
+                touchingWall = _playerCollider.IsTouching(wall.GetComponent<Collider2D>());
+                if (touchingWall)
+                {
+                    break;
+                }
+            }
+
+            if (onGround || touchingBlock || touchingWall)
             {
                 _playerRigidbody.AddForce(Vector2.up * JumpPower);
             }
