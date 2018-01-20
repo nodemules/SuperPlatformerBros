@@ -2,24 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverController : MonoBehaviour
 {
+    private const int NoEnding = 0;
     private int _ending;
+    private bool _endingActive;
 
     private GameObject _endingText;
+    private Camera _camera;
+    private GameObject _restartText;
 
-    public void Start()
+    private void Start()
     {
-        GameObject gameOverCamera = GameObject.Find("GameOverCamera");
-        Camera camera = gameOverCamera.GetComponent<Camera>();
-        camera.enabled = true;
+        _restartText = GameObject.Find("RestartText");
+    }
+
+    private void Update()
+    {
         _ending = ApplicationState.Ending;
-        RunEnding();
+        if (_ending != NoEnding)
+        {
+            if (!_endingActive)
+            {
+                _endingActive = true;
+                ToggleCameras();
+                RunEnding();
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                RestartGame();
+            }
+        }
+    }
+
+    private void ToggleCameras()
+    {
+        print("Toggling cameras!");
+        GameObject gameOverCamera = GameObject.Find("GameOverCamera");
+        _camera = gameOverCamera.GetComponent<Camera>();
+        print("_camera=" + _camera.name);
+        _camera.enabled = true;
     }
 
     private void RunEnding()
     {
+        ToggleTimescale();
+        print("Running ending script, _ending=" + _ending);
         switch (_ending)
         {
             case -1:
@@ -29,23 +60,43 @@ public class GameOverController : MonoBehaviour
                 _endingText = GameObject.Find("YouWinText");
                 break;
             default:
-//                RestartGame();
+                RestartGame();
                 break;
         }
 
-        if (_endingText == null)
+        if (_endingText != null)
         {
-//            RestartGame();
-            return;
+            print("_endingText=" + _endingText.name);
+            Text text = _endingText.GetComponent<Text>();
+            text.enabled = true;
         }
 
-
-        _endingText.SetActive(true);
+        if (_restartText != null)
+        {
+            Text text = _restartText.GetComponent<Text>();
+            text.enabled = true;
+        }
     }
 
-    private static void RestartGame()
+    private void RestartGame()
     {
-        ApplicationState.Ending = 1;
+        ToggleTimescale();
+        ApplicationState.Ending = 0;
+        _endingActive = false;
         SceneManager.LoadScene("Main");
+    }
+
+    private static void ToggleTimescale()
+    {
+        if (true) return;
+        print("Time.timeScale=" + Time.timeScale);
+        if (!Equals(Time.timeScale, 0.0f))
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 }

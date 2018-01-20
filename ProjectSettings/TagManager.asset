@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platforms
   - Blocks
+  - Cluster
   layers:
   - Default
   - TransparentFX
