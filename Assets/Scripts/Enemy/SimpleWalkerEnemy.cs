@@ -6,6 +6,8 @@ namespace Enemy
 {
     public class SimpleWalkerEnemy : Enemy
     {
+        public bool IsMoonwalking;
+
         private float _leftBound;
         private float _rightBound;
         private bool _isWalking;
@@ -74,6 +76,19 @@ namespace Enemy
         protected override void TurnAround()
         {
             Direction *= -1;
+//            FlipXAxis();
+        }
+
+        private void FlipXAxis()
+        {
+            if (IsMoonwalking)
+            {
+                return;
+            }
+
+            Vector2 localScale = gameObject.transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
 
         private new void OnCollisionEnter2D(Collision2D other)
@@ -81,12 +96,9 @@ namespace Enemy
             base.OnCollisionEnter2D(other);
             Collider2D otherCollider = other.collider;
             Wall wall = otherCollider.GetComponent<IBoundary>() as Wall;
-            if (wall != null)
+            if (wall != null && wall.IsObstacle)
             {
-                if (wall.IsObstacle)
-                {
-                    TurnAround();
-                }
+                TurnAround();
             }
         }
     }

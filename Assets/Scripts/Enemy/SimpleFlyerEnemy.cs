@@ -49,7 +49,7 @@ namespace Enemy
             switch (Direction)
             {
                 case -1:
-                    // Moving Left
+                    // Moving Down
                     if (transform.position.y <= _lowerBound)
                     {
                         TurnAround();
@@ -57,7 +57,7 @@ namespace Enemy
 
                     break;
                 case 1:
-                    //Moving Right
+                    //Moving Up
                     if (transform.position.y >= _upperBound)
                     {
                         TurnAround();

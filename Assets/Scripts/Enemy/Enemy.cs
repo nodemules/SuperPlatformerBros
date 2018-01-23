@@ -47,16 +47,18 @@ namespace Enemy
         protected void OnCollisionEnter2D(Collision2D other)
         {
             Collider2D otherCollider = other.collider;
-            IKillable killable = otherCollider.GetComponent<IKillable>();
-            if (killable != null)
-            {
-                killable.Kill();
-            }
 
             IEnemy enemy = otherCollider.GetComponent<IEnemy>();
             if (enemy != null)
             {
                 TurnAround();
+                return;
+            }
+
+            IKillable killable = otherCollider.GetComponent<IKillable>();
+            if (killable != null)
+            {
+                killable.Kill();
             }
         }
     }

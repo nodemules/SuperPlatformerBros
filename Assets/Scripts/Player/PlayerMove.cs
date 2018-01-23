@@ -72,6 +72,7 @@ namespace Player
             bool onGround = false;
             bool touchingBlock = false;
             bool touchingWall = false;
+            
             foreach (GameObject platform in _platforms)
             {
                 onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());

@@ -1,4 +1,4 @@
-﻿namespace Environment
+﻿namespace Interfaces
 {
     public interface IBlock
     {
