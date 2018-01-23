@@ -67,6 +67,7 @@ namespace Player
             _playerRigidbody.velocity = new Vector2(moveX * Speed, _playerRigidbody.velocity.y);
         }
 
+        // TODO - use an interface to determine if we're making contact with an IJumpable
         private void Jump()
         {
             bool onGround = false;
