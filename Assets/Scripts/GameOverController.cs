@@ -83,7 +83,7 @@ public class GameOverController : MonoBehaviour
         ToggleTimescale();
         ApplicationState.Ending = 0;
         _endingActive = false;
-        SceneManager.LoadScene("Level1");
+        LevelController.Restart();
     }
 
     private static void ToggleTimescale()

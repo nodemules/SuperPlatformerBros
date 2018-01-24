@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    private static readonly string[] Levels = {"Level1", "Level2"};
+    public StartArea StartArea;
+    
+    private static readonly string[] Levels = {"Level1", "Level2", "Level3"};
     private static int _highestLevel = Levels.Length;
     private static int _currentLevel = 1;
 
@@ -18,30 +20,29 @@ public class LevelController : MonoBehaviour
     private void Start()
     {
         _highestLevel = Levels.Length;
+//        GameObject levelContainer = GameObject.Find(levelName + "Container");
+//        StartArea = levelContainer.GetComponentInChildren<IBoundary>() as StartArea;
     }
 
     public static void ChangeLevel(string levelName)
     {
         int level = Array.IndexOf(Levels, levelName);
+        print("levelName=" + levelName);
         _currentLevel = level + 1;
         print("Changing level to Level" + _currentLevel);
-        GameObject player = GameObject.Find("Player_0");
-        if (player == null)
-        {
-            print("player=null");
-            return;
-        }
-
-        print("player=" + player.name);
-        DontDestroyOnLoad(player);
-        Scene scene = SceneManager.GetSceneByName(levelName);
-        SceneManager.LoadScene(scene.name);
-        SceneManager.MoveGameObjectToScene(player, scene);
-        MovePlayerToSceneStartArea(player, scene.name);
+//        GameObject player = GameObject.Find("Player_0");
+//        if (player == null)
+//        {
+//            return;
+//        }
+//
+//        GameController.SavePlayer(player);
+        SceneManager.LoadScene(levelName);
     }
 
     private static void MovePlayerToSceneStartArea(GameObject player, string levelName)
     {
+        
         GameObject levelContainer = GameObject.Find(levelName + "Container");
         StartArea startArea = levelContainer.GetComponentInChildren<IBoundary>() as StartArea;
         if (startArea != null)
@@ -67,5 +68,12 @@ public class LevelController : MonoBehaviour
             ApplicationState.Ending = -100;
             SceneManager.LoadScene("GameOver");
         }
+    }
+    
+    public static void Restart()
+    {
+        print("Restarting!");
+        _currentLevel = 0;
+        ChangeLevel("Level1");
     }
 }

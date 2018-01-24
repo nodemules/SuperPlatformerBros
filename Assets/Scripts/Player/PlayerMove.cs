@@ -73,7 +73,7 @@ namespace Player
             bool onGround = false;
             bool touchingBlock = false;
             bool touchingWall = false;
-            
+
             foreach (GameObject platform in _platforms)
             {
                 onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());
@@ -101,9 +101,19 @@ namespace Player
                 }
             }
 
+            print("Trying to jump");
+
             if (onGround || touchingBlock || touchingWall)
             {
-                _playerRigidbody.AddForce(Vector2.up * JumpPower);
+                print("Jumping!");
+                Vector3 gravity = Physics.gravity;
+                print("gravity.y=" + gravity.y);
+                print("_playerRigidbody.gravityScale=" + _playerRigidbody.gravityScale);
+                Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale);
+                factor *= 0.10f;
+                print("factor.y=" + factor.y);
+
+                _playerRigidbody.AddForce(factor * JumpPower);
             }
         }
 

@@ -5,20 +5,22 @@ using UnityEngine.SceneManagement;
 
 namespace Player
 {
-    public class Player : MonoBehaviour, IKillable
+    public class Player : MonoBehaviour, IPlayer, IKillable
     {
-        private int _playerHealth;
-        private bool _dead;
-        public int MaxHealth = 100;
+        public int Health { get; set; }
+        public int MaxHealth { get; set; }
+        public int Experience { get; set; }
+        public bool Dead { get; set; }
 
         public void Start()
         {
-            _playerHealth = MaxHealth;
+            MaxHealth = 100;
+            Health = MaxHealth;
         }
 
         public void Update()
         {
-            if (_playerHealth <= 0)
+            if (Health <= 0)
             {
                 Kill();
             }
@@ -26,7 +28,7 @@ namespace Player
 
         public void Kill()
         {
-            if (!_dead)
+            if (!Dead)
             {
                 Die();
             }
@@ -34,8 +36,8 @@ namespace Player
 
         private void Die()
         {
-            _dead = true;
-            _playerHealth = 0;
+            Dead = true;
+            Health = 0;
 
             PlayerMove movement = gameObject.GetComponent<PlayerMove>();
 
