@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Environment
 {
-    public class Wall : MonoBehaviour, IBoundary
+    public class Wall : MonoBehaviour, IBoundary, IJumpable
     {
         public bool IsObstacle
         {

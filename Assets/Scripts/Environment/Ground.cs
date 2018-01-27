@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Environment
 {
-    public class Ground : MonoBehaviour, IPlatform
+    public class Ground : MonoBehaviour, IPlatform, IJumpable
     {
         
     }

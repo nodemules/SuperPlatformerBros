@@ -1,4 +1,5 @@
-﻿using Environment;
+﻿using System.Linq;
+using Environment;
 using Interfaces;
 using UnityEngine;
 
@@ -13,9 +14,7 @@ namespace Player
         private Rigidbody2D _playerRigidbody;
 
         private Collider2D _playerCollider;
-        private GameObject[] _platforms;
-        private GameObject[] _blocks;
-        private Wall[] _walls;
+        private const int MaxContacts = 10;
 
         public bool IsFacingRight()
         {
@@ -26,9 +25,6 @@ namespace Player
         {
             _playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
             _playerCollider = gameObject.GetComponent<Collider2D>();
-            _platforms = GameObject.FindGameObjectsWithTag("Platforms");
-            _blocks = GameObject.FindGameObjectsWithTag("Blocks");
-            _walls = FindObjectsOfType<Wall>();
         }
 
         public void Update()
@@ -67,42 +63,19 @@ namespace Player
             _playerRigidbody.velocity = new Vector2(moveX * Speed, _playerRigidbody.velocity.y);
         }
 
-        // TODO - use an interface to determine if we're making contact with an IJumpable
         private void Jump()
         {
-            bool onGround = false;
-            bool touchingBlock = false;
-            bool touchingWall = false;
-
-            foreach (GameObject platform in _platforms)
+            ContactPoint2D[] contacts = new ContactPoint2D[MaxContacts];
+            if (_playerCollider.GetContacts(contacts) < 1)
             {
-                onGround = _playerCollider.IsTouching(platform.GetComponent<Collider2D>());
-                if (onGround)
-                {
-                    break;
-                }
+                return;
             }
 
-            foreach (GameObject block in _blocks)
-            {
-                touchingBlock = _playerCollider.IsTouching(block.GetComponent<Collider2D>());
-                if (touchingBlock)
-                {
-                    break;
-                }
-            }
+            bool grounded = contacts
+                .Select(p => p.collider.gameObject.GetComponent<IJumpable>())
+                .Any(jumpable => jumpable != null);
 
-            foreach (Wall wall in _walls)
-            {
-                touchingWall = _playerCollider.IsTouching(wall.GetComponent<Collider2D>());
-                if (touchingWall)
-                {
-                    break;
-                }
-            }
-
-
-            if (onGround || touchingBlock || touchingWall)
+            if (grounded)
             {
                 Vector3 gravity = Physics.gravity;
                 Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale);
