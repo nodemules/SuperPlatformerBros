@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Environment;
 using Interfaces;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Player
         private Rigidbody2D _playerRigidbody;
 
         private Collider2D _playerCollider;
-        private const int MaxContacts = 10;
+        private const int MaxContacts = 100;
 
         public bool IsFacingRight()
         {
@@ -66,12 +67,16 @@ namespace Player
         private void Jump()
         {
             ContactPoint2D[] contacts = new ContactPoint2D[MaxContacts];
-            if (_playerCollider.GetContacts(contacts) < 1)
+            int numContacts = _playerCollider.GetContacts(contacts);
+
+            if (numContacts < 1)
             {
                 return;
             }
 
-            bool grounded = contacts
+
+            bool grounded = contacts.ToList()
+                .Where(p => p.collider != null)
                 .Select(p => p.collider.gameObject.GetComponent<IJumpable>())
                 .Any(jumpable => jumpable != null);
 

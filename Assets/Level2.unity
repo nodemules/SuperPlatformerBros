@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 29235680}
   - component: {fileID: 29235682}
   - component: {fileID: 29235681}
+  - component: {fileID: 29235683}
   m_Layer: 0
   m_Name: block (1)
   m_TagString: Blocks
@@ -446,6 +447,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &29235683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 29235679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &58484733
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +752,7 @@ GameObject:
   - component: {fileID: 165087346}
   - component: {fileID: 165087348}
   - component: {fileID: 165087347}
+  - component: {fileID: 165087349}
   m_Layer: 0
   m_Name: ground_dirt (4)
   m_TagString: Platforms
@@ -829,6 +842,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &165087349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165087345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &199661338
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +997,7 @@ GameObject:
   - component: {fileID: 204999773}
   - component: {fileID: 204999775}
   - component: {fileID: 204999774}
+  - component: {fileID: 204999776}
   m_Layer: 0
   m_Name: block
   m_TagString: Blocks
@@ -1062,6 +1087,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &204999776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204999772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &206661711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1243,7 @@ GameObject:
   - component: {fileID: 209174958}
   - component: {fileID: 209174960}
   - component: {fileID: 209174959}
+  - component: {fileID: 209174961}
   m_Layer: 0
   m_Name: Block (8)
   m_TagString: Blocks
@@ -1296,6 +1333,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &209174961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209174957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &231146423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,6 +1488,7 @@ GameObject:
   - component: {fileID: 233019640}
   - component: {fileID: 233019642}
   - component: {fileID: 233019641}
+  - component: {fileID: 233019643}
   m_Layer: 0
   m_Name: Block (3)
   m_TagString: Blocks
@@ -1529,6 +1578,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &233019643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 233019639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &245504720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1599,7 @@ GameObject:
   - component: {fileID: 245504721}
   - component: {fileID: 245504723}
   - component: {fileID: 245504722}
+  - component: {fileID: 245504724}
   m_Layer: 0
   m_Name: block (4)
   m_TagString: Blocks
@@ -1628,6 +1689,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &245504724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 245504720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284655359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1916,7 @@ GameObject:
   - component: {fileID: 337857041}
   - component: {fileID: 337857043}
   - component: {fileID: 337857042}
+  - component: {fileID: 337857044}
   m_Layer: 0
   m_Name: block (3)
   m_TagString: Blocks
@@ -1933,6 +2006,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &337857044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 337857040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &384101348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +2060,7 @@ GameObject:
   - component: {fileID: 389665260}
   - component: {fileID: 389665262}
   - component: {fileID: 389665261}
+  - component: {fileID: 389665263}
   m_Layer: 0
   m_Name: block (5)
   m_TagString: Blocks
@@ -2065,6 +2150,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &389665263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 389665259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &398481666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,6 +2282,7 @@ GameObject:
   - component: {fileID: 423836048}
   - component: {fileID: 423836050}
   - component: {fileID: 423836049}
+  - component: {fileID: 423836051}
   m_Layer: 0
   m_Name: ground_dirt
   m_TagString: Platforms
@@ -2275,6 +2372,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &423836051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423836047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &446594220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,6 +2488,7 @@ GameObject:
   - component: {fileID: 461032184}
   - component: {fileID: 461032186}
   - component: {fileID: 461032185}
+  - component: {fileID: 461032187}
   m_Layer: 0
   m_Name: Block
   m_TagString: Blocks
@@ -2469,6 +2578,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &461032187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461032183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467632997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2599,7 @@ GameObject:
   - component: {fileID: 467632998}
   - component: {fileID: 467633000}
   - component: {fileID: 467632999}
+  - component: {fileID: 467633001}
   m_Layer: 0
   m_Name: Block
   m_TagString: Blocks
@@ -2568,6 +2689,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &467633001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467632997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &529993683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,6 +2710,7 @@ GameObject:
   - component: {fileID: 529993684}
   - component: {fileID: 529993686}
   - component: {fileID: 529993685}
+  - component: {fileID: 529993687}
   m_Layer: 0
   m_Name: block (2)
   m_TagString: Blocks
@@ -2667,6 +2800,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &529993687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529993683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &544094867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,6 +2963,7 @@ GameObject:
   - component: {fileID: 585480619}
   - component: {fileID: 585480621}
   - component: {fileID: 585480620}
+  - component: {fileID: 585480622}
   m_Layer: 0
   m_Name: ground_dirt (3)
   m_TagString: Platforms
@@ -2908,6 +3053,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &585480622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 585480618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &586543556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,6 +3362,7 @@ GameObject:
   - component: {fileID: 645604780}
   - component: {fileID: 645604782}
   - component: {fileID: 645604781}
+  - component: {fileID: 645604783}
   m_Layer: 0
   m_Name: block (3)
   m_TagString: Blocks
@@ -3295,6 +3452,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &645604783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 645604779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &658895061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,6 +3637,7 @@ GameObject:
   - component: {fileID: 706585712}
   - component: {fileID: 706585714}
   - component: {fileID: 706585713}
+  - component: {fileID: 706585715}
   m_Layer: 0
   m_Name: Block (7)
   m_TagString: Blocks
@@ -3558,6 +3727,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &706585715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 706585711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &819741890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3613,6 +3793,7 @@ GameObject:
   - component: {fileID: 845719996}
   - component: {fileID: 845719998}
   - component: {fileID: 845719997}
+  - component: {fileID: 845719999}
   m_Layer: 0
   m_Name: ground_dirt (1)
   m_TagString: Platforms
@@ -3702,6 +3883,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &845719999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845719995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &905680025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4076,6 +4268,7 @@ GameObject:
   - component: {fileID: 950663282}
   - component: {fileID: 950663284}
   - component: {fileID: 950663283}
+  - component: {fileID: 950663285}
   m_Layer: 0
   m_Name: Block (6)
   m_TagString: Blocks
@@ -4165,6 +4358,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &950663285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 950663281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &975689026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4884,6 +5088,7 @@ GameObject:
   - component: {fileID: 1251635992}
   - component: {fileID: 1251635994}
   - component: {fileID: 1251635993}
+  - component: {fileID: 1251635995}
   m_Layer: 0
   m_Name: Block (4)
   m_TagString: Blocks
@@ -4973,6 +5178,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1251635995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1251635991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1276118217
 GameObject:
   m_ObjectHideFlags: 0
@@ -5271,6 +5487,7 @@ GameObject:
   - component: {fileID: 1356206801}
   - component: {fileID: 1356206803}
   - component: {fileID: 1356206802}
+  - component: {fileID: 1356206804}
   m_Layer: 0
   m_Name: Block
   m_TagString: Blocks
@@ -5360,6 +5577,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1356206804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356206800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373269290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6330,6 +6558,7 @@ GameObject:
   - component: {fileID: 1580080137}
   - component: {fileID: 1580080139}
   - component: {fileID: 1580080138}
+  - component: {fileID: 1580080140}
   m_Layer: 0
   m_Name: ground_dirt (2)
   m_TagString: Platforms
@@ -6419,6 +6648,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1580080140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1580080136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704414715
 GameObject:
   m_ObjectHideFlags: 0
@@ -6645,6 +6885,7 @@ GameObject:
   - component: {fileID: 1805348578}
   - component: {fileID: 1805348580}
   - component: {fileID: 1805348579}
+  - component: {fileID: 1805348581}
   m_Layer: 0
   m_Name: block (2)
   m_TagString: Blocks
@@ -6734,6 +6975,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1805348581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805348577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1869308968
 GameObject:
   m_ObjectHideFlags: 0
@@ -6949,6 +7201,7 @@ GameObject:
   - component: {fileID: 1981267568}
   - component: {fileID: 1981267570}
   - component: {fileID: 1981267569}
+  - component: {fileID: 1981267571}
   m_Layer: 0
   m_Name: Block (1)
   m_TagString: Blocks
@@ -7038,6 +7291,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1981267571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1981267567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2021054835
 GameObject:
   m_ObjectHideFlags: 0
@@ -7159,6 +7423,7 @@ GameObject:
   - component: {fileID: 2027073290}
   - component: {fileID: 2027073292}
   - component: {fileID: 2027073291}
+  - component: {fileID: 2027073293}
   m_Layer: 0
   m_Name: Block (5)
   m_TagString: Blocks
@@ -7248,6 +7513,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &2027073293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027073289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2036090862
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,6 +7573,7 @@ GameObject:
   - component: {fileID: 2055111499}
   - component: {fileID: 2055111501}
   - component: {fileID: 2055111500}
+  - component: {fileID: 2055111502}
   m_Layer: 0
   m_Name: Block (2)
   m_TagString: Blocks
@@ -7386,6 +7663,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &2055111502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055111498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225a74c387c646f5ac1b45691840c921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061978518
 GameObject:
   m_ObjectHideFlags: 0
