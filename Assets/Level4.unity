@@ -1476,6 +1476,7 @@ GameObject:
   - component: {fileID: 150954549}
   - component: {fileID: 150954551}
   - component: {fileID: 150954550}
+  - component: {fileID: 150954552}
   m_Layer: 0
   m_Name: ground_dirt
   m_TagString: Platforms
@@ -1565,6 +1566,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &150954552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150954548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &158518564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2253,7 @@ GameObject:
   - component: {fileID: 215232893}
   - component: {fileID: 215232895}
   - component: {fileID: 215232894}
+  - component: {fileID: 215232896}
   m_Layer: 0
   m_Name: ground_dirt (2)
   m_TagString: Platforms
@@ -2330,6 +2343,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &215232896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215232892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &217457550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2895,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 247662316}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 13.75, y: -3.5, z: 0}
+  m_LocalPosition: {x: 31.5, y: -3.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 343458637}
@@ -6597,6 +6621,7 @@ GameObject:
   - component: {fileID: 677322240}
   - component: {fileID: 677322242}
   - component: {fileID: 677322241}
+  - component: {fileID: 677322243}
   m_Layer: 0
   m_Name: ground_dirt (3)
   m_TagString: Platforms
@@ -6686,6 +6711,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &677322243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 677322239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &708637410
 GameObject:
   m_ObjectHideFlags: 0
@@ -17461,6 +17497,7 @@ GameObject:
   - component: {fileID: 1796151184}
   - component: {fileID: 1796151186}
   - component: {fileID: 1796151185}
+  - component: {fileID: 1796151187}
   m_Layer: 0
   m_Name: ground_dirt (1)
   m_TagString: Platforms
@@ -17550,6 +17587,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1796151187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796151183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ec57984f5b431894048b3a17604be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808257101
 GameObject:
   m_ObjectHideFlags: 0
@@ -18612,7 +18660,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1894578991}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 22.98, y: -4.5, z: 0}
+  m_LocalPosition: {x: 23, y: -4.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1170782779}
@@ -18630,7 +18678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnableMovement: 1
-  Speed: 1
+  Speed: 0.66
   Range: {x: 1, y: 1}
   IsMoonwalking: 0
 --- !u!60 &1894578994
