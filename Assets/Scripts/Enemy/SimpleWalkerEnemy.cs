@@ -1,4 +1,5 @@
-﻿using Environment;
+﻿using System;
+using Environment;
 using Interfaces;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace Enemy
         private float _leftBound;
         private float _rightBound;
         private bool _isWalking;
+
+        private Ground _ground;
 
         public new void Start()
         {
@@ -76,7 +79,7 @@ namespace Enemy
         protected override void TurnAround()
         {
             Direction *= -1;
-//            FlipXAxis();
+            FlipXAxis();
         }
 
         private void FlipXAxis()
@@ -95,11 +98,55 @@ namespace Enemy
         {
             base.OnCollisionEnter2D(other);
             Collider2D otherCollider = other.collider;
+            Ground ground = otherCollider.GetComponent<IPlatform>() as Ground;
+            if (ground != null)
+            {
+                CheckGround(ground, otherCollider);
+            }
+
             Wall wall = otherCollider.GetComponent<IBoundary>() as Wall;
             if (wall != null && wall.IsObstacle)
             {
                 TurnAround();
             }
+        }
+
+        private void CheckGround(Ground ground, Collider2D groundCollider)
+        {
+            if (_ground != null)
+            {
+                if (_ground.GetInstanceID() == ground.GetInstanceID())
+                {
+                    return;
+                }
+            }
+
+            _ground = ground;
+
+            float groundMinBound = groundCollider.bounds.min.x;
+            float groundMaxBound = groundCollider.bounds.max.x;
+
+            const float factor = 0.025f;
+            float adjustmentFactor = Math.Abs(groundMinBound * factor);
+            float adjustedMinBound = groundMinBound + adjustmentFactor;
+            float adjustedMaxBound = groundMaxBound - adjustmentFactor;
+
+
+            if (adjustedMinBound > _leftBound)
+            {
+                _leftBound = adjustedMinBound;
+            }
+
+            if (adjustedMinBound < _rightBound)
+            {
+                _rightBound = adjustedMaxBound;
+            }
+        }
+
+        private void ResetBounds()
+        {
+            _leftBound = InitialPosition.x - Range.x;
+            _rightBound = InitialPosition.x + Range.y;
         }
     }
 }
