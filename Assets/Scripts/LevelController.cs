@@ -8,7 +8,7 @@ public class LevelController : MonoBehaviour
 {
     public StartArea StartArea;
     
-    private static readonly string[] Levels = {"Level1", "Level2", "Level3", "Level4"};
+    private static readonly string[] Levels = {"Level1", "Level2", "Level3", "Level4", "Level5"};
     private static int _highestLevel = Levels.Length;
     private static int _currentLevel = 1;
 
