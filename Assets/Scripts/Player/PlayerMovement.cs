@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         public int Speed = 10;
         public int JumpPower = 2500;
@@ -45,20 +45,9 @@ namespace Player
             bool movingRight = moveX > 0.0f;
             bool moving = !Equals(moveX, 0.0f);
 
-            if (moving)
+            if (moving && (!movingRight && _facingRight || movingRight && !_facingRight))
             {
-                if (!movingRight && _facingRight)
-                {
-                    FlipPlayerX();
-                }
-                else if (movingRight && !_facingRight)
-                {
-                    FlipPlayerX();
-                }
-                else
-                {
-                    // moving in the correct direction, do nothing for now
-                }
+                FlipPlayerX();
             }
 
             _playerRigidbody.velocity = new Vector2(moveX * Speed, _playerRigidbody.velocity.y);
@@ -73,7 +62,6 @@ namespace Player
             {
                 return;
             }
-
 
             bool grounded = contacts.ToList()
                 .Where(p => p.collider != null)

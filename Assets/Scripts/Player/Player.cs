@@ -10,6 +10,7 @@ namespace Player
         public int Health { get; set; }
         public int MaxHealth { get; set; }
         public int Experience { get; set; }
+        public bool Invulnerable { get; set; }
         public bool Dead { get; set; }
 
         public void Start()
@@ -39,7 +40,7 @@ namespace Player
             Dead = true;
             Health = 0;
 
-            PlayerMove movement = gameObject.GetComponent<PlayerMove>();
+            PlayerMovement movement = gameObject.GetComponent<PlayerMovement>();
 
             int z = 90;
 

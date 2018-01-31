@@ -5,10 +5,13 @@ using UnityEngine.SocialPlatforms;
 
 namespace Enemy
 {
-    public abstract class Enemy : MonoBehaviour, IEnemy
+    public abstract class Enemy : MonoBehaviour, IEnemy, IKillable
     {
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
+
+        public bool Invulnerable { get; set; }
+        public bool Dead { get; set; }
 
         public bool EnableMovement;
         public float Speed;
@@ -56,9 +59,34 @@ namespace Enemy
             }
 
             IKillable killable = otherCollider.GetComponent<IKillable>();
-            if (killable != null)
+            if (killable != null && !Dead)
             {
                 killable.Kill();
+            }
+        }
+
+        public void Kill()
+        {
+            if (Invulnerable)
+            {
+                return;
+            }
+
+            Dead = true;
+            PlayDead();
+            Rigidbody.isKinematic = false;
+            Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            Rigidbody.gravityScale = 10;
+            EnableMovement = false;
+        }
+
+        private void PlayDead()
+        {
+            Vector2 localScale = gameObject.transform.localScale;
+            if (localScale.y > 0)
+            {
+                localScale.y *= -1;
+                transform.localScale = localScale;
             }
         }
     }
