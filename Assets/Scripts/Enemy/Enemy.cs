@@ -1,14 +1,16 @@
-﻿using Environment;
+﻿using System;
+using Environment;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
 namespace Enemy
-{
+{    
     public abstract class Enemy : MonoBehaviour, IEnemy, IKillable
     {
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
+        public AudioSource AudioSource { get; set; }
 
         public bool Invulnerable { get; set; }
         public bool Dead { get; set; }
@@ -29,6 +31,7 @@ namespace Enemy
             Rigidbody = GetComponent<Rigidbody2D>();
             InitialPosition = transform.position;
             Direction = -1;
+            AudioSource = GetComponent<AudioSource>();
         }
 
         public void Update()
@@ -67,11 +70,12 @@ namespace Enemy
 
         public void Kill()
         {
-            if (Invulnerable)
+            if (Invulnerable || Dead)
             {
                 return;
             }
 
+            AudioSource.Play();
             Dead = true;
             PlayDead();
             Rigidbody.isKinematic = false;
