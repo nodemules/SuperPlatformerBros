@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50603156198729146}
   - component: {fileID: 60935120151514684}
   - component: {fileID: 114085498569403200}
+  - component: {fileID: 82589505888360918}
   m_Layer: 0
   m_Name: Slime_ALEX
   m_TagString: Untagged
@@ -94,6 +95,86 @@ PolygonCollider2D:
       - {x: -0.009600639, y: 0.14712667}
       - {x: -0.113351345, y: 0.13135433}
       - {x: -0.23143339, y: 0.011680126}
+--- !u!82 &82589505888360918
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256405245158112}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114085498569403200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,6 +189,7 @@ MonoBehaviour:
   EnableMovement: 1
   Speed: 1
   Range: {x: 2, y: 2}
+  _deathAudioClip: {fileID: 8300000, guid: a87ff5cb491164357a9294f9fdc0bf0a, type: 3}
   IsMoonwalking: 0
 --- !u!212 &212700465072977654
 SpriteRenderer:

@@ -2,15 +2,22 @@
 using Environment;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 namespace Enemy
 {    
+    [Serializable]
     public abstract class Enemy : MonoBehaviour, IEnemy, IKillable
     {
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
-        public AudioSource AudioSource { get; set; }
+
+        public AudioClip DeathAudioClip
+        {
+            get { return _deathAudioClip; }
+            set { _deathAudioClip = value; }
+        }
+
+        private AudioSource _audioSource;
 
         public bool Invulnerable { get; set; }
         public bool Dead { get; set; }
@@ -18,6 +25,8 @@ namespace Enemy
         public bool EnableMovement;
         public float Speed;
         public Vector2 Range;
+        [SerializeField] 
+        private AudioClip _deathAudioClip;
 
         protected int Direction { get; set; }
 
@@ -31,7 +40,7 @@ namespace Enemy
             Rigidbody = GetComponent<Rigidbody2D>();
             InitialPosition = transform.position;
             Direction = -1;
-            AudioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         public void Update()
@@ -74,8 +83,8 @@ namespace Enemy
             {
                 return;
             }
-
-            AudioSource.Play();
+            
+            _audioSource.PlayOneShot(DeathAudioClip);
             Dead = true;
             PlayDead();
             Rigidbody.isKinematic = false;

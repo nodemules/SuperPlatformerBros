@@ -10,6 +10,8 @@ namespace Player
     {
         public int Speed = 10;
         public int JumpPower = 2500;
+        public AudioClip JumpAudio;
+        private AudioSource _playerAudioSource;
 
         private bool _facingRight;
         private Rigidbody2D _playerRigidbody;
@@ -26,6 +28,7 @@ namespace Player
         {
             _playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
             _playerCollider = gameObject.GetComponent<Collider2D>();
+            _playerAudioSource = GetComponent<AudioSource>();
         }
 
         public void Update()
@@ -73,7 +76,8 @@ namespace Player
                 Vector3 gravity = Physics.gravity;
                 Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale);
                 factor *= 0.10f;
-
+                
+                _playerAudioSource.PlayOneShot(JumpAudio);
                 _playerRigidbody.AddForce(factor * JumpPower);
             }
         }

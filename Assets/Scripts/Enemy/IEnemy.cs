@@ -6,6 +6,6 @@ namespace Enemy
     {
         Rigidbody2D Rigidbody { get; set; }
         Vector3 InitialPosition { get; set; }
-        AudioSource AudioSource { get; set; }
+        AudioClip DeathAudioClip { get; set; }
     }
 }

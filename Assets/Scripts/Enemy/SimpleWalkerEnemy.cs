@@ -4,7 +4,8 @@ using Interfaces;
 using UnityEngine;
 
 namespace Enemy
-{
+{    
+    [Serializable]
     public class SimpleWalkerEnemy : Enemy
     {
         public bool IsMoonwalking;
