@@ -9,10 +9,15 @@ namespace Environment
 
 		private GameObject _sorryText;
 		private float _startTime;
+		private AudioSource _audioSource;
+		
+		public AudioClip BlockHitAudioClip;
+		
 
 		private void Start()
 		{
 			_sorryText = GameObject.Find("SorryFakeBlockText");
+			_audioSource = GetComponent<AudioSource>();
 		}
 
 		private new void OnCollisionEnter2D(Collision2D other)
@@ -20,6 +25,7 @@ namespace Environment
 			Player.Player player = other.collider.GetComponent<Player.Player>();
 			if (player != null)
 			{
+				_audioSource.PlayOneShot(BlockHitAudioClip);
 				_sorryText.SetActive(true);
 				Text text = _sorryText.GetComponent<Text>();
 				text.enabled = true;
