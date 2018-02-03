@@ -11,7 +11,7 @@ namespace Environment
             Player.Player player = other.collider.GetComponent<Player.Player>();
             if (player != null)
             {
-                LevelController.NextLevel();
+                LevelLoader.NextLevel();
             }
         }
     }

@@ -4,7 +4,7 @@ using TriggerArea;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelController : MonoBehaviour
+public class LevelLoader : MonoBehaviour
 {
     public StartArea StartArea;
     
