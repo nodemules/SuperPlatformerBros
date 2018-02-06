@@ -79,7 +79,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.113
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae70d455f8e4fecab628c6c1721a625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinCollectAudio: {fileID: 8300000, guid: a87ff5cb491164357a9294f9fdc0bf0a, type: 3}
+  CoinCollectAudio: {fileID: 8300000, guid: 7af05caf0796640b784d95e0c972638c, type: 3}
 --- !u!212 &212893945470197340
 SpriteRenderer:
   m_ObjectHideFlags: 1

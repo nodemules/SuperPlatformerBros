@@ -69,8 +69,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664591862017678}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 30.44, y: -3.5, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 41.17, y: 0.94, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4084868225358266}
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   JumpPower: 350
-  JumpAudio: {fileID: 8300000, guid: fdbdbed80066046ae993b6e15cff119c, type: 3}
+  JumpAudio: {fileID: 8300000, guid: 70f630d83e6c741b9b7f402363b0a193, type: 3}
 --- !u!114 &114727484469885000
 MonoBehaviour:
   m_ObjectHideFlags: 1
