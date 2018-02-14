@@ -50,11 +50,7 @@ namespace Player
             }
 
             gameObject.transform.Rotate(0, 0, z);
-
-            // Stop the game
-            ApplicationState.Ending = -1;
-            print("Player has died, Game over");
-            SceneManager.LoadScene("GameOver");
+            GlobalGameState.PlayerDeath();
         }
     }
 }

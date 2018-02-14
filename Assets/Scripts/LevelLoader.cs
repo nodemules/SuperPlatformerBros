@@ -9,34 +9,18 @@ public class LevelLoader : MonoBehaviour
     public StartArea StartArea;
     
     private static readonly string[] Levels = {"Level1", "Level2", "Level3", "Level4", "Level5"};
-    private static int _highestLevel = Levels.Length;
-    private static int _currentLevel = 1;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
-        _highestLevel = Levels.Length;
-//        GameObject levelContainer = GameObject.Find(levelName + "Container");
-//        StartArea = levelContainer.GetComponentInChildren<IBoundary>() as StartArea;
-    }
+    private static readonly int HighestLevel = Levels.Length;
+    public static readonly string FirstLevel = Levels[0];
 
     public static void ChangeLevel(string levelName)
     {
         int level = Array.IndexOf(Levels, levelName);
-        print("levelName=" + levelName);
-        _currentLevel = level + 1;
-        print("Changing level to Level" + _currentLevel);
-//        GameObject player = GameObject.Find("Player_0");
-//        if (player == null)
-//        {
-//            return;
-//        }
-//
-//        GameController.SavePlayer(player);
+        if (level == -1)
+        {
+            print("Can't change level to ");
+        }
+        print("Changing level to Level=" + levelName);
+        GlobalGameState.CurrentLevel = levelName;
         SceneManager.LoadScene(levelName);
     }
 
@@ -55,15 +39,16 @@ public class LevelLoader : MonoBehaviour
 
     public static void NextLevel()
     {
-        if (_currentLevel < _highestLevel)
+        int level = Array.IndexOf(Levels, GlobalGameState.CurrentLevel) + 1;
+        if (level < HighestLevel)
         {
-            int nextLevel = _currentLevel + 1;
+            int nextLevel = level + 1;
             string levelName = Levels[nextLevel - 1];
             ChangeLevel(levelName);
             return;
         }
 
-        if (_currentLevel == _highestLevel)
+        if (level == HighestLevel)
         {
             ApplicationState.Ending = -100;
             SceneManager.LoadScene("GameOver");
@@ -73,7 +58,6 @@ public class LevelLoader : MonoBehaviour
     public static void Restart()
     {
         print("Restarting!");
-        _currentLevel = 0;
-        ChangeLevel("Level1");
+        ChangeLevel(FirstLevel);
     }
 }
