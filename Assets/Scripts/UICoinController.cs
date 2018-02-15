@@ -9,7 +9,6 @@ public class UICoinController : MonoBehaviour
     private Text _coinText;
     private GameObject _coinIcon;
     private int _oldCoinCount;
-    private static int _coinCount;
 
     public void Start()
     {
@@ -20,19 +19,19 @@ public class UICoinController : MonoBehaviour
 
     private void Update()
     {
-        if (_oldCoinCount < _coinCount)
+        if (_oldCoinCount < GlobalGameState.Coins)
         {
             CollectCoinEffect();
         }
 
-        _oldCoinCount = _coinCount;
-        _coinText.text = "x " + _coinCount;
+        _oldCoinCount = GlobalGameState.Coins;
+        _coinText.text = "x " + GlobalGameState.Coins;
         _coinIcon.transform.Rotate(new Vector2(0.0f, 45) * Time.deltaTime);
     }
 
     public static void CollectCoin()
     {
-        _coinCount++;
+        GlobalGameState.Coins++;
     }
 
     private void CollectCoinEffect()

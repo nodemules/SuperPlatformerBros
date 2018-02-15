@@ -13,11 +13,13 @@ public class GlobalGameState : Singleton<GlobalGameState>
     public static string CurrentLevel { get; set; }
 
     public static int Lives { get; private set; }
+    public static int Coins { get; set; }
 
     private static void SetDefaults()
     {
         CurrentLevel = LevelLoader.FirstLevel;
         Lives = MaxLives;
+        Coins = 0;
     }
 
     public void Start()
@@ -41,7 +43,7 @@ public class GlobalGameState : Singleton<GlobalGameState>
         Lives--;
         if (Lives == 0)
         {
-            Lives = MaxLives;
+            SetDefaults();
             ApplicationState.Ending = -1;
             print("Player has run out of lives, Game over");
             SceneManager.LoadScene("GameOver");
