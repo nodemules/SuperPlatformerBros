@@ -26,7 +26,7 @@ namespace Environment
         {
             PlaySound();
             Disable();
-            UICoinController.CollectCoin();
+            GlobalGameState.CollectCoin(gameObject);
             Destroy(gameObject, 1f);
         }
 

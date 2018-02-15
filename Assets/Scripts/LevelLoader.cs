@@ -21,6 +21,7 @@ public class LevelLoader : MonoBehaviour
         }
         print("Changing level to Level=" + levelName);
         GlobalGameState.CurrentLevel = levelName;
+        GlobalGameState.EnableSceneListener();
         SceneManager.LoadScene(levelName);
     }
 
