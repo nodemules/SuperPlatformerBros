@@ -17,9 +17,12 @@ public class GlobalGameState : Singleton<GlobalGameState>
     public static int Coins { get; set; }
 
     public static List<Vector3> CollectedCoinPositions { get; private set; }
+    
+    public static Dictionary<string, List<Vector3>> CollectedCoinPositionsMap { get; private set; }
 
     private static void SetDefaults()
     {
+        CollectedCoinPositionsMap = new Dictionary<string, List<Vector3>>();
         CollectedCoinPositions = new List<Vector3>();
         CurrentLevel = LevelLoader.FirstLevel;
         Lives = MaxLives;
@@ -61,7 +64,18 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
     public static void CollectCoin(GameObject coin)
     {
+        Scene scene = SceneManager.GetActiveScene();
         CollectedCoinPositions.Add(coin.transform.position);
+        if (CollectedCoinPositionsMap.ContainsKey(scene.name))
+        {
+            List<Vector3> sceneCollectedCoins = CollectedCoinPositionsMap[scene.name];
+            sceneCollectedCoins.Add(coin.transform.position);
+        }
+        else
+        {
+            List<Vector3> list = new List<Vector3> {coin.transform.position};
+            CollectedCoinPositionsMap.Add(scene.name, list);
+        }
         UICoinController.CollectCoin();
     }
     
