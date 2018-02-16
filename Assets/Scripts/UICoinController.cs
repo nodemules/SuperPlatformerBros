@@ -29,11 +29,6 @@ public class UICoinController : MonoBehaviour
         _coinIcon.transform.Rotate(new Vector2(0.0f, 45) * Time.deltaTime);
     }
 
-    public static void CollectCoin()
-    {
-        GlobalGameState.Coins++;
-    }
-
     private void CollectCoinEffect()
     {
         _coinText.fontSize = 24;

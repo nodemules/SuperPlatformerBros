@@ -14,16 +14,13 @@ public class GlobalGameState : Singleton<GlobalGameState>
     public static string CurrentLevel { get; set; }
 
     public static int Lives { get; private set; }
-    public static int Coins { get; set; }
+    public static int Coins { get; private set; }
 
-    public static List<Vector3> CollectedCoinPositions { get; private set; }
-    
     public static Dictionary<string, List<Vector3>> CollectedCoinPositionsMap { get; private set; }
 
     private static void SetDefaults()
     {
         CollectedCoinPositionsMap = new Dictionary<string, List<Vector3>>();
-        CollectedCoinPositions = new List<Vector3>();
         CurrentLevel = LevelLoader.FirstLevel;
         Lives = MaxLives;
         Coins = 0;
@@ -65,7 +62,6 @@ public class GlobalGameState : Singleton<GlobalGameState>
     public static void CollectCoin(GameObject coin)
     {
         Scene scene = SceneManager.GetActiveScene();
-        CollectedCoinPositions.Add(coin.transform.position);
         if (CollectedCoinPositionsMap.ContainsKey(scene.name))
         {
             List<Vector3> sceneCollectedCoins = CollectedCoinPositionsMap[scene.name];
@@ -76,7 +72,7 @@ public class GlobalGameState : Singleton<GlobalGameState>
             List<Vector3> list = new List<Vector3> {coin.transform.position};
             CollectedCoinPositionsMap.Add(scene.name, list);
         }
-        UICoinController.CollectCoin();
+        Coins++;
     }
     
     public static void EnableSceneListener()
@@ -91,24 +87,20 @@ public class GlobalGameState : Singleton<GlobalGameState>
          
     private static void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        GameObject[] rootGameObjects = scene.GetRootGameObjects();
-        DisableCollectedCoins(rootGameObjects);
+        DisableCollectedCoins(scene);
         DisableSceneListener();
     }
 
-    private static void DisableCollectedCoins(IEnumerable<GameObject> sceneGameObjects)
+    private static void DisableCollectedCoins(Scene scene)
     {
 
-        List<Coin> coins = new List<Coin>();
-        foreach (GameObject gameObject in sceneGameObjects) 
-        {
-            coins.AddRange(gameObject.GetComponentsInChildren<Coin>());
-        }
+        List<Coin> coins = GetCoinsInScene(scene);
 
         foreach (Coin coin in coins)
         {
             GameObject coinGameObject = coin.transform.gameObject;
-            foreach (Vector3 position in CollectedCoinPositions)
+            List<Vector3> coinPositions = CollectedCoinPositionsMap[scene.name];
+            foreach (Vector3 position in coinPositions)
             {
                 if (position == coinGameObject.transform.position)
                 {
@@ -116,5 +108,16 @@ public class GlobalGameState : Singleton<GlobalGameState>
                 }
             }
         }
+    }
+
+    private static List<Coin> GetCoinsInScene(Scene scene)
+    {
+        List<Coin> coins = new List<Coin>();
+        foreach (GameObject gameObject in scene.GetRootGameObjects()) 
+        {
+            coins.AddRange(gameObject.GetComponentsInChildren<Coin>());
+        }
+
+        return coins;
     }
 }
