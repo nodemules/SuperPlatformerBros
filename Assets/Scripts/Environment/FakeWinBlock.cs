@@ -25,11 +25,20 @@ namespace Environment
 			Player.Player player = other.collider.GetComponent<Player.Player>();
 			if (player != null)
 			{
+				_audioSource.pitch = 1;
 				_audioSource.PlayOneShot(BlockHitAudioClip);
 				_sorryText.SetActive(true);
 				Text text = _sorryText.GetComponent<Text>();
 				text.enabled = true;
+				Invoke("disableText", 2);
 			}
+		}
+
+		private void disableText()
+		{
+			_audioSource.pitch = 0.7f;
+			_audioSource.PlayOneShot(BlockHitAudioClip);
+			_sorryText.SetActive(false);
 		}
 	}
 }
