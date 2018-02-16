@@ -72,19 +72,20 @@ public class GlobalGameState : Singleton<GlobalGameState>
             List<Vector3> list = new List<Vector3> {coin.transform.position};
             CollectedCoinPositionsMap.Add(scene.name, list);
         }
+
         Coins++;
     }
-    
+
     public static void EnableSceneListener()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
-         
+
     public static void DisableSceneListener()
     {
         SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
-         
+
     private static void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         DisableCollectedCoins(scene);
@@ -93,18 +94,32 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
     private static void DisableCollectedCoins(Scene scene)
     {
+        if (!CollectedCoinPositionsMap.ContainsKey(scene.name))
+        {
+            return;
+        }
 
         List<Coin> coins = GetCoinsInScene(scene);
+        List<Vector3> coinPositions = CollectedCoinPositionsMap[scene.name];
 
-        foreach (Coin coin in coins)
+        if (coins.Count == coinPositions.Count)
         {
-            GameObject coinGameObject = coin.transform.gameObject;
-            List<Vector3> coinPositions = CollectedCoinPositionsMap[scene.name];
-            foreach (Vector3 position in coinPositions)
+            foreach (Coin coin in coins)
             {
+                Destroy(coin.transform.gameObject);
+            }
+
+            return;
+        }
+
+        foreach (Vector3 position in coinPositions)
+        {
+            foreach (Coin coin in coins)
+            {
+                GameObject coinGameObject = coin.transform.gameObject;
                 if (position == coinGameObject.transform.position)
                 {
-                    Destroy(coinGameObject); 
+                    Destroy(coinGameObject);
                 }
             }
         }
@@ -113,7 +128,7 @@ public class GlobalGameState : Singleton<GlobalGameState>
     private static List<Coin> GetCoinsInScene(Scene scene)
     {
         List<Coin> coins = new List<Coin>();
-        foreach (GameObject gameObject in scene.GetRootGameObjects()) 
+        foreach (GameObject gameObject in scene.GetRootGameObjects())
         {
             coins.AddRange(gameObject.GetComponentsInChildren<Coin>());
         }
