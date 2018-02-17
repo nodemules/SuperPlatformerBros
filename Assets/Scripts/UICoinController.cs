@@ -15,6 +15,7 @@ public class UICoinController : MonoBehaviour
         _coinText = GetComponentInChildren<Text>();
         _coinIcon = GameObject.Find("UICoinIcon");
         _defaultFontSize = _coinText.fontSize;
+        _oldCoinCount = GlobalGameState.Coins;
     }
 
     private void Update()

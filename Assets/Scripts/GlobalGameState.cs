@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Environment;
-using Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +13,7 @@ public class GlobalGameState : Singleton<GlobalGameState>
     public static int Lives { get; private set; }
     public static int Coins { get; private set; }
 
-    public static Dictionary<string, List<Vector3>> CollectedCoinPositionsMap { get; private set; }
+    private static Dictionary<string, List<Vector3>> CollectedCoinPositionsMap { get; set; }
 
     private static void SetDefaults()
     {
@@ -24,6 +21,12 @@ public class GlobalGameState : Singleton<GlobalGameState>
         CurrentLevel = LevelLoader.FirstLevel;
         Lives = MaxLives;
         Coins = 0;
+    }
+
+    public static void RestartGame()
+    {
+        SetDefaults();
+        LevelLoader.ChangeLevel(LevelLoader.FirstLevel);
     }
 
     public void Start()
@@ -39,6 +42,22 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
         print("Changing level to: " + CurrentLevel);
         LevelLoader.ChangeLevel(CurrentLevel);
+    }
+
+    public static void EnableSceneListener()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    public static void DisableSceneListener()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    private static void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        DisableCollectedCoins(scene);
+        DisableSceneListener();
     }
 
     public static void PlayerDeath()
@@ -74,22 +93,6 @@ public class GlobalGameState : Singleton<GlobalGameState>
         }
 
         Coins++;
-    }
-
-    public static void EnableSceneListener()
-    {
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
-    }
-
-    public static void DisableSceneListener()
-    {
-        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-    }
-
-    private static void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-    {
-        DisableCollectedCoins(scene);
-        DisableSceneListener();
     }
 
     private static void DisableCollectedCoins(Scene scene)

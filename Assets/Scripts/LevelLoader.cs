@@ -55,10 +55,4 @@ public class LevelLoader : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
-    
-    public static void Restart()
-    {
-        print("Restarting!");
-        ChangeLevel(FirstLevel);
-    }
 }
