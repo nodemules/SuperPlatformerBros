@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class GlobalGameState : Singleton<GlobalGameState>
 {
     private const int MaxLives = 3;
-
+    private const string MainMenuScene = "MainMenu";
+    private const string GameOverScene = "GameOver";
+    
     private static GlobalGameState _instance;
+    
     public static string CurrentLevel { get; set; }
 
     public static int Lives { get; private set; }
@@ -18,7 +21,7 @@ public class GlobalGameState : Singleton<GlobalGameState>
     private static void SetDefaults()
     {
         CollectedCoinPositionsMap = new Dictionary<string, List<Vector3>>();
-        CurrentLevel = LevelLoader.FirstLevel;
+        CurrentLevel = MainMenuScene;
         Lives = MaxLives;
         Coins = 0;
     }
@@ -31,16 +34,13 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
     public void Start()
     {
-        print("GlobalGameState.Start()");
         SetDefaults();
-        if (CurrentLevel == null)
+        if (CurrentLevel == MainMenuScene)
         {
-            CurrentLevel = LevelLoader.FirstLevel;
-            SceneManager.LoadScene(CurrentLevel);
+            SceneManager.LoadScene(MainMenuScene);
             return;
         }
 
-        print("Changing level to: " + CurrentLevel);
         LevelLoader.ChangeLevel(CurrentLevel);
     }
 
@@ -69,7 +69,7 @@ public class GlobalGameState : Singleton<GlobalGameState>
             SetDefaults();
             ApplicationState.Ending = -1;
             print("Player has run out of lives, Game over");
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene(GameOverScene);
             return;
         }
 

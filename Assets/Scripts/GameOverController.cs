@@ -16,13 +16,13 @@ public class GameOverController : MonoBehaviour
     private GameObject _restartText;
     private GameObject _coinText;
 
-    private void Start()
+    public void Start()
     {
         _restartText = GameObject.Find("RestartText");
         _coinText = GameObject.Find("GameOverCoinCount");
     }
 
-    private void Update()
+    public void Update()
     {
         _ending = ApplicationState.Ending;
         if (_ending != NoEnding)
