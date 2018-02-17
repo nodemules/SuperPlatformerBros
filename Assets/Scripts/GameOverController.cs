@@ -38,6 +38,11 @@ public class GameOverController : MonoBehaviour
             {
                 RestartGame();
             }
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                GlobalGameState.LoadMainMenu();
+            }
         }
     }
 

@@ -138,4 +138,10 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
         return coins;
     }
+
+    public static void LoadMainMenu()
+    {
+        CurrentLevel = MainMenuScene;
+        SceneManager.LoadScene(MainMenuScene);
+    }
 }
