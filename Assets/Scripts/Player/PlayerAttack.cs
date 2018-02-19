@@ -8,6 +8,7 @@ namespace Player
     {
         private BoxCollider2D _weaponBoxCollider2D;
         private SpriteRenderer _weaponSpriteRenderer;
+        private Animator _weaponAnimator;
         
         private void Start()
         {
@@ -16,6 +17,8 @@ namespace Player
             _weaponBoxCollider2D.enabled = false;
             _weaponSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             _weaponSpriteRenderer.enabled = false;
+            _weaponAnimator = gameObject.GetComponent<Animator>();
+            _weaponAnimator.enabled = false;
 
         }
 
@@ -40,6 +43,7 @@ namespace Player
         {
             _weaponBoxCollider2D.enabled = true;
             _weaponSpriteRenderer.enabled = true;
+            _weaponAnimator.enabled = true;   
             
             Invoke("ResetAttack", 1);
         }
@@ -48,6 +52,7 @@ namespace Player
         {
             _weaponBoxCollider2D.enabled = false;
             _weaponSpriteRenderer.enabled = false;
+            _weaponAnimator.enabled = false;
         }
         
     }
