@@ -9,6 +9,8 @@ namespace Player
         private BoxCollider2D _weaponBoxCollider2D;
         private SpriteRenderer _weaponSpriteRenderer;
         private Animator _weaponAnimator;
+        public AudioClip AttackAudio;
+        private AudioSource _attackAudioSource;
         
         private void Start()
         {
@@ -19,6 +21,8 @@ namespace Player
             _weaponSpriteRenderer.enabled = false;
             _weaponAnimator = gameObject.GetComponent<Animator>();
             _weaponAnimator.enabled = false;
+
+            _attackAudioSource = GetComponent<AudioSource>();
 
         }
 
@@ -41,6 +45,7 @@ namespace Player
 
         private void Attack()
         {
+            _attackAudioSource.PlayOneShot(AttackAudio);
             _weaponBoxCollider2D.enabled = true;
             _weaponSpriteRenderer.enabled = true;
             _weaponAnimator.enabled = true;   
