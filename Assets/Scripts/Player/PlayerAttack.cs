@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization.Formatters;
 using Enemy;
+using UnityEditor;
 using UnityEngine;
 
 namespace Player
@@ -14,16 +15,7 @@ namespace Player
         
         private void Start()
         {
-            
-            _weaponBoxCollider2D = gameObject.GetComponent<BoxCollider2D>();
-            _weaponBoxCollider2D.enabled = false;
-            _weaponSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            _weaponSpriteRenderer.enabled = false;
-            _weaponAnimator = gameObject.GetComponent<Animator>();
-            _weaponAnimator.enabled = false;
-
-            _attackAudioSource = GetComponent<AudioSource>();
-
+            Initialize();
         }
 
         private void Update()
@@ -60,5 +52,17 @@ namespace Player
             _weaponAnimator.enabled = false;
         }
         
+        private void Initialize()
+        {
+            _attackAudioSource = GetComponent<AudioSource>();
+            
+            _weaponBoxCollider2D = gameObject.GetComponent<BoxCollider2D>();
+            _weaponSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            _weaponAnimator = gameObject.GetComponent<Animator>();
+            
+            _weaponSpriteRenderer.enabled = false;
+            _weaponBoxCollider2D.enabled = false;
+            _weaponAnimator.enabled = false;
+        }
     }
 }
