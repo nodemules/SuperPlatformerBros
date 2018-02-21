@@ -74,7 +74,7 @@ namespace Player
             if (grounded)
             {
                 Vector3 gravity = Physics.gravity;
-                Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale);
+                Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale * -1);
                 factor *= 0.10f;
                 
                 _playerAudioSource.PlayOneShot(JumpAudio);

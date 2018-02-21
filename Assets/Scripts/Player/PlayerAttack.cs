@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters;
-using Enemy;
-using UnityEditor;
+﻿using Enemy;
 using UnityEngine;
 
 namespace Player
