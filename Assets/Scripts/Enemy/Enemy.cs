@@ -1,5 +1,4 @@
 ﻿using System;
-using Environment;
 using Interfaces;
 using UnityEngine;
 
@@ -83,8 +82,12 @@ namespace Enemy
             {
                 return;
             }
+
+            if (DeathAudioClip != null)
+            {
+                _audioSource.PlayOneShot(DeathAudioClip);    
+            }
             
-            _audioSource.PlayOneShot(DeathAudioClip);
             Dead = true;
             PlayDead();
             Rigidbody.isKinematic = false;
