@@ -258,7 +258,7 @@ Prefab:
     - target: {fileID: 224877317223747472, guid: 46de8b3bb8347401e8157aaa30a865e3,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224877317223747472, guid: 46de8b3bb8347401e8157aaa30a865e3,
         type: 2}
@@ -308,6 +308,34 @@ Prefab:
     - target: {fileID: 1601862696859748, guid: 46de8b3bb8347401e8157aaa30a865e3, type: 2}
       propertyPath: m_Name
       value: GameOverCoinCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 224334972546798048, guid: 46de8b3bb8347401e8157aaa30a865e3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224334972546798048, guid: 46de8b3bb8347401e8157aaa30a865e3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224334972546798048, guid: 46de8b3bb8347401e8157aaa30a865e3,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224334972546798048, guid: 46de8b3bb8347401e8157aaa30a865e3,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451195956971418, guid: 46de8b3bb8347401e8157aaa30a865e3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451195956971418, guid: 46de8b3bb8347401e8157aaa30a865e3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46de8b3bb8347401e8157aaa30a865e3, type: 2}
