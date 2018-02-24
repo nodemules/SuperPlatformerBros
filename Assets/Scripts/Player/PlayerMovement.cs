@@ -13,6 +13,8 @@ namespace Player
         public AudioClip JumpAudio;
         private AudioSource _playerAudioSource;
 
+        public bool MovementEnabled = true;
+
         private bool _facingRight;
         private Rigidbody2D _playerRigidbody;
 
@@ -34,7 +36,10 @@ namespace Player
         public void Update()
         {
             float moveX = Input.GetAxis("Horizontal");
-            Move(moveX);
+            if (MovementEnabled)
+            {
+                Move(moveX);
+            }
         }
 
         private void Move(float moveX)
@@ -76,7 +81,7 @@ namespace Player
                 Vector3 gravity = Physics.gravity;
                 Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale * -1);
                 factor *= 0.10f;
-                
+
                 _playerAudioSource.PlayOneShot(JumpAudio);
                 _playerRigidbody.AddForce(factor * JumpPower);
             }

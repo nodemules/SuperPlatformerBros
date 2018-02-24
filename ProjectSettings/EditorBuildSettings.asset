@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Initialization.unity
     guid: 7c261d3acef68417b8422dc70dd0b8b1
   - enabled: 1
-    path: Assets/GameOver.unity
-    guid: 0eb23f0b1a3314d37910dedba43b7ef5
-  - enabled: 1
     path: Assets/MainMenu.unity
     guid: a1c8c03e776f24455afdb4152c5fd93d
   - enabled: 1
@@ -29,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level5.unity
     guid: b1433bf0d177944fda3be5ed0b4acdbf
+  - enabled: 1
+    path: Assets/GameOver.unity
+    guid: 0eb23f0b1a3314d37910dedba43b7ef5

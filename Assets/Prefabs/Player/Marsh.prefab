@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed27b06c1733746f7b89f80d699e1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathAudioClip: {fileID: 8300000, guid: 011012060a22142aabc11e0c0f39d40b, type: 3}
 --- !u!114 &114688831108202430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,6 +370,7 @@ MonoBehaviour:
   Speed: 10
   JumpPower: 350
   JumpAudio: {fileID: 8300000, guid: 70f630d83e6c741b9b7f402363b0a193, type: 3}
+  MovementEnabled: 1
 --- !u!114 &114727484469885000
 MonoBehaviour:
   m_ObjectHideFlags: 1
