@@ -191,6 +191,7 @@ MonoBehaviour:
   Range: {x: 3, y: 3}
   _deathAudioClip: {fileID: 8300000, guid: a87ff5cb491164357a9294f9fdc0bf0a, type: 3}
   IsMoonwalking: 0
+  Type: 0
 --- !u!212 &212003838046088168
 SpriteRenderer:
   m_ObjectHideFlags: 1

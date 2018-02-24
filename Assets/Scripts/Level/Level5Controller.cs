@@ -12,6 +12,7 @@ namespace Level
         private List<IBoss> _bosses = new List<IBoss>();
         private bool _bossesCleared;
         private Scene _scene;
+        private bool _powerUpLastBoss;
 
         public void Start()
         {
@@ -26,6 +27,17 @@ namespace Level
             }
 
             _bosses = new List<IBoss>(GetComponentsInChildren<IBoss>());
+
+            bool lastBoss = _bosses.Count == 1;
+            if (lastBoss && !_powerUpLastBoss)
+            {
+                IPowerful boss = _bosses[0] as IPowerful;
+                if (boss != null)
+                {
+                    _powerUpLastBoss = true;
+                    boss.PowerUp();
+                }
+            }
             _bossesCleared = _bosses.Count == 0;
 
             if (_bossesCleared)

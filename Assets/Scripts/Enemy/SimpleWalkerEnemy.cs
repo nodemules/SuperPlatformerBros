@@ -144,7 +144,7 @@ namespace Enemy
             }
         }
 
-        private void ResetBounds()
+        protected void ResetBounds()
         {
             _leftBound = InitialPosition.x - Range.x;
             _rightBound = InitialPosition.x + Range.y;
