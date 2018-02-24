@@ -37,6 +37,10 @@ namespace Enemy
 
         public void PowerUp()
         {
+            if (Dead)
+            {
+                return;
+            }
             IsMoonwalking = true;
             Speed *= BuffedSpeedModifier;
             Range *= BuffedRangeModifier;
