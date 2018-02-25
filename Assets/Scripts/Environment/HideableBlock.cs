@@ -3,13 +3,9 @@ using UnityEngine;
 
 namespace Environment
 {
-    public class Coin : MonoBehaviour, ICollectable, IHideable
+    public class HideableBlock : Block, IHideable
     {
-        public AudioClip CoinCollectAudio;
-        private AudioSource _audioSource;
-
         private BoxCollider2D _boxCollider;
-
         public bool Initialized { get; set; }
         public SpriteRenderer SpriteRenderer { get; set; }
 
@@ -19,30 +15,14 @@ namespace Environment
             {
                 DoInitialization();
             }
-            _audioSource = GetComponent<AudioSource>();
+            Hide();
         }
 
         public void DoInitialization()
         {
             _boxCollider = GetComponent<BoxCollider2D>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            Player.Player player = other.GetComponent<IPlayer>() as Player.Player;
-            if (player != null)
-            {
-                Collect();
-            }
-        }
-
-        public void Collect()
-        {
-            PlaySound();
-            Hide();
-            GlobalGameState.CollectCoin(gameObject);
-            Destroy(gameObject, 1f);
+            Initialized = true;
         }
 
         public void Hide()
@@ -51,8 +31,8 @@ namespace Environment
             {
                 DoInitialization();
             }
-            SpriteRenderer.enabled = false;
             _boxCollider.enabled = false;
+            SpriteRenderer.enabled = false;
         }
 
         public void Show()
@@ -61,14 +41,8 @@ namespace Environment
             {
                 DoInitialization();
             }
-            SpriteRenderer.enabled = true;
             _boxCollider.enabled = true;
-        }
-
-        private void PlaySound()
-        {
-            _audioSource.pitch = 1.9f;
-            _audioSource.PlayOneShot(CoinCollectAudio);
+            SpriteRenderer.enabled = true;
         }
     }
 }

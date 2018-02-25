@@ -48,9 +48,9 @@ namespace Level
 
         private void ShowBlocks()
         {
-            HiddenBlock[] blocks = GetComponentsInChildren<HiddenBlock>();
+            HideableBlock[] blocks = GetComponentsInChildren<HideableBlock>();
 
-            foreach (HiddenBlock b in blocks)
+            foreach (HideableBlock b in blocks)
             {
                 b.Show();
             }
