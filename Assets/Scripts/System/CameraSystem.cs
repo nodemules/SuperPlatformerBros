@@ -28,6 +28,8 @@ namespace System
             {
                 SetDefaults();
             }
+            
+            CameraSystemDebug.PrintBounds(MinVector, MaxVector);
 
             _originalMinVector = MinVector;
             _originalMaxVector = MaxVector;
@@ -65,6 +67,7 @@ namespace System
                 CameraSystemDebug.PrintBackdropNotAttached();
                 return;
             }
+            print("Setting Backdrop Bound");
 
             Vector3 pPos = _parentTransform.transform.position;
             Vector3 pLocPos = _parentTransform.transform.localPosition;
@@ -86,7 +89,7 @@ namespace System
                 return;
             }
             
-            print("Setting default Vectors");
+            print("Setting default Bound");
 
             Vector3 playerPos = _player.transform.position;
             MinVector = new Vector2(-50 + playerPos.x, -10 + playerPos.y);
@@ -97,6 +100,7 @@ namespace System
         {
             MinVector = _originalMinVector;
             MaxVector = _originalMaxVector;
+            CameraSystemDebug.PrintBounds(MinVector, MaxVector);
         }
 
         private static class CameraSystemDebug
@@ -133,6 +137,13 @@ namespace System
             {
                 Debug.LogError(
                     "An error occurred getting the parent container's transform, unable to set camera bounds");
+            }
+
+            public static void PrintBounds(Vector2 min, Vector2 max)
+            {
+                print("Camera boundaries set to absolute position of:");
+                print("MinVector: " + min);
+                print("MaxVector: " + max);
             }
         }
     }

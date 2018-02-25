@@ -365,9 +365,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Backdrop: {fileID: 233959746}
-  EnableCameraBoundaries: 0
-  MinVector: {x: -100, y: 100}
-  MaxVector: {x: 0, y: 500}
+  EnableCameraBoundaries: 1
+  MinVector: {x: 0, y: 0}
+  MaxVector: {x: 0, y: 0}
 --- !u!4 &102331688 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4939430352066930, guid: 7db779c28d68143d9b8c24cb5d791586,
