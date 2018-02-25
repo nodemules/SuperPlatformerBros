@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469d7fd053d44c97a0c8355943b315b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TriggerAudioClip: {fileID: 8300000, guid: fdbdbed80066046ae993b6e15cff119c, type: 3}
+  DefaultAudioClip: {fileID: 8300000, guid: d375f9e898eff4829bd52ebb6cf1a777, type: 3}
   _numTriggers: 1
   _target: {fileID: 0}
 --- !u!212 &212901956851859800
