@@ -3086,6 +3086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9428e12baefe148acae6b584c7134802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Backdrop: {fileID: 0}
   MinVector: {x: -50, y: 0}
   MaxVector: {x: 50, y: 10}
 --- !u!61 &1806317734
@@ -3382,6 +3383,11 @@ Prefab:
     - target: {fileID: 4452484432754828, guid: f6d1ef49b85d54d449953f9792de7ac9, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114288016063924576, guid: f6d1ef49b85d54d449953f9792de7ac9,
+        type: 2}
+      propertyPath: LevelNumber
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6d1ef49b85d54d449953f9792de7ac9, type: 2}

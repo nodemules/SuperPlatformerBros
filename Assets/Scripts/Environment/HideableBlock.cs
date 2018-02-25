@@ -15,6 +15,7 @@ namespace Environment
             {
                 DoInitialization();
             }
+
             Hide();
         }
 
@@ -31,6 +32,7 @@ namespace Environment
             {
                 DoInitialization();
             }
+
             _boxCollider.enabled = false;
             SpriteRenderer.enabled = false;
         }
@@ -41,6 +43,7 @@ namespace Environment
             {
                 DoInitialization();
             }
+
             _boxCollider.enabled = true;
             SpriteRenderer.enabled = true;
         }

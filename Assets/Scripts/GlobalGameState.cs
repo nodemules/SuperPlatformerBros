@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using Environment;
+using Interfaces;
+using Level;
+using TriggerArea;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -143,5 +146,19 @@ public class GlobalGameState : Singleton<GlobalGameState>
     {
         CurrentLevel = MainMenuScene;
         SceneManager.LoadScene(MainMenuScene);
+    }
+    public StartArea StartArea;
+
+    private static void MovePlayerToSceneStartArea(GameObject player, string levelName)
+    {
+        
+        GameObject levelContainer = GameObject.Find(levelName + "Container");
+        StartArea startArea = levelContainer.GetComponentInChildren<IBoundary>() as StartArea;
+        if (startArea != null)
+        {
+            print("startArea found!");
+            Collider2D startAreaCollider2D = startArea.GetComponent<Collider2D>();
+            player.transform.position = startAreaCollider2D.bounds.center;
+        }
     }
 }
