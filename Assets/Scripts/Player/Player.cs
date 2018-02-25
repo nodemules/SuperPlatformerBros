@@ -77,6 +77,8 @@ namespace Player
             Invoke("TrueDeath", Convert.ToSingle(deathAnimationLength * 1.15));
         }
 
+        // ReSharper disable once MemberCanBeMadeStatic.Local
+        // @bhaertlein - Methods provided to UnityEngine.Invoke() can not be `static`
         private void TrueDeath()
         {
             GlobalGameState.PlayerDeath();
