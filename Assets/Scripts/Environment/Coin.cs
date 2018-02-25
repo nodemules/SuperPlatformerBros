@@ -24,6 +24,7 @@ namespace Environment
 
         public void DoInitialization()
         {
+            Initialized = true;
             _boxCollider = GetComponent<BoxCollider2D>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
         }

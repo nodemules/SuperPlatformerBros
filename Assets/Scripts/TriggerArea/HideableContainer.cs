@@ -12,8 +12,6 @@ namespace TriggerArea
         public void Start()
         {
             _hideables = GetComponentsInChildren<IHideable>();
-            print(_hideables.Length + " Hideables found in HideableContainer[" + gameObject.name +
-                  "]");
             if (IsHidden)
             {
                 Hide();
@@ -23,6 +21,7 @@ namespace TriggerArea
         private void Show()
         {
             IsHidden = false;
+            _hideables = GetComponentsInChildren<IHideable>();
             foreach (IHideable hideable in _hideables)
             {
                 hideable.Show();
@@ -32,6 +31,7 @@ namespace TriggerArea
         private void Hide()
         {
             IsHidden = true;
+            _hideables = GetComponentsInChildren<IHideable>();
             foreach (IHideable hideable in _hideables)
             {
                 hideable.Hide();
@@ -40,7 +40,6 @@ namespace TriggerArea
 
         public void Trigger()
         {
-            print("HideableContainer is hidden: " + IsHidden);
             if (IsHidden)
             {
                 Show();

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4452484432754828}
   - component: {fileID: 212366897721302780}
   - component: {fileID: 61062764073647886}
-  - component: {fileID: 114288016063924576}
+  - component: {fileID: 114920638335793624}
   m_Layer: 0
   m_Name: DebugWinBlock
   m_TagString: Blocks
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &114288016063924576
+--- !u!114 &114920638335793624
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,9 +75,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128306737210960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d156f4ee44476280bbc1f0fc42bfb1, type: 3}
+  m_Script: {fileID: 11500000, guid: ae0c2ee7b1ea496aae2ea9dce8000bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNumber: 0
 --- !u!212 &212366897721302780
 SpriteRenderer:
   m_ObjectHideFlags: 1
