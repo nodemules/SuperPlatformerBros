@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UserInterface.Menu;
 
 // @brenthaertlein: intentionally disabling RedudantJumpStatement
 // to ensure only one set of actions per button press is called
 // ReSharper disable RedundantJumpStatement
 
-namespace System
+namespace UserInterface.InGame
 {
     public class InGameMenuManager : MonoBehaviour
     {

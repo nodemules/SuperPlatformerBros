@@ -1,11 +1,12 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using Environment;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface
+namespace UserInterface.InGame
 {
-    public class UICoinController : MonoBehaviour
+    public class HudCoinController : MonoBehaviour
     {
         private static int _defaultFontSize = 18;
         private Text _coinText;

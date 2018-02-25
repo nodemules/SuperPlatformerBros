@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace UserInterface
+namespace UserInterface.InGame
 {
-    public class UILivesController : MonoBehaviour
+    public class HudLivesController : MonoBehaviour
     {
         private Text _lifeText;
         

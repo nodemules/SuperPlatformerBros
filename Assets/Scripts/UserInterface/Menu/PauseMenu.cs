@@ -1,11 +1,12 @@
-﻿using Interfaces;
+﻿using System;
+using Interfaces;
 using UnityEngine;
 
 // @brenthaertlein: intentionally disabling RedudantJumpStatement
 // to ensure only one set of actions per button press is called
 // ReSharper disable RedundantJumpStatement
 
-namespace System
+namespace UserInterface.Menu
 {
     public class PauseMenu : MonoBehaviour, IUserInterfaceSystem, IHideable
     {
