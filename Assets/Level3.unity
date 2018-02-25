@@ -1328,6 +1328,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 473873321}
+  - component: {fileID: 473873322}
   m_Layer: 0
   m_Name: Level3Container
   m_TagString: Untagged
@@ -1359,6 +1360,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &473873322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 473873320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cba0e99f2a45ebb65f93e0d18f599b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &489903479
 GameObject:
   m_ObjectHideFlags: 0
