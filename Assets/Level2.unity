@@ -2216,6 +2216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214a217a524654858b29437fbf945db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numTriggers: 1
+  _target: {fileID: 0}
   BlockHitAudioClip: {fileID: 0}
 --- !u!61 &398481669
 BoxCollider2D:
@@ -2536,6 +2538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9428e12baefe148acae6b584c7134802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Backdrop: {fileID: 0}
+  EnableCameraBoundaries: 1
   MinVector: {x: -50, y: 0}
   MaxVector: {x: 50, y: 100}
 --- !u!1 &461032183
@@ -5456,6 +5460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214a217a524654858b29437fbf945db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numTriggers: 1
+  _target: {fileID: 0}
   BlockHitAudioClip: {fileID: 0}
 --- !u!61 &1276118220
 BoxCollider2D:
@@ -6146,6 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d156f4ee44476280bbc1f0fc42bfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNumber: 0
 --- !u!61 &1488320441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6630,6 +6637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d156f4ee44476280bbc1f0fc42bfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNumber: 0
 --- !u!61 &1735605617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8173,6 +8181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214a217a524654858b29437fbf945db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numTriggers: 1
+  _target: {fileID: 0}
   BlockHitAudioClip: {fileID: 0}
 --- !u!61 &2062674312
 BoxCollider2D:

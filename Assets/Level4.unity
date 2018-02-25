@@ -13316,6 +13316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9428e12baefe148acae6b584c7134802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Backdrop: {fileID: 0}
+  EnableCameraBoundaries: 1
   MinVector: {x: -150, y: 0}
   MaxVector: {x: 50, y: 50}
 --- !u!81 &1360772870
@@ -18571,6 +18573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d156f4ee44476280bbc1f0fc42bfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNumber: 0
 --- !u!61 &1877836889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19981,6 +19984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d156f4ee44476280bbc1f0fc42bfb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNumber: 0
 --- !u!61 &2025844423
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Backdrop: {fileID: 233959746}
+  EnableCameraBoundaries: 0
   MinVector: {x: -100, y: 100}
   MaxVector: {x: 0, y: 500}
 --- !u!4 &102331688 stripped
@@ -1020,7 +1021,7 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: feff5d42f93e943f1aa155632dc99ef7, type: 3}
+      objectReference: {fileID: 8300000, guid: 5b2e449c8c8574a87a7296457b80e0c9, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a53d2b81e5f744631a8305feabfec0fd, type: 2}
   m_IsPrefabParent: 0

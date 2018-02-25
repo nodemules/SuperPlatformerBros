@@ -3087,6 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Backdrop: {fileID: 0}
+  EnableCameraBoundaries: 1
   MinVector: {x: -50, y: 0}
   MaxVector: {x: 50, y: 10}
 --- !u!61 &1806317734
