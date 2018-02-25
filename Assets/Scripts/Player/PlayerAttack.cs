@@ -1,4 +1,5 @@
-﻿using Enemy;
+﻿using System;
+using Enemy;
 using Interfaces;
 using UnityEngine;
 
@@ -21,6 +22,10 @@ namespace Player
 
         private void Update()
         {
+            if (GlobalGameState.IsPaused)
+            {
+                return;
+            }
             if (Input.GetButtonDown("Fire1"))
             {
                 Attack();

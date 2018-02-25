@@ -30,6 +30,10 @@ namespace Player
 
         public void Update()
         {
+            if (GlobalGameState.IsPaused)
+            {
+                return;
+            }
             if (Health <= 0)
             {
                 Kill();

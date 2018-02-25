@@ -2474,6 +2474,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 86431549}
+    - target: {fileID: 224166634085702780, guid: 3c6a7c62882c44b689d8e38f15667ffc,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c6a7c62882c44b689d8e38f15667ffc, type: 2}
   m_IsPrefabParent: 0
@@ -3185,6 +3190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1823949710}
+  - component: {fileID: 1823949711}
   m_Layer: 0
   m_Name: Level6Container
   m_TagString: Untagged
@@ -3211,6 +3217,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1823949711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823949709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cba0e99f2a45ebb65f93e0d18f599b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1833068169
 GameObject:
   m_ObjectHideFlags: 0

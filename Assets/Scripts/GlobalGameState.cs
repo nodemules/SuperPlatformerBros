@@ -11,11 +11,12 @@ public class GlobalGameState : Singleton<GlobalGameState>
     private const int MaxLives = 3;
     private const string MainMenuScene = "MainMenu";
     private const string GameOverScene = "GameOver";
-    
+
     private static GlobalGameState _instance;
-    
+
     public static string CurrentLevel { get; set; }
 
+    public static bool IsPaused { get; private set; }
     public static int Lives { get; private set; }
     public static int Coins { get; private set; }
 
@@ -23,6 +24,8 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
     private static void SetDefaults()
     {
+        Time.timeScale = 1f;
+        IsPaused = false;
         CollectedCoinPositionsMap = new Dictionary<string, List<Vector3>>();
         CurrentLevel = MainMenuScene;
         Lives = MaxLives;
@@ -35,8 +38,21 @@ public class GlobalGameState : Singleton<GlobalGameState>
         LevelLoader.ChangeLevel(LevelLoader.FirstLevel);
     }
 
+    public static void PauseGame()
+    {
+        Time.timeScale = 0f;
+        IsPaused = true;
+    }
+
+    public static void ResumeGame()
+    {
+        IsPaused = false;
+        Time.timeScale = 1f;
+    }
+
     public void Start()
     {
+        print("Starting the game");
         SetDefaults();
         if (CurrentLevel == MainMenuScene)
         {
@@ -144,14 +160,15 @@ public class GlobalGameState : Singleton<GlobalGameState>
 
     public static void LoadMainMenu()
     {
+        SetDefaults();
         CurrentLevel = MainMenuScene;
         SceneManager.LoadScene(MainMenuScene);
     }
+
     public StartArea StartArea;
 
     private static void MovePlayerToSceneStartArea(GameObject player, string levelName)
     {
-        
         GameObject levelContainer = GameObject.Find(levelName + "Container");
         StartArea startArea = levelContainer.GetComponentInChildren<IBoundary>() as StartArea;
         if (startArea != null)

@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            LevelLoader.ChangeLevel(LevelLoader.FirstLevel);
+            GlobalGameState.RestartGame();
         }
 
         if (Input.GetKey(KeyCode.Escape))

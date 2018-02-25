@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Environment;
 using Interfaces;
@@ -35,6 +36,10 @@ namespace Player
 
         public void Update()
         {
+            if (GlobalGameState.IsPaused)
+            {
+                return;
+            }
             float moveX = Input.GetAxis("Horizontal");
             if (MovementEnabled)
             {
