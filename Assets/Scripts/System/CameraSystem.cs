@@ -24,7 +24,7 @@ namespace System
 
             SetCameraFromBackdrop();
 
-            if (MinVector.Equals(new Vector2()) || MaxVector.Equals(new Vector2()))
+            if (MinVector.Equals(new Vector2()) && MaxVector.Equals(new Vector2()))
             {
                 SetDefaults();
             }
@@ -85,6 +85,8 @@ namespace System
                 CameraSystemDebug.PrintPlayerNotFound();
                 return;
             }
+            
+            print("Setting default Vectors");
 
             Vector3 playerPos = _player.transform.position;
             MinVector = new Vector2(-50 + playerPos.x, -10 + playerPos.y);
@@ -108,7 +110,7 @@ namespace System
             public static void PrintBackdropNotAttached()
             {
                 print(
-                    "No Backdrop was attached to the <CameraSystem>, unable to set camera bounds");
+                    "No Backdrop was attached to the <CameraSystem>, not setting Camera boundary from Backdrop");
             }
 
             private static void PrintHierarchySuggestion(string missing)
