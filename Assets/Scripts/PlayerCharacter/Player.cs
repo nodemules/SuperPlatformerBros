@@ -62,6 +62,9 @@ namespace PlayerCharacter
 
             if (DeathAudioClip != null)
             {
+                BackgroundMusicSystem backgroundMusicSystem =
+                    transform.parent.GetComponentInChildren<BackgroundMusicSystem>();
+                backgroundMusicSystem.StopBackgroundMusic();
                 deathAnimationLength = DeathAudioClip.length;
                 _audioSource.PlayOneShot(DeathAudioClip);
             }

@@ -36,7 +36,7 @@ namespace System
             SetDefaults();
             if (CurrentLevel == MainMenuScene)
             {
-                RestartGame();
+                SceneManager.LoadScene(MainMenuScene);
                 return;
             }
 

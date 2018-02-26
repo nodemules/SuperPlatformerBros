@@ -257,23 +257,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1660759049132442, guid: a53d2b81e5f744631a8305feabfec0fd, type: 2}
-      propertyPath: m_Name
-      value: BackgroundMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 82433237807139490, guid: a53d2b81e5f744631a8305feabfec0fd,
+    - target: {fileID: 114423778080072336, guid: a53d2b81e5f744631a8305feabfec0fd,
         type: 2}
-      propertyPath: Mute
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82433237807139490, guid: a53d2b81e5f744631a8305feabfec0fd,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82433237807139490, guid: a53d2b81e5f744631a8305feabfec0fd,
-        type: 2}
-      propertyPath: m_audioClip
+      propertyPath: BackgroundMusicAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: 0f7cffb7705b44e35866fcf61fa523be, type: 3}
     m_RemovedComponents: []
