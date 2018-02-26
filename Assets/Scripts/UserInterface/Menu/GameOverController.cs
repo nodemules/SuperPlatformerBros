@@ -15,11 +15,15 @@ namespace UserInterface.Menu
         private GameObject _endingText;
         private GameObject _restartText;
         private GameObject _coinText;
+        private BackgroundMusicSystem _backgroundMusicSystem;
+        public AudioClip GameOverMusic;
+        public AudioClip WinningMusic;
 
         public void Start()
         {
             _restartText = GameObject.Find("RestartText");
             _coinText = GameObject.Find("GameOverCoinCount");
+            _backgroundMusicSystem = GetComponentInChildren<BackgroundMusicSystem>();
         }
 
         public void Update()
@@ -60,15 +64,19 @@ namespace UserInterface.Menu
                 case -1:
                     _coinText.SetActive(false);
                     _endingText = GameObject.Find("YouDeadText");
+                    _backgroundMusicSystem.BackgroundMusicAudioClip = GameOverMusic;
                     break;
                 case -100:
                     _coinText.SetActive(true);
                     _endingText = GameObject.Find("YouWinText");
+                    _backgroundMusicSystem.BackgroundMusicAudioClip = WinningMusic;
                     break;
                 default:
                     RestartGame();
                     break;
             }
+            
+            _backgroundMusicSystem.StartBackgroundMusic();
 
             if (_endingText != null)
             {
