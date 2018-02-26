@@ -1,9 +1,8 @@
 ﻿using System;
-using Enemy;
 using Interfaces;
 using UnityEngine;
 
-namespace Player
+namespace PlayerCharacter
 {
     public class PlayerAttack : MonoBehaviour
     {

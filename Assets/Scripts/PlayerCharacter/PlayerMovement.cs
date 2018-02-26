@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Environment;
 using Interfaces;
 using UnityEngine;
 
-namespace Player
+namespace PlayerCharacter
 {
     public class PlayerMovement : MonoBehaviour
     {

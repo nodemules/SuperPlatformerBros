@@ -3,7 +3,7 @@ using Interfaces;
 using UnityEngine;
 using Random = System.Random;
 
-namespace Enemy
+namespace Foe
 {
     public class SimpleWalkerBoss : SimpleWalkerEnemy, IKillable, IBoss, IPowerful
     {

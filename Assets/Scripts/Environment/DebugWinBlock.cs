@@ -1,4 +1,5 @@
 ﻿using Level;
+using PlayerCharacter;
 using UnityEngine;
 
 namespace Environment
@@ -18,7 +19,7 @@ namespace Environment
 
         public new void OnCollisionEnter2D(Collision2D other)
         {
-            Player.Player player = other.collider.GetComponent<Player.Player>();
+            Player player = other.collider.GetComponent<Player>();
             if (player != null)
             {
                 if (LevelNumber > 0)

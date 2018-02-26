@@ -2,7 +2,7 @@
 using Interfaces;
 using UnityEngine;
 
-namespace Player
+namespace PlayerCharacter
 {
     public class Player : MonoBehaviour, IPlayer, IKillable
     {

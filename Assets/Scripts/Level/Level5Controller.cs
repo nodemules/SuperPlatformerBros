@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Enemy;
 using Environment;
+using Foe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

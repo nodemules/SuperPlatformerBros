@@ -1,4 +1,4 @@
-﻿namespace Enemy
+﻿namespace Foe
 {
     public enum BossPowerUpType
     {

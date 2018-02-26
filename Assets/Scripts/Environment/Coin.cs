@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using PlayerCharacter;
 using UnityEngine;
 
 namespace Environment
@@ -32,7 +33,7 @@ namespace Environment
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Player.Player player = other.GetComponent<IPlayer>() as Player.Player;
+            Player player = other.GetComponent<IPlayer>() as Player;
             if (player != null)
             {
                 Collect();

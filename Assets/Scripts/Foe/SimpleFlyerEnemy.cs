@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Enemy
+namespace Foe
 {
     public class SimpleFlyerEnemy : Enemy
     {

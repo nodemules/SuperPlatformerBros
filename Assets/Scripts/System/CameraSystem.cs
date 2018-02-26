@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using PlayerCharacter;
 
 namespace System
 {
     public class CameraSystem : MonoBehaviour
     {
         public GameObject Backdrop;
-        private Player.Player _player;
+        private PlayerCharacter.Player _player;
 
         private Vector2 _originalMinVector;
         private Vector2 _originalMaxVector;
@@ -19,7 +20,7 @@ namespace System
 
         public void Start()
         {
-            _player = transform.parent.gameObject.GetComponentInChildren<Player.Player>();
+            _player = transform.parent.gameObject.GetComponentInChildren<PlayerCharacter.Player>();
             _parentTransform = GetComponentInParent<Transform>();
 
             SetCameraFromBackdrop();

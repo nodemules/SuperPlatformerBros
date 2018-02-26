@@ -2,7 +2,7 @@
 using Interfaces;
 using UnityEngine;
 
-namespace Enemy
+namespace Foe
 {    
     [Serializable]
     public abstract class Enemy : MonoBehaviour, IEnemy, IKillable

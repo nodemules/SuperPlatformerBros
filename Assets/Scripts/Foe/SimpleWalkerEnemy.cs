@@ -3,7 +3,7 @@ using Environment;
 using Interfaces;
 using UnityEngine;
 
-namespace Enemy
+namespace Foe
 {    
     [Serializable]
     public class SimpleWalkerEnemy : Enemy

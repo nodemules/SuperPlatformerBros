@@ -1,7 +1,6 @@
 ﻿using Interfaces;
-using UnityEngine;
 
-namespace Enemy
+namespace Foe
 {
     public class SimpleEnemy : Enemy, IBoundary
     {

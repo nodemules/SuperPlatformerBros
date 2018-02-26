@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using PlayerCharacter;
 using UnityEngine;
 
 namespace TriggerArea
@@ -20,7 +21,7 @@ namespace TriggerArea
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            Player.Player player = other.GetComponent<Player.Player>();
+            Player player = other.GetComponent<Player>();
             if (player != null)
             {
                 Collider2D localCollider2D = gameObject.GetComponent<Collider2D>();
@@ -36,7 +37,7 @@ namespace TriggerArea
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            Player.Player player = other.GetComponent<Player.Player>();
+            Player player = other.GetComponent<Player>();
             if (player != null)
             {
                 CameraSystem cameraSystem = _camera.GetComponent<CameraSystem>();
