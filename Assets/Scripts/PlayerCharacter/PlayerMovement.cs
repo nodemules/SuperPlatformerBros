@@ -7,8 +7,14 @@ namespace PlayerCharacter
 {
     public class PlayerMovement : MonoBehaviour
     {
-        public int Speed = 10;
-        public int JumpPower = 2500;
+        private const int DefaultAcceleration = 25;
+        private const int JumpAcceleration = 35;
+        private const float JumpLength = 1.0f;
+        public int Acceleration = DefaultAcceleration;
+        public int JumpPower = 7;
+        public int MaxSpeed = 5;
+        private bool _isJumping;
+        
         public AudioClip JumpAudio;
         private AudioSource _playerAudioSource;
 
@@ -51,21 +57,36 @@ namespace PlayerCharacter
             {
                 Jump();
             }
-
-
-            bool movingRight = moveX > 0.0f;
+            
             bool moving = !Equals(moveX, 0.0f);
 
-            if (moving && (!movingRight && _facingRight || movingRight && !_facingRight))
+            if (!moving)
+            {
+                _playerRigidbody.velocity = new Vector2(0f, _playerRigidbody.velocity.y);
+                return;
+            }
+            
+            bool movingRight = moveX > 0.0f;
+            
+            if (!movingRight && _facingRight || movingRight && !_facingRight)
             {
                 FlipPlayerX();
             }
-
-            _playerRigidbody.velocity = new Vector2(moveX * Speed, _playerRigidbody.velocity.y);
+            
+            if (Math.Abs(_playerRigidbody.velocity.x) > MaxSpeed)
+            {
+                return;
+            }
+            _playerRigidbody.AddForce(new Vector2(moveX * Acceleration, 0f));
         }
 
         private void Jump()
         {
+            if (_isJumping)
+            {
+                return;
+            }
+            
             ContactPoint2D[] contacts = new ContactPoint2D[MaxContacts];
             int numContacts = _playerCollider.GetContacts(contacts);
 
@@ -81,13 +102,21 @@ namespace PlayerCharacter
 
             if (grounded)
             {
-                Vector3 gravity = Physics.gravity;
-                Vector2 factor = new Vector2(0, gravity.y * _playerRigidbody.gravityScale * -1);
-                factor *= 0.10f;
+                _isJumping = true;
+                Acceleration = JumpAcceleration;
+                Vector2 force = new Vector2(0, JumpPower * _playerRigidbody.gravityScale);
 
                 _playerAudioSource.PlayOneShot(JumpAudio);
-                _playerRigidbody.AddForce(factor * JumpPower);
+                _playerRigidbody.AddForce(force, ForceMode2D.Impulse);
+                
+                Invoke("EndJump", JumpLength);
             }
+        }
+
+        private void EndJump()
+        {
+            _isJumping = false;
+            Acceleration = DefaultAcceleration; 
         }
 
         private void FlipPlayerX()
