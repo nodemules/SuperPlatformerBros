@@ -27,11 +27,8 @@ namespace TriggerArea
                 Collider2D localCollider2D = gameObject.GetComponent<Collider2D>();
                 CameraSystem cameraSystem = _camera.GetComponent<CameraSystem>();
 
-                cameraSystem.MinVector.x += localCollider2D.offset.x;
-                cameraSystem.MinVector.y += localCollider2D.offset.y;
-                cameraSystem.MaxVector.x -= localCollider2D.offset.x;
-                cameraSystem.MaxVector.y -= localCollider2D.offset.y;
-                
+                cameraSystem.MinVector = localCollider2D.bounds.min;
+                cameraSystem.MaxVector = localCollider2D.bounds.max;
             }
         }
 
