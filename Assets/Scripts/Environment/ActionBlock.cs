@@ -11,7 +11,6 @@ namespace Environment
             if (Target != null)
             {
                 Triggerable = Target.GetComponent<ITriggerable>();
-                print("Trigger found: " + Triggerable);
             }
 
             AudioSource = GetComponent<AudioSource>();
