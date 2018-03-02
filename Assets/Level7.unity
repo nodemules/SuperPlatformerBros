@@ -9737,11 +9737,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4452032058186198, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.3
+      value: -152.74
       objectReference: {fileID: 0}
     - target: {fileID: 4452032058186198, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4452032058186198, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9871,8 +9871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Backdrop: {fileID: 0}
   EnableCameraBoundaries: 1
-  MinVector: {x: 0, y: 0}
-  MaxVector: {x: 0, y: 0}
+  MinVector: {x: -300, y: -150}
+  MaxVector: {x: 50, y: 200}
 --- !u!81 &1501258265
 AudioListener:
   m_ObjectHideFlags: 0
