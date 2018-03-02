@@ -1,4 +1,6 @@
-﻿using Interfaces;
+﻿using System.Collections.Specialized;
+using Foe;
+using Interfaces;
 using PlayerCharacter;
 using UnityEngine;
 
@@ -26,9 +28,9 @@ namespace Environment
             Player player = other.collider.GetComponent<Player>();
             if (player != null)
             {
-                if (Triggerable != null && TriggerCount < NumTriggers)
+                if (Triggerable != null && (IsToggle || TriggerFiredCount < MaxNumberOfTriggers))
                 {
-                    TriggerCount++;
+                    TriggerFiredCount++;
                     Triggerable.Trigger();
                     AudioSource.pitch = 1;
                     AudioSource.PlayOneShot(TriggerAudioClip);
@@ -47,10 +49,16 @@ namespace Environment
         public AudioClip TriggerAudioClip;
         public AudioClip DefaultAudioClip;
 
-        public int TriggerCount { get; set; }
+        public int TriggerFiredCount { get; set; }
         public ITriggerable Triggerable { get; set; }
 
-        public int NumTriggers
+        public bool IsToggle
+        {
+            get { return _isToggle; }
+            set { _isToggle = value; }
+        }
+
+        public int MaxNumberOfTriggers
         {
             get { return _numTriggers; }
             set { _numTriggers = value; }
@@ -64,6 +72,7 @@ namespace Environment
 
         [SerializeField] private int _numTriggers = 1;
         [SerializeField] private GameObject _target;
+        [SerializeField] private bool _isToggle;
 
         #endregion properties
     }

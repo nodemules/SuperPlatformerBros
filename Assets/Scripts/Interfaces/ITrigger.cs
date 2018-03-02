@@ -4,9 +4,19 @@ namespace Interfaces
 {
     public interface ITrigger
     {
-        int TriggerCount { get; set; }
-        int NumTriggers { get; set; }
+        #region editor fields
+        
+        bool IsToggle { get; set; }
+        int MaxNumberOfTriggers { get; set; }
         GameObject Target { get; set; }
+        
+        #endregion
+        
+        #region package private fields
+        
+        int TriggerFiredCount { get; set; }
         ITriggerable Triggerable { get; set; }
+        
+        #endregion
     }
 }
