@@ -11,10 +11,19 @@ namespace TriggerArea
 
         public void Start()
         {
+            Invoke("DoInitialization", 0.1f);
+        }
+
+        private void DoInitialization()
+        {
             _hideables = GetComponentsInChildren<IHideable>();
             if (IsHidden)
             {
                 Hide();
+            }
+            else
+            {
+                Show();
             }
         }
 

@@ -28,7 +28,7 @@ namespace Environment
             Player player = other.collider.GetComponent<Player>();
             if (player != null)
             {
-                if (Triggerable != null && (IsToggle || TriggerFiredCount < MaxNumberOfTriggers))
+                if (Triggerable != null && (IsToggle || TriggerFiredCount < NumberOfTriggers))
                 {
                     TriggerFiredCount++;
                     Triggerable.Trigger();
@@ -58,7 +58,7 @@ namespace Environment
             set { _isToggle = value; }
         }
 
-        public int MaxNumberOfTriggers
+        public int NumberOfTriggers
         {
             get { return _numTriggers; }
             set { _numTriggers = value; }

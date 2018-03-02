@@ -7,7 +7,7 @@ namespace Interfaces
         #region editor fields
         
         bool IsToggle { get; set; }
-        int MaxNumberOfTriggers { get; set; }
+        int NumberOfTriggers { get; set; }
         GameObject Target { get; set; }
         
         #endregion
