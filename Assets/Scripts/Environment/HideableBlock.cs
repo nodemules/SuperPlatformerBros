@@ -8,6 +8,12 @@ namespace Environment
         private BoxCollider2D _boxCollider;
         public bool Initialized { get; set; }
         public SpriteRenderer SpriteRenderer { get; set; }
+        [SerializeField] private bool _startVisible;
+        public bool StartVisible
+        {
+            get { return _startVisible; }
+            set { _startVisible = value; }
+        }
 
         public void Start()
         {
@@ -16,7 +22,14 @@ namespace Environment
                 DoInitialization();
             }
 
-            Hide();
+            if (StartVisible)
+            {
+                Show();
+            }
+            else
+            {
+                Hide();
+            }
         }
 
         public void DoInitialization()
