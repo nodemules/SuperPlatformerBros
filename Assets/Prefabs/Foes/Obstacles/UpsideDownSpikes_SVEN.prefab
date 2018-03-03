@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50508917565336268}
   - component: {fileID: 61152771403430274}
   - component: {fileID: 114269206273783648}
+  - component: {fileID: 114702223715299828}
   m_Layer: 0
   m_Name: UpsideDownSpikes_SVEN
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909497027154218}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -150.89, y: 8.81, z: 0}
+  m_LocalPosition: {x: -149.35, y: 8.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +58,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -103,6 +104,17 @@ MonoBehaviour:
   Speed: 0
   Range: {x: 0, y: 0}
   _deathAudioClip: {fileID: 0}
+--- !u!114 &114702223715299828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1909497027154218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff77a86a20bb4eafbde163a1101de950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212070575191483700
 SpriteRenderer:
   m_ObjectHideFlags: 1
