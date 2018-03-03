@@ -18,7 +18,7 @@ namespace Foe
 
         private AudioSource _audioSource;
 
-        public bool Invulnerable { get; set; }
+        public bool Invulnerable;
         public bool Dead { get; set; }
 
         public bool EnableMovement;
