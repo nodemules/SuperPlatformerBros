@@ -3,12 +3,26 @@ using Interfaces;
 using UnityEngine;
 
 namespace Foe
-{    
+{
     [Serializable]
     public abstract class Enemy : MonoBehaviour, IEnemy, IKillable
     {
+        #region properties
+
+        [SerializeField] private AudioClip _deathAudioClip;
+        [SerializeField] private bool _invulnerable;
+
+        private AudioSource _audioSource;
+
+        public bool EnableMovement;
+        public float Speed;
+        public Vector2 Range;
+
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
+
+        public bool IsDead { get; set; }
+        protected int Direction { get; set; }
 
         public AudioClip DeathAudioClip
         {
@@ -16,18 +30,13 @@ namespace Foe
             set { _deathAudioClip = value; }
         }
 
-        private AudioSource _audioSource;
+        public bool Invulnerable
+        {
+            get { return _invulnerable; }
+            set { _invulnerable = value; }
+        }
 
-        public bool Invulnerable;
-        public bool Dead { get; set; }
-
-        public bool EnableMovement;
-        public float Speed;
-        public Vector2 Range;
-        [SerializeField] 
-        private AudioClip _deathAudioClip;
-
-        protected int Direction { get; set; }
+        #endregion
 
         public void Start()
         {
@@ -70,7 +79,7 @@ namespace Foe
             }
 
             IKillable killable = otherCollider.GetComponent<IKillable>();
-            if (killable != null && !Dead)
+            if (killable != null && !IsDead)
             {
                 killable.Kill();
             }
@@ -78,17 +87,17 @@ namespace Foe
 
         public void Kill()
         {
-            if (Invulnerable || Dead)
+            if (Invulnerable || IsDead)
             {
                 return;
             }
 
             if (DeathAudioClip != null)
             {
-                _audioSource.PlayOneShot(DeathAudioClip);    
+                _audioSource.PlayOneShot(DeathAudioClip);
             }
-            
-            Dead = true;
+
+            IsDead = true;
             PlayDead();
             Rigidbody.isKinematic = false;
             Rigidbody.bodyType = RigidbodyType2D.Dynamic;

@@ -2,7 +2,8 @@
 {
     public interface IKillable
     {
-        bool Dead { get; set; }
+        bool Invulnerable { get; set; }
+        bool IsDead { get; set; }
         void Kill();
     }
 }

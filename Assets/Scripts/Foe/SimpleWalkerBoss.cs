@@ -37,7 +37,7 @@ namespace Foe
 
         public void PowerUp()
         {
-            if (Dead)
+            if (IsDead)
             {
                 return;
             }

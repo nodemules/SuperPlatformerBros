@@ -1,35 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Foe;
 using Interfaces;
+using NUnit.Framework;
 using UnityEngine;
 
 namespace PlayerCharacter
 {
     public class PlayerMovement : MonoBehaviour
     {
+        #region properties
+
         private const int DefaultAcceleration = 25;
         private const int JumpAcceleration = 35;
-        private const float JumpLength = 1.0f;
+        private const int MaxContacts = 100;
+        private const float JumpingReduxFactor = 0.1f;
+        private const float WalkingReduxFactor = 1.0f;
+
+        private AudioSource _playerAudioSource;
+        private Rigidbody2D _playerRigidbody;
+        private Collider2D _playerCollider;
+
+        public AudioClip JumpAudio;
+
         public int Acceleration = DefaultAcceleration;
         public int JumpPower = 7;
         public int MaxSpeed = 5;
-        private bool _isJumping;
-        
-        public AudioClip JumpAudio;
-        private AudioSource _playerAudioSource;
-
         public bool MovementEnabled = true;
 
-        private bool _facingRight;
-        private Rigidbody2D _playerRigidbody;
+        public bool IsFacingRight { get; private set; }
 
-        private Collider2D _playerCollider;
-        private const int MaxContacts = 100;
-
-        public bool IsFacingRight()
-        {
-            return _facingRight;
-        }
+        #endregion
 
         public void Start()
         {
@@ -44,6 +47,7 @@ namespace PlayerCharacter
             {
                 return;
             }
+
             float moveX = Input.GetAxis("Horizontal");
             if (MovementEnabled)
             {
@@ -57,71 +61,106 @@ namespace PlayerCharacter
             {
                 Jump();
             }
-            
+
             bool moving = !Equals(moveX, 0.0f);
 
-            if (!moving)
+            if (!moving && !Equals(_playerRigidbody.velocity.x, 0.0f))
             {
-                _playerRigidbody.velocity = new Vector2(0f, _playerRigidbody.velocity.y);
+                float reduxFactor = WalkingReduxFactor;
+
+                if (!IsGrounded())
+                {
+                    reduxFactor = JumpingReduxFactor;
+                }
+
+                float reducer = 1.00f - reduxFactor;
+
+                _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x * reducer,
+                    _playerRigidbody.velocity.y);
                 return;
             }
-            
+
             bool movingRight = moveX > 0.0f;
-            
-            if (!movingRight && _facingRight || movingRight && !_facingRight)
+
+            if (moving && (!movingRight && IsFacingRight || movingRight && !IsFacingRight))
             {
+                _playerRigidbody.velocity = new Vector2(0.0f, _playerRigidbody.velocity.y);
                 FlipPlayerX();
             }
-            
+
             if (Math.Abs(_playerRigidbody.velocity.x) > MaxSpeed)
             {
                 return;
             }
-            _playerRigidbody.AddForce(new Vector2(moveX * Acceleration, 0f));
+
+            Vector2 velocity = new Vector2(moveX * Acceleration, 0f);
+
+            if (!Equals(_playerRigidbody.velocity.x, 0.0f) &&
+                _playerRigidbody.velocity.x < MaxSpeed * 0.3)
+            {
+                velocity *= 1.33f;
+            }
+
+            _playerRigidbody.AddForce(velocity);
         }
 
         private void Jump()
         {
-            if (_isJumping)
+            if (!IsGrounded())
             {
                 return;
             }
-            
+
+            Acceleration = JumpAcceleration;
+            Vector2 force = new Vector2(0, JumpPower * _playerRigidbody.gravityScale);
+
+            _playerAudioSource.PlayOneShot(JumpAudio);
+            _playerRigidbody.AddForce(force, ForceMode2D.Impulse);
+        }
+
+        private bool IsGrounded()
+        {
             ContactPoint2D[] contacts = new ContactPoint2D[MaxContacts];
             int numContacts = _playerCollider.GetContacts(contacts);
 
             if (numContacts < 1)
             {
-                return;
+                return false;
             }
 
             bool grounded = contacts.ToList()
-                .Where(p => p.collider != null)
+                .Where(p => p.collider != null && p.normal.y > 0)
                 .Select(p => p.collider.gameObject.GetComponent<IJumpable>())
                 .Any(jumpable => jumpable != null);
 
-            if (grounded)
+            if (!grounded)
             {
-                _isJumping = true;
-                Acceleration = JumpAcceleration;
-                Vector2 force = new Vector2(0, JumpPower * _playerRigidbody.gravityScale);
-
-                _playerAudioSource.PlayOneShot(JumpAudio);
-                _playerRigidbody.AddForce(force, ForceMode2D.Impulse);
-                
-                Invoke("EndJump", JumpLength);
+                grounded = contacts.ToList()
+                    .Where(p => p.collider != null && p.normal.y > 0)
+                    .Select(p => p.collider.gameObject.GetComponent<IKillable>())
+                    .Any(enemy => enemy != null && enemy.IsDead);
             }
+
+            return grounded;
         }
 
         private void EndJump()
         {
-            _isJumping = false;
-            Acceleration = DefaultAcceleration; 
+            Acceleration = DefaultAcceleration;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            IJumpable jumpable = other.gameObject.GetComponent<IJumpable>();
+            if (jumpable != null)
+            {
+                EndJump();
+            }
         }
 
         private void FlipPlayerX()
         {
-            _facingRight = !_facingRight;
+            IsFacingRight = !IsFacingRight;
             Vector2 localScale = gameObject.transform.localScale;
             localScale.x *= -1;
             transform.localScale = localScale;

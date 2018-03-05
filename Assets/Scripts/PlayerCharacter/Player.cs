@@ -10,7 +10,7 @@ namespace PlayerCharacter
         public int MaxHealth { get; set; }
         public int Experience { get; set; }
         public bool Invulnerable { get; set; }
-        public bool Dead { get; set; }
+        public bool IsDead { get; set; }
 
         [SerializeField] private AudioClip _deathAudioClip;
         private AudioSource _audioSource;
@@ -42,7 +42,7 @@ namespace PlayerCharacter
 
         public void Kill()
         {
-            if (!Dead)
+            if (!IsDead)
             {
                 Die();
             }
@@ -50,7 +50,7 @@ namespace PlayerCharacter
 
         private void Die()
         {
-            Dead = true;
+            IsDead = true;
             Health = 0;
 
             PlayerMovement movement = gameObject.GetComponent<PlayerMovement>();
@@ -71,7 +71,7 @@ namespace PlayerCharacter
 
             int z = 90;
 
-            if (movement.IsFacingRight())
+            if (movement.IsFacingRight)
             {
                 z *= -1;
             }

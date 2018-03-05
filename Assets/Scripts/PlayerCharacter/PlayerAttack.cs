@@ -42,7 +42,7 @@ namespace PlayerCharacter
 
         private void Attack()
         {
-            if (_player.Dead)
+            if (_player.IsDead)
             {
                 return;
             }
