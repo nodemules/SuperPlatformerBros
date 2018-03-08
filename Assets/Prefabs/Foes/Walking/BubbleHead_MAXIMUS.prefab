@@ -229,11 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3382d1c888454aaf9b11f624c9f847e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Invulnerable: 1
+  _deathAudioClip: {fileID: 8300000, guid: 6a926be4e347f480ba25a935d86d3f42, type: 3}
+  _invulnerable: 1
   EnableMovement: 1
   Speed: 3
   Range: {x: 3, y: 3}
-  _deathAudioClip: {fileID: 8300000, guid: 6a926be4e347f480ba25a935d86d3f42, type: 3}
   IsMoonwalking: 1
 --- !u!212 &212105945759660738
 SpriteRenderer:

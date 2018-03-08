@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7402bc90d0794c5e8bd1264efb5e53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOverMusic: {fileID: 0}
+  WinningMusic: {fileID: 0}
 --- !u!4 &12202985
 Transform:
   m_ObjectHideFlags: 0
