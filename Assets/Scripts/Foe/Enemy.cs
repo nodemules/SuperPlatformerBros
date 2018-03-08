@@ -5,12 +5,14 @@ using UnityEngine;
 namespace Foe
 {
     [Serializable]
-    public abstract class Enemy : MonoBehaviour, IEnemy, IKillable
+    public abstract class Enemy : MonoBehaviour, IEnemy, IVaporizable
     {
         #region properties
 
         [SerializeField] private AudioClip _deathAudioClip;
+        [SerializeField] private AudioClip _vaporizeAudioClip;
         [SerializeField] private bool _invulnerable;
+        [SerializeField] private bool _vaporizable;
 
         private AudioSource _audioSource;
 
@@ -20,9 +22,22 @@ namespace Foe
 
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
-
         public bool IsDead { get; set; }
+        public float DiedAt { get; set; }
+
         protected int Direction { get; set; }
+
+        public bool Vaporizable
+        {
+            get { return _vaporizable; }
+            set { _vaporizable = value; }
+        }
+
+        public AudioClip VaporizeAudioClip
+        {
+            get { return _vaporizeAudioClip; }
+            set { _vaporizeAudioClip = value; }
+        }
 
         public AudioClip DeathAudioClip
         {
@@ -87,12 +102,17 @@ namespace Foe
 
         public void Kill()
         {
+            if (IsDead && Vaporizable && IsVaporizable())
+            {
+                Invoke("Vaporize", 0.1f);
+            }
+
             if (Invulnerable || IsDead)
             {
                 return;
             }
 
-            if (DeathAudioClip != null)
+            if (_audioSource != null && DeathAudioClip != null)
             {
                 _audioSource.PlayOneShot(DeathAudioClip);
             }
@@ -103,6 +123,29 @@ namespace Foe
             Rigidbody.bodyType = RigidbodyType2D.Dynamic;
             Rigidbody.gravityScale = 10;
             EnableMovement = false;
+            DiedAt = Time.timeSinceLevelLoad;
+        }
+
+        private bool IsVaporizable()
+        {
+            if (Equals(DiedAt, 0.0f))
+            {
+                return false;
+            }
+
+            return DiedAt + 1.0f <= Time.timeSinceLevelLoad;
+        }
+
+        public void Vaporize()
+        {
+            float delay = 0.33f;
+            if (_audioSource != null && VaporizeAudioClip != null)
+            {
+                _audioSource.PlayOneShot(VaporizeAudioClip);
+                delay = VaporizeAudioClip.length * 1.01f;
+            }
+
+            Destroy(gameObject, delay);
         }
 
         private void PlayDead()

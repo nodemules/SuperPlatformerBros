@@ -6,20 +6,25 @@ namespace PlayerCharacter
 {
     public class Player : MonoBehaviour, IPlayer, IKillable
     {
+        #region properties
+
+        [SerializeField] private AudioClip _deathAudioClip;
+        private AudioSource _audioSource;
+
         public int Health { get; set; }
         public int MaxHealth { get; set; }
         public int Experience { get; set; }
         public bool Invulnerable { get; set; }
         public bool IsDead { get; set; }
-
-        [SerializeField] private AudioClip _deathAudioClip;
-        private AudioSource _audioSource;
+        public float DiedAt { get; set; }
 
         public AudioClip DeathAudioClip
         {
             get { return _deathAudioClip; }
             set { _deathAudioClip = value; }
         }
+
+        #endregion
 
         public void Start()
         {
@@ -34,6 +39,7 @@ namespace PlayerCharacter
             {
                 return;
             }
+
             if (Health <= 0)
             {
                 Kill();
