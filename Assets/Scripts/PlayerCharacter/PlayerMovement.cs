@@ -22,6 +22,7 @@ namespace PlayerCharacter
         private AudioSource _playerAudioSource;
         private Rigidbody2D _playerRigidbody;
         private Collider2D _playerCollider;
+        private Animator _playerAnimator;
 
         public AudioClip JumpAudio;
 
@@ -32,6 +33,8 @@ namespace PlayerCharacter
 
         public bool IsFacingRight { get; private set; }
 
+        private bool _isJumping = false;
+
         #endregion
 
         public void Start()
@@ -39,6 +42,8 @@ namespace PlayerCharacter
             _playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
             _playerCollider = gameObject.GetComponent<Collider2D>();
             _playerAudioSource = GetComponent<AudioSource>();
+            _playerAnimator = GetComponent<Animator>();
+            _playerAnimator.Play("Still");
         }
 
         public void Update()
@@ -49,9 +54,25 @@ namespace PlayerCharacter
             }
 
             float moveX = Input.GetAxis("Horizontal");
+
             if (MovementEnabled)
             {
+                DetermineAnimation(moveX);
                 Move(moveX);
+            }
+        }
+
+        private void DetermineAnimation(float moveX)
+        {
+            bool moving = !Equals(moveX, 0.0f);
+
+            if (moving || _isJumping)
+            {
+                _playerAnimator.Play("Walking");
+            }
+            else
+            {
+                _playerAnimator.Play("Still");
             }
         }
 
@@ -84,6 +105,7 @@ namespace PlayerCharacter
 
             if (moving && (!movingRight && IsFacingRight || movingRight && !IsFacingRight))
             {
+                _playerAnimator.Play("Walking");
                 _playerRigidbody.velocity = new Vector2(0.0f, _playerRigidbody.velocity.y);
                 FlipPlayerX();
             }
@@ -111,6 +133,8 @@ namespace PlayerCharacter
                 return;
             }
 
+            _isJumping = true;
+            
             Acceleration = JumpAcceleration;
             Vector2 force = new Vector2(0, JumpPower * _playerRigidbody.gravityScale);
 
@@ -146,6 +170,7 @@ namespace PlayerCharacter
 
         private void EndJump()
         {
+            _isJumping = false;
             Acceleration = DefaultAcceleration;
         }
 
