@@ -84,12 +84,10 @@ namespace Foe
         public new void OnCollisionEnter2D(Collision2D other)
         {
             base.OnCollisionEnter2D(other);
-            print("SimpleFlyerEnemy colliding!");
             Collider2D otherCollider = other.collider;
             IPlatform platform = otherCollider.GetComponent<IPlatform>();
             if (platform != null)
             {
-                print("SimpleFlyerEnemy colliding with platform!");
                 TurnAround();
                 return;
             }
@@ -97,7 +95,6 @@ namespace Foe
             Wall wall = otherCollider.GetComponent<IBoundary>() as Wall;
             if (wall != null && wall.IsObstacle)
             {
-                print("SimpleFlyerEnemy colliding with wall!");
                 TurnAround();
                 return;
             }
@@ -105,12 +102,9 @@ namespace Foe
             IBlock block = otherCollider.GetComponent<IBlock>();
             if (block != null)
             {
-                print("SimpleFlyerEnemy colliding with block!");
                 TurnAround();
                 return;
             }
-            
-            print("SimpleFlyerEnemy colliding with " + otherCollider.name);
         }
     }
 }
