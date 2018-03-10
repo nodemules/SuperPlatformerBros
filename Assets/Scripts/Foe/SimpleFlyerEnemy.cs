@@ -80,7 +80,7 @@ namespace Foe
 
         // @bhaertlein - allow the redundant return to ensure control flow is respected when 
         //   this functionality is extended
-//        [SuppressMessage("ReSharper", "RedundantJumpStatement")]
+        [SuppressMessage("ReSharper", "RedundantJumpStatement")]
         public new void OnCollisionEnter2D(Collision2D other)
         {
             base.OnCollisionEnter2D(other);
