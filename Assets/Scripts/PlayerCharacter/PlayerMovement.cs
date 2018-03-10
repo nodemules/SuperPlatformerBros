@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Foe;
 using Interfaces;
-using NUnit.Framework;
 using UnityEngine;
 
 namespace PlayerCharacter
@@ -154,8 +151,13 @@ namespace PlayerCharacter
 
             List<ContactPoint2D> standingPoints = contacts
                 .ToList()
-                .Where(p => p.collider != null && p.normal.y > 0)
+                .Where(p => p.collider != null && p.normal.y * _playerRigidbody.gravityScale > 0)
                 .ToList();
+
+            if (standingPoints.Count == 0)
+            {
+                return false;
+            }
 
             bool grounded = standingPoints
                 .Select(p => p.collider.gameObject.GetComponent<IJumpable>())

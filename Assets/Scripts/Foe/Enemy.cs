@@ -121,7 +121,7 @@ namespace Foe
             PlayDead();
             Rigidbody.isKinematic = false;
             Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            Rigidbody.gravityScale = 10;
+            Rigidbody.gravityScale *= 10;
             EnableMovement = false;
             DiedAt = Time.timeSinceLevelLoad;
         }
