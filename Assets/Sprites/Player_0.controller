@@ -21,17 +21,6 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!114 &114924861787630634
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b358838e061f14ac489c7afd87978b8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1102 &1102077069018537668
 AnimatorState:
   serializedVersion: 5
@@ -101,8 +90,7 @@ AnimatorStateMachine:
   m_EntryTransitions:
   - {fileID: 1109401063390662224}
   m_StateMachineTransitions: {}
-  m_StateMachineBehaviours:
-  - {fileID: 114924861787630634}
+  m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 48, y: 24, z: 0}
   m_EntryPosition: {x: 72, y: 192, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
