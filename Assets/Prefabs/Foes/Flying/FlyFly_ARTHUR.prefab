@@ -51,11 +51,11 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1393107224506256}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61004835967341580
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -180,10 +180,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6a284f472d460588be16fec618a0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathAudioClip: {fileID: 8300000, guid: 259a57968b29d4002944bb85c61cd4ac, type: 3}
+  _vaporizeAudioClip: {fileID: 0}
+  _invulnerable: 0
+  _vaporizable: 0
   EnableMovement: 1
   Speed: 1.5
   Range: {x: 1, y: 2}
-  _deathAudioClip: {fileID: 8300000, guid: 259a57968b29d4002944bb85c61cd4ac, type: 3}
 --- !u!212 &212989540555614264
 SpriteRenderer:
   m_ObjectHideFlags: 1

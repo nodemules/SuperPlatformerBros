@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using Environment;
+using Interfaces;
+using UnityEngine;
 
 namespace Foe
 {
@@ -73,6 +76,41 @@ namespace Foe
         protected override void TurnAround()
         {
             Direction *= -1;
+        }
+
+        // @bhaertlein - allow the redundant return to ensure control flow is respected when 
+        //   this functionality is extended
+//        [SuppressMessage("ReSharper", "RedundantJumpStatement")]
+        public new void OnCollisionEnter2D(Collision2D other)
+        {
+            base.OnCollisionEnter2D(other);
+            print("SimpleFlyerEnemy colliding!");
+            Collider2D otherCollider = other.collider;
+            IPlatform platform = otherCollider.GetComponent<IPlatform>();
+            if (platform != null)
+            {
+                print("SimpleFlyerEnemy colliding with platform!");
+                TurnAround();
+                return;
+            }
+
+            Wall wall = otherCollider.GetComponent<IBoundary>() as Wall;
+            if (wall != null && wall.IsObstacle)
+            {
+                print("SimpleFlyerEnemy colliding with wall!");
+                TurnAround();
+                return;
+            }
+
+            IBlock block = otherCollider.GetComponent<IBlock>();
+            if (block != null)
+            {
+                print("SimpleFlyerEnemy colliding with block!");
+                TurnAround();
+                return;
+            }
+            
+            print("SimpleFlyerEnemy colliding with " + otherCollider.name);
         }
     }
 }
