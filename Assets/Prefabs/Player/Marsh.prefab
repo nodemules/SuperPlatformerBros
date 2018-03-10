@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 1664591862017678}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 31.169998, y: -3.06, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2.25, y: 2.25, z: 1}
   m_Children:
   - {fileID: 4084868225358266}
   m_Father: {fileID: 0}
@@ -367,10 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057c313a3b3d7487ab9e67836a887e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Acceleration: 25
-  JumpPower: 7
-  MaxSpeed: 5
   JumpAudio: {fileID: 8300000, guid: 70f630d83e6c741b9b7f402363b0a193, type: 3}
+  Acceleration: 25
+  JumpPower: 7.25
+  MaxSpeed: 5
   MovementEnabled: 1
 --- !u!114 &114727484469885000
 MonoBehaviour:

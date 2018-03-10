@@ -33,7 +33,7 @@ namespace PlayerCharacter
 
         public bool IsFacingRight { get; private set; }
 
-        private bool _isJumping = false;
+        private bool _isJumping;
 
         #endregion
 
@@ -134,7 +134,7 @@ namespace PlayerCharacter
             }
 
             _isJumping = true;
-            
+
             Acceleration = JumpAcceleration;
             Vector2 force = new Vector2(0, JumpPower * _playerRigidbody.gravityScale);
 
@@ -152,15 +152,18 @@ namespace PlayerCharacter
                 return false;
             }
 
-            bool grounded = contacts.ToList()
+            List<ContactPoint2D> standingPoints = contacts
+                .ToList()
                 .Where(p => p.collider != null && p.normal.y > 0)
+                .ToList();
+
+            bool grounded = standingPoints
                 .Select(p => p.collider.gameObject.GetComponent<IJumpable>())
                 .Any(jumpable => jumpable != null);
 
             if (!grounded)
             {
-                grounded = contacts.ToList()
-                    .Where(p => p.collider != null && p.normal.y > 0)
+                grounded = standingPoints
                     .Select(p => p.collider.gameObject.GetComponent<IKillable>())
                     .Any(enemy => enemy != null && enemy.IsDead);
             }
