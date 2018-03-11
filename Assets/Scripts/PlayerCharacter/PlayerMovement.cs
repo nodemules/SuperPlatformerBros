@@ -24,8 +24,8 @@ namespace PlayerCharacter
         public AudioClip JumpAudio;
 
         public int Acceleration = DefaultAcceleration;
-        public int JumpPower = 7;
-        public int MaxSpeed = 5;
+        public float JumpPower = 7;
+        public float MaxSpeed = 5;
         public bool MovementEnabled = true;
 
         public bool IsFacingRight { get; private set; }
