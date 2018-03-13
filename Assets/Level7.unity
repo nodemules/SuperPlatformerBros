@@ -17366,7 +17366,7 @@ Prefab:
         type: 2}
       propertyPath: BackgroundMusicAudioClip
       value: 
-      objectReference: {fileID: 8300000, guid: dfa81a5b8d4d743d990e109774fa1a17, type: 3}
+      objectReference: {fileID: 8300000, guid: 3c52a319dc426493ea800c0ea6e1faee, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a53d2b81e5f744631a8305feabfec0fd, type: 2}
   m_IsPrefabParent: 0

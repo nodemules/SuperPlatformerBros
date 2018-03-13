@@ -2739,7 +2739,7 @@ Prefab:
     - target: {fileID: 114541023636909922, guid: d859f82aa6b1e40628745e6ffcb6e900,
         type: 2}
       propertyPath: _isToggle
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d859f82aa6b1e40628745e6ffcb6e900, type: 2}
