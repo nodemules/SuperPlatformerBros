@@ -11,7 +11,6 @@ namespace PlayerCharacter
         #region properties
 
         private const int DefaultAcceleration = 25;
-        private const int JumpAcceleration = 35;
         private const int MaxContacts = 100;
         private const float JumpingReduxFactor = 0.1f;
         private const float WalkingReduxFactor = 1.0f;
@@ -21,10 +20,13 @@ namespace PlayerCharacter
         private Collider2D _playerCollider;
         private Animator _playerAnimator;
 
+        public float JumpPower = 7.75f;
+        public float FallMultiplier = 2.8f;
+        public float LowJumpModifier = 2.1f;
+
         public AudioClip JumpAudio;
 
         public int Acceleration = DefaultAcceleration;
-        public float JumpPower = 7;
         public float MaxSpeed = 5;
         public bool MovementEnabled = true;
 
@@ -56,6 +58,19 @@ namespace PlayerCharacter
             {
                 DetermineAnimation(moveX);
                 Move(moveX);
+                PlayerGravity();
+            }
+        }
+
+        private void PlayerGravity()
+        {
+            if (_playerRigidbody.velocity.y < 0)
+            {
+                _playerRigidbody.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.deltaTime;
+            }
+            else if (_playerRigidbody.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                _playerRigidbody.velocity += Vector2.up * Physics2D.gravity.y * LowJumpModifier * Time.deltaTime;
             }
         }
 
@@ -131,12 +146,8 @@ namespace PlayerCharacter
             }
 
             _isJumping = true;
-
-            Acceleration = JumpAcceleration;
-            Vector2 force = new Vector2(0, JumpPower * _playerRigidbody.gravityScale);
-
             _playerAudioSource.PlayOneShot(JumpAudio);
-            _playerRigidbody.AddForce(force, ForceMode2D.Impulse);
+            _playerRigidbody.velocity = Vector2.up * JumpPower;
         }
 
         private bool IsGrounded()
