@@ -48,5 +48,10 @@ namespace Level
                 SceneManager.LoadScene("GameOver");
             }
         }
+
+        public static void GoToWarpZone()
+        {
+            SceneManager.LoadScene("WarpZone");
+        }
     }
 }
