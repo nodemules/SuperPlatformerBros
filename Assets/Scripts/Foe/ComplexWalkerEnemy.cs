@@ -10,9 +10,10 @@ namespace Foe
     {
         public Transform Player;
         public float SmoothTime = 5.0f;
-        
-        private Vector3 _smoothVelocity = Vector3.zero;
+        private int _jumpPossible;
 
+        private Vector3 _smoothVelocity = Vector3.zero;
+        
         public new void Update()
         {
             base.Update();
@@ -21,9 +22,20 @@ namespace Foe
 
         protected override void Move()
         {
+            Random rnd = new Random(DateTime.Now.Millisecond);
             transform.position = Vector3.SmoothDamp(transform.position, Player.position,
                 ref _smoothVelocity, SmoothTime);
-            
+
+            _jumpPossible = rnd.Next(1, 100);
+            if (_jumpPossible == 3)
+            {
+                Jump();
+            }
+        }
+
+        private void Jump()
+        {
+            Rigidbody.velocity = Vector2.up * 10;
         }
     }
 }
