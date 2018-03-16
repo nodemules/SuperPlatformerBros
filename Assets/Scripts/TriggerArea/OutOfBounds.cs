@@ -13,7 +13,7 @@ namespace TriggerArea
             get { return false; }
         }
         
-        public bool DestroyObject
+        public bool DestroyObjectPermanently
         {
             get { return _destroyObject; }
             set { _destroyObject = value; }

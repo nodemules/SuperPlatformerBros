@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
 
 namespace System
 {
-    public class BackgroundMusicSystem : MonoBehaviour
+    public class BackgroundMusicSystem : MonoBehaviour, ITriggerable
     {
         private AudioSource _audioSource;
         public AudioClip BackgroundMusicAudioClip;
@@ -11,13 +12,15 @@ namespace System
         public void Start()
         {
             _audioSource = GetComponent<AudioSource>();
-            Invoke("StartBackgroundMusic", 0.5f);
+            if (_audioSource.enabled)
+            {
+                Invoke("StartBackgroundMusic", 0.5f);
+            }
         }
 
         public void StartBackgroundMusic()
         {
-
-            if (BackgroundMusicAudioClip == null || _isPlaying )
+            if (BackgroundMusicAudioClip == null || _isPlaying)
             {
                 return;
             }
@@ -26,12 +29,22 @@ namespace System
             _audioSource.clip = BackgroundMusicAudioClip;
             _audioSource.Play();
         }
-        
+
         public void StopBackgroundMusic()
         {
             _audioSource.Stop();
             _isPlaying = false;
         }
 
+        public void Trigger()
+        {
+                foreach (Transform siblingTrack in transform.parent)
+                {
+                    siblingTrack.GetComponent<BackgroundMusicSystem>().StopBackgroundMusic();
+                }
+
+                _audioSource.enabled = true;
+                StartBackgroundMusic();
+        }
     }
 }
