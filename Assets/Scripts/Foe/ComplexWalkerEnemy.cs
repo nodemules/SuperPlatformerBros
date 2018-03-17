@@ -6,14 +6,13 @@ using Random = System.Random;
 
 namespace Foe
 {
-    public class ComplexWalkerEnemy : SimpleWalkerEnemy, IBoss
+    public class ComplexWalkerEnemy : Enemy
     {
         public Transform Player;
         public float SmoothTime = 5.0f;
         private int _jumpPossible;
 
         private Vector3 _smoothVelocity = Vector3.zero;
-        
         public new void Update()
         {
             base.Update();
@@ -22,15 +21,32 @@ namespace Foe
 
         protected override void Move()
         {
-            Random rnd = new Random(DateTime.Now.Millisecond);
             transform.position = Vector3.SmoothDamp(transform.position, Player.position,
                 ref _smoothVelocity, SmoothTime);
 
+            Random rnd = new Random(DateTime.Now.Millisecond);
             _jumpPossible = rnd.Next(1, 100);
             if (_jumpPossible == 3)
             {
                 Jump();
             }
+        }
+
+
+        protected override void StopMoving()
+        {
+            StopWalking();
+        }
+
+        private void StopWalking()
+        {
+            transform.position = Vector3.zero;
+            
+        }
+
+        protected override void TurnAround()
+        {
+            // Do Nothing;
         }
 
         private void Jump()

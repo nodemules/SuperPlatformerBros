@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4933773537001738}
   - component: {fileID: 212074256329840144}
   - component: {fileID: 95533244990608400}
-  - component: {fileID: 114057049943589630}
   - component: {fileID: 50945831821516158}
   - component: {fileID: 60465190187598250}
   - component: {fileID: 82524471680438394}
+  - component: {fileID: 114097461414600930}
   m_Layer: 0
   m_Name: BubbleHead_PHIL
   m_TagString: Untagged
@@ -218,7 +218,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114057049943589630
+--- !u!114 &114097461414600930
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -226,17 +226,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360381842398712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3382d1c888454aaf9b11f624c9f847e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3af053223af34d3d9b296c28ce1c9931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathAudioClip: {fileID: 8300000, guid: 6a926be4e347f480ba25a935d86d3f42, type: 3}
+  _deathAudioClip: {fileID: 8300000, guid: d72c424966db74dc3b797d0e9b2c97b6, type: 3}
   _vaporizeAudioClip: {fileID: 0}
   _invulnerable: 1
   _vaporizable: 0
+  _enemyFriendlyFire: 0
   EnableMovement: 1
-  Speed: 3
-  Range: {x: 10, y: 10}
-  IsMoonwalking: 1
+  Speed: 5
+  Range: {x: 3, y: 3}
+  Player: {fileID: 0}
+  SmoothTime: 5
 --- !u!212 &212074256329840144
 SpriteRenderer:
   m_ObjectHideFlags: 1

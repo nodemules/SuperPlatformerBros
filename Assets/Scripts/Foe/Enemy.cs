@@ -13,6 +13,7 @@ namespace Foe
         [SerializeField] private AudioClip _vaporizeAudioClip;
         [SerializeField] private bool _invulnerable;
         [SerializeField] private bool _vaporizable;
+        [SerializeField] private bool _friendlyFire;
 
         private AudioSource _audioSource;
 
@@ -31,6 +32,12 @@ namespace Foe
         {
             get { return _vaporizable; }
             set { _vaporizable = value; }
+        }
+        
+        public bool FriendlyFire
+        {
+            get { return _friendlyFire; }
+            set { _friendlyFire = value; }
         }
 
         public AudioClip VaporizeAudioClip
@@ -85,12 +92,15 @@ namespace Foe
         protected void OnCollisionEnter2D(Collision2D other)
         {
             Collider2D otherCollider = other.collider;
-
+            
             IEnemy enemy = otherCollider.GetComponent<IEnemy>();
             if (enemy != null)
             {
                 TurnAround();
-                return;
+                if (!FriendlyFire)
+                {
+                    return;  
+                }
             }
 
             IKillable killable = otherCollider.GetComponent<IKillable>();
