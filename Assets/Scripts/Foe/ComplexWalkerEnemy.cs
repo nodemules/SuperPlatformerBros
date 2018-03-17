@@ -6,13 +6,14 @@ using Random = System.Random;
 
 namespace Foe
 {
-    public class ComplexWalkerEnemy : Enemy
+    public class ComplexWalkerEnemy : Enemy, IBoss, IPowerful
     {
         public Transform Player;
         public float SmoothTime = 5.0f;
         private int _jumpPossible;
 
         private Vector3 _smoothVelocity = Vector3.zero;
+
         public new void Update()
         {
             base.Update();
@@ -32,7 +33,6 @@ namespace Foe
             }
         }
 
-
         protected override void StopMoving()
         {
             StopWalking();
@@ -41,7 +41,12 @@ namespace Foe
         private void StopWalking()
         {
             transform.position = Vector3.zero;
-            
+            Invoke("BlowUp", 0.75f);
+        }
+
+        private void BlowUp()
+        {
+            Destroy(gameObject);
         }
 
         protected override void TurnAround()
@@ -52,6 +57,17 @@ namespace Foe
         private void Jump()
         {
             Rigidbody.velocity = Vector2.up * 10;
+        }
+
+        public void PowerUp()
+        {
+            if (IsDead)
+            {
+                return;
+            }
+
+            SmoothTime = 12;
+            gameObject.transform.localScale *= 2;
         }
     }
 }
