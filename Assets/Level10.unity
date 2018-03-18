@@ -164,6 +164,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20bbf80e129714c55a2e302c42aefa12, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &150766277 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114556420660072122, guid: 42043fef6aa424fc99fc88860d10b9eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1383441681}
+  m_Script: {fileID: 11500000, guid: ed27b06c1733746f7b89f80d699e1e49, type: 3}
 --- !u!1 &179751013
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +397,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de30b1bab43b41439a514eb9a1c51a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIText: {fileID: 372633826}
+  TextToType: I cannot believe you have made it this far, Marsh. Unfortunately I cannot
+    allow you to continue. It's a shame we could not live in harmony. Prepare to be
+    roasted!
+  TimeToType: 20
+  Player: {fileID: 150766277}
 --- !u!1001 &300935731
 Prefab:
   m_ObjectHideFlags: 0
@@ -461,6 +473,80 @@ Transform:
   m_Father: {fileID: 291100258}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &372633825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 372633828}
+  - component: {fileID: 372633827}
+  - component: {fileID: 372633826}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &372633826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372633825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 10
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 14
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &372633827
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372633825}
+--- !u!224 &372633828
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 372633825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.1825562, y: 1.979546, z: 1}
+  m_Children: []
+  m_Father: {fileID: 560857565}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -99.06918, y: 49.526512}
+  m_SizeDelta: {x: 267.2, y: 84.7}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &418645693 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4285102477666230, guid: 20bbf80e129714c55a2e302c42aefa12,
@@ -808,6 +894,16 @@ Prefab:
       propertyPath: m_Name
       value: BubbleHead_PHIL (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: EnableMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: _vaporizable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e223ba652cda34b6c846feb7934dde18, type: 2}
   m_IsPrefabParent: 0
@@ -903,6 +999,26 @@ Prefab:
     - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
         type: 2}
       propertyPath: _deathAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c1461408f73144dabb8ca691b6da1ee, type: 3}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: EnableMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95533244990608400, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: _vaporizable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: _vaporizeAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: d0922835594004a69b001e00e618c292, type: 3}
     m_RemovedComponents: []
@@ -1250,6 +1366,16 @@ Prefab:
       propertyPath: m_Name
       value: BubbleHead_PHIL (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: EnableMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097461414600930, guid: e223ba652cda34b6c846feb7934dde18,
+        type: 2}
+      propertyPath: _vaporizable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e223ba652cda34b6c846feb7934dde18, type: 2}
   m_IsPrefabParent: 0
@@ -1327,6 +1453,11 @@ Prefab:
     - target: {fileID: 4452032058186198, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688831108202430, guid: 42043fef6aa424fc99fc88860d10b9eb,
+        type: 2}
+      propertyPath: MovementEnabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
