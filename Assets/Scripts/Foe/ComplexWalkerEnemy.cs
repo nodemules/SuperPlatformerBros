@@ -22,15 +22,19 @@ namespace Foe
 
         protected override void Move()
         {
-            transform.position = Vector3.SmoothDamp(transform.position, Player.position,
-                ref _smoothVelocity, SmoothTime);
-
-            Random rnd = new Random(DateTime.Now.Millisecond);
-            _jumpPossible = rnd.Next(1, 100);
-            if (_jumpPossible == 3)
+            if (EnableMovement)
             {
-                Jump();
+                transform.position = Vector3.SmoothDamp(transform.position, Player.position,
+                    ref _smoothVelocity, SmoothTime);
+
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                _jumpPossible = rnd.Next(1, 100);
+                if (_jumpPossible == 3)
+                {
+                    Jump();
+                }
             }
+
         }
 
         protected override void StopMoving()
@@ -39,6 +43,12 @@ namespace Foe
         }
 
         private void StopWalking()
+        {
+            Animator.enabled = false;
+            Rigidbody.velocity = new Vector2(0, Rigidbody.velocity.y);
+        }
+
+        private void KillBoss()
         {
             transform.position = Vector3.zero;
             Invoke("BlowUp", 0.75f);
@@ -68,6 +78,12 @@ namespace Foe
 
             SmoothTime = 12;
             gameObject.transform.localScale *= 2;
+        }
+        
+        public void StartMoving()
+        {
+            Animator.enabled = true;
+            gameObject.GetComponent<Enemy>().EnableMovement = true;
         }
     }
 }

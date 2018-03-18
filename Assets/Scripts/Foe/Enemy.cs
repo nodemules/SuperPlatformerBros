@@ -23,6 +23,7 @@ namespace Foe
 
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
+        public Animator Animator { get; set; }
         public bool IsDead { get; set; }
         public float DiedAt { get; set; }
 
@@ -68,6 +69,7 @@ namespace Foe
         protected void DoInitialization()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
+            Animator = GetComponent<Animator>();
             InitialPosition = transform.position;
             Direction = -1;
             _audioSource = GetComponent<AudioSource>();

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Environment;
 using Foe;
+using PlayerCharacter;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,10 +14,13 @@ namespace Level
         private bool _bossesCleared;
         private Scene _scene;
         private bool _powerUpLastBoss;
+        public Player Player;
 
         public void Start()
         {
             _scene = SceneManager.GetActiveScene();
+
+            Invoke("StartFight", 20);
         }
 
         public void Update()
@@ -44,6 +47,19 @@ namespace Level
             {
                 Invoke("WinGame", 3);
             }
+        }
+
+        private void StartFight()
+        {
+            _bosses = new List<IBoss>(GetComponentsInChildren<IBoss>());
+            foreach (IBoss boss in _bosses)
+            {
+                boss.StartMoving();
+            }
+           
+            PlayerMovement movement = Player.GetComponent<PlayerMovement>();
+            movement.MovementEnabled = true;
+
         }
 
         private void WinGame()

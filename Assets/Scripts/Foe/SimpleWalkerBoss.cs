@@ -88,5 +88,10 @@ namespace Foe
         {
             _nimblicizing = false;
         }
+
+        public void StartMoving()
+        {
+            gameObject.GetComponent<Enemy>().EnableMovement = true;
+        }
     }
 }
