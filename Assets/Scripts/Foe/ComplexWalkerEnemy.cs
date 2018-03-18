@@ -85,5 +85,10 @@ namespace Foe
             Animator.enabled = true;
             gameObject.GetComponent<Enemy>().EnableMovement = true;
         }
+
+        public void EnableBoss()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

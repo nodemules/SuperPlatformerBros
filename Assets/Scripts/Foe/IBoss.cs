@@ -3,5 +3,6 @@
     public interface IBoss
     {
         void StartMoving();
+        void EnableBoss();
     }
 }

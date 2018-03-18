@@ -16,9 +16,10 @@ namespace Level
         public float TimeToType;
 
         private float textPercentage;
-        private List<IBoss> _bosses = new List<IBoss>();
-        private bool _bossesCleared;
+        private List<IBoss> _allBosses = new List<IBoss>();
+        private List<IBoss> _currentBosses = new List<IBoss>();
         private Scene _scene;
+        private bool _bossesCleared;
         private bool _powerUpLastBoss;
         public Player Player;
 
@@ -37,11 +38,12 @@ namespace Level
 
             IntroSpeech();
 
-            _bosses = new List<IBoss>(GetComponentsInChildren<IBoss>());
-            bool lastBoss = _bosses.Count == 1;
+            _allBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(true));
+            _currentBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(false));
+            bool lastBoss = _allBosses.Count == 1;
             if (lastBoss && !_powerUpLastBoss)
             {
-                IPowerful boss = _bosses[0] as IPowerful;
+                IPowerful boss = _allBosses[0] as IPowerful;
                 if (boss != null)
                 {
                     _powerUpLastBoss = true;
@@ -49,11 +51,24 @@ namespace Level
                 }
             }
 
-            _bossesCleared = _bosses.Count == 0;
-
-            if (_bossesCleared)
+            if (_currentBosses.Count == 0)
             {
+                NextWave();
+            }
+
+            if (_allBosses.Count == 0)
+            {
+                _bossesCleared = true;
                 Invoke("WinGame", 3);
+            }
+        }
+
+        private void NextWave()
+        {
+
+            foreach (IBoss b in _allBosses)
+            {
+                b.EnableBoss();
             }
         }
 
@@ -67,8 +82,8 @@ namespace Level
 
         private void StartFight()
         {
-            _bosses = new List<IBoss>(GetComponentsInChildren<IBoss>());
-            foreach (IBoss boss in _bosses)
+            _currentBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(false));
+            foreach (IBoss boss in _currentBosses)
             {
                 boss.StartMoving();
             }
