@@ -14,7 +14,6 @@ namespace PlayerCharacter
         private const int MaxContacts = 100;
         private const float JumpingReduxFactor = 0.1f;
         private const float WalkingReduxFactor = 1.0f;
-        public int FallPoint;
 
         private AudioSource _playerAudioSource;
         private Rigidbody2D _playerRigidbody;
