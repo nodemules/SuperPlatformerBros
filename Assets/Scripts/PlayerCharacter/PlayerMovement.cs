@@ -14,6 +14,7 @@ namespace PlayerCharacter
         private const int MaxContacts = 100;
         private const float JumpingReduxFactor = 0.1f;
         private const float WalkingReduxFactor = 1.0f;
+        public int FallPoint;
 
         private AudioSource _playerAudioSource;
         private Rigidbody2D _playerRigidbody;
@@ -66,11 +67,25 @@ namespace PlayerCharacter
         {
             if (_playerRigidbody.velocity.y < 0)
             {
-                _playerRigidbody.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.deltaTime;
+                _playerRigidbody.velocity +=
+                    Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.deltaTime;
             }
-            else if (_playerRigidbody.velocity.y > 0 && !Input.GetButton("Jump"))
+            else if (_playerRigidbody.velocity.y > 0)
             {
-                _playerRigidbody.velocity += Vector2.up * Physics2D.gravity.y * LowJumpModifier * Time.deltaTime;
+                if (!Input.GetButton("Jump"))
+                {
+                    _playerRigidbody.velocity +=
+                        Vector2.up * Physics2D.gravity.y * LowJumpModifier * Time.deltaTime;
+                }
+                else
+                {
+
+                    print("velocity" + _playerRigidbody.velocity.y);
+                    if (_playerRigidbody.velocity.y < 1.5f)
+                    {
+                        _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, 0);
+                    }
+                }
             }
         }
 
