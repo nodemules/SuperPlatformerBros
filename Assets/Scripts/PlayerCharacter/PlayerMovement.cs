@@ -65,23 +65,31 @@ namespace PlayerCharacter
 
         private void PlayerGravity()
         {
-            if (_playerRigidbody.velocity.y < 0)
+            float localY = _playerRigidbody.velocity.y * _playerRigidbody.gravityScale;
+            Vector2 localUp = Vector2.up * _playerRigidbody.gravityScale;
+            if (localY < 0)
             {
-                _playerRigidbody.velocity +=
-                    Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.deltaTime;
+                if (localY <= Physics2D.gravity.y)
+                {
+                    _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x,
+                        _playerRigidbody.velocity.y);
+                }
+                else
+                {
+                    _playerRigidbody.velocity +=
+                        localUp * Physics2D.gravity.y * FallMultiplier * Time.deltaTime;
+                }
             }
-            else if (_playerRigidbody.velocity.y > 0)
+            else if (localY > 0)
             {
                 if (!Input.GetButton("Jump"))
                 {
                     _playerRigidbody.velocity +=
-                        Vector2.up * Physics2D.gravity.y * LowJumpModifier * Time.deltaTime;
+                        localUp * Physics2D.gravity.y * LowJumpModifier * Time.deltaTime;
                 }
                 else
                 {
-
-                    print("velocity" + _playerRigidbody.velocity.y);
-                    if (_playerRigidbody.velocity.y < 1.5f)
+                    if (localY < 1.5f)
                     {
                         _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x, 0);
                     }
@@ -162,7 +170,7 @@ namespace PlayerCharacter
 
             _isJumping = true;
             _playerAudioSource.PlayOneShot(JumpAudio);
-            _playerRigidbody.velocity = Vector2.up * JumpPower;
+            _playerRigidbody.velocity = Vector2.up * JumpPower * _playerRigidbody.gravityScale;
         }
 
         private bool IsGrounded()
