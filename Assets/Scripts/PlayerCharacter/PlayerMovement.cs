@@ -71,7 +71,7 @@ namespace PlayerCharacter
                 if (localY <= Physics2D.gravity.y)
                 {
                     _playerRigidbody.velocity = new Vector2(_playerRigidbody.velocity.x,
-                        _playerRigidbody.velocity.y);
+                        Physics2D.gravity.y * _playerRigidbody.gravityScale);
                 }
                 else
                 {
