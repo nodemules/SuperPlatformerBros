@@ -367,9 +367,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057c313a3b3d7487ab9e67836a887e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpPower: 7.75
+  FallMultiplier: 2.8
+  LowJumpModifier: 2.1
   JumpAudio: {fileID: 8300000, guid: 70f630d83e6c741b9b7f402363b0a193, type: 3}
   Acceleration: 25
-  JumpPower: 7.25
   MaxSpeed: 5
   MovementEnabled: 1
 --- !u!114 &114727484469885000
