@@ -21,6 +21,11 @@ namespace TriggerArea
             {
                 BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
                 player.transform.position = boxCollider2D.bounds.center;
+                Rigidbody2D playerRigidbody2D = player.GetComponent<Rigidbody2D>();
+                if (playerRigidbody2D != null)
+                {
+                    playerRigidbody2D.velocity = new Vector2();
+                }
             }
         }
     }
