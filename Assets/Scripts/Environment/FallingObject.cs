@@ -1,11 +1,15 @@
 ﻿using Interfaces;
 using UnityEngine;
 
-namespace TriggerArea
+namespace Environment
 {
-    public class FallingObject : MonoBehaviour , ITriggerable
+    public class FallingObject : MonoBehaviour, ITriggerable
     {
         private Rigidbody2D _rigidbody2D;
+        private const int _forceFactor = 1000;
+        public Vector2 Direction;
+        public bool EnableDirectionalForce;
+
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -13,9 +17,16 @@ namespace TriggerArea
 
         public void Trigger()
         {
-            _rigidbody2D.gravityScale = 1;
+            if (EnableDirectionalForce)
+            {
+                _rigidbody2D.AddForce(Direction * _forceFactor);
+            }
+            else
+            {
+                _rigidbody2D.gravityScale = 1;
+            }
+
             Destroy(gameObject, 2f);
         }
-
     }
 }
