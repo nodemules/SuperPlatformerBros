@@ -1413,7 +1413,7 @@ Prefab:
         type: 2}
       propertyPath: BackgroundMusicAudioClip
       value: 
-      objectReference: {fileID: 8300000, guid: b3c240ef2c73b4696b94b49594241e9d, type: 3}
+      objectReference: {fileID: 8300000, guid: 16af6116b4cb346949d3f4cc0a129145, type: 3}
     - target: {fileID: 82433237807139490, guid: a53d2b81e5f744631a8305feabfec0fd,
         type: 2}
       propertyPath: m_Enabled

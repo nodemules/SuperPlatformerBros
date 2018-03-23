@@ -15,18 +15,28 @@ namespace Level
         public string TextToType;
         public float TimeToType;
 
+        private BackgroundMusicSystem _backgroundMusicSystem;
+        public AudioClip FightMusic;
+
         private float textPercentage;
         private List<IBoss> _allBosses = new List<IBoss>();
         private List<IBoss> _currentBosses = new List<IBoss>();
         private Scene _scene;
         private bool _bossesCleared;
         private bool _powerUpLastBoss;
+        private bool _fightStarted;
+        private bool _skippedIntro;
         public Player Player;
 
         public void Start()
         {
             _scene = SceneManager.GetActiveScene();
-            Invoke("StartFight", 20);
+            _backgroundMusicSystem = GetComponentInChildren<BackgroundMusicSystem>();
+
+            if (!_fightStarted)
+            {
+                Invoke("StartFight", 24.5f);
+            }
         }
 
         public void Update()
@@ -34,6 +44,12 @@ namespace Level
             if (_scene.name != SceneName || _bossesCleared)
             {
                 return;
+            }
+
+            if (!_fightStarted && Input.GetButtonDown("Jump"))
+            {
+                _skippedIntro = true;
+                StartFight();
             }
 
             IntroSpeech();
@@ -65,7 +81,6 @@ namespace Level
 
         private void NextWave()
         {
-
             foreach (IBoss b in _allBosses)
             {
                 b.EnableBoss();
@@ -74,14 +89,25 @@ namespace Level
 
         private void IntroSpeech()
         {
-            int numberOfLettersToShow = (int) (TextToType.Length * textPercentage);
-            UIText.text = TextToType.Substring(0, numberOfLettersToShow);
-            textPercentage += Time.deltaTime / TimeToType;
-            textPercentage = Mathf.Min(1.0f, textPercentage);
+            if (!_skippedIntro)
+            {
+                int numberOfLettersToShow = (int) (TextToType.Length * textPercentage);
+                UIText.text = TextToType.Substring(0, numberOfLettersToShow);
+                textPercentage += Time.deltaTime / TimeToType;
+                textPercentage = Mathf.Min(1.0f, textPercentage);
+            }
+            else
+            {
+                UIText.text = "It's very rude to skip a final boss' speech!";
+            }
         }
 
         private void StartFight()
         {
+            _fightStarted = true;
+            _backgroundMusicSystem.StopBackgroundMusic();
+            _backgroundMusicSystem.BackgroundMusicAudioClip = FightMusic;
+            _backgroundMusicSystem.StartBackgroundMusic();
             _currentBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(false));
             foreach (IBoss boss in _currentBosses)
             {
@@ -90,8 +116,8 @@ namespace Level
 
             PlayerMovement movement = Player.GetComponent<PlayerMovement>();
             movement.MovementEnabled = true;
-            
-            Invoke("RemoveText", 2);
+
+            Invoke("RemoveText", _skippedIntro ? 3f : 0.5f);
         }
 
         private void WinGame()
