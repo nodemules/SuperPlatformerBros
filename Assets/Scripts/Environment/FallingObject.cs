@@ -6,7 +6,7 @@ namespace Environment
     public class FallingObject : MonoBehaviour, ITriggerable
     {
         private Rigidbody2D _rigidbody2D;
-        private const int _forceFactor = 1000;
+        private const int ForceFactor = 500;
         public Vector2 Direction;
         public bool EnableDirectionalForce;
 
@@ -19,7 +19,7 @@ namespace Environment
         {
             if (EnableDirectionalForce)
             {
-                _rigidbody2D.AddForce(Direction * _forceFactor);
+                _rigidbody2D.AddForce(Direction * ForceFactor);
             }
             else
             {

@@ -49,6 +49,9 @@ namespace TriggerArea
             if (player != null && Triggerable != null &&
                 (IsToggle || TriggerFiredCount < NumberOfTriggers))
             {
+                print("TriggerFiredCount=" + TriggerFiredCount);
+                print("NumberOfTriggers=" + NumberOfTriggers);
+                print("Firing " + _target.name + ".Trigger()");
                 TriggerFiredCount++;
                 Triggerable.Trigger();
             }
