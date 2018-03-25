@@ -1,7 +1,6 @@
 ﻿using Level;
 using PlayerCharacter;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Environment
 {

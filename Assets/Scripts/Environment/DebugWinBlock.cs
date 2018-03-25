@@ -1,13 +1,15 @@
-﻿using Level;
+﻿using System.Diagnostics.CodeAnalysis;
+using Level;
 using PlayerCharacter;
 using UnityEngine;
 
 namespace Environment
 {
-    public class DebugWinBlock : WinBlock
+    public class DebugWinBlock : Block
     {
         public int LevelNumber;
 
+        [SuppressMessage("ReSharper", "RedundantJumpStatement")]
         public void Start()
         {
             if (!Debug.isDebugBuild)

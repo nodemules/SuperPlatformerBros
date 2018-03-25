@@ -11,14 +11,14 @@ namespace Level
     public class Level10Controller : MonoBehaviour
     {
         private const string SceneName = "Level10";
-        public Text UIText;
+        public Text UiText;
         public string TextToType;
         public float TimeToType;
 
         private BackgroundMusicSystem _backgroundMusicSystem;
         public AudioClip FightMusic;
 
-        private float textPercentage;
+        private float _textPercentage;
         private List<IBoss> _allBosses = new List<IBoss>();
         private List<IBoss> _currentBosses = new List<IBoss>();
         private Scene _scene;
@@ -91,14 +91,14 @@ namespace Level
         {
             if (!_skippedIntro)
             {
-                int numberOfLettersToShow = (int) (TextToType.Length * textPercentage);
-                UIText.text = TextToType.Substring(0, numberOfLettersToShow);
-                textPercentage += Time.deltaTime / TimeToType;
-                textPercentage = Mathf.Min(1.0f, textPercentage);
+                int numberOfLettersToShow = (int) (TextToType.Length * _textPercentage);
+                UiText.text = TextToType.Substring(0, numberOfLettersToShow);
+                _textPercentage += Time.deltaTime / TimeToType;
+                _textPercentage = Mathf.Min(1.0f, _textPercentage);
             }
             else
             {
-                UIText.text = "It's very rude to skip a final boss' speech!";
+                UiText.text = "It's very rude to skip a final boss' speech!";
             }
         }
 
@@ -128,7 +128,7 @@ namespace Level
 
         private void RemoveText()
         {
-            UIText.enabled = false;
+            UiText.enabled = false;
         }
     }
 }
