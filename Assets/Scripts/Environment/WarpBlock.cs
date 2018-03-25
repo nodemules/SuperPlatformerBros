@@ -1,10 +1,11 @@
-﻿using Level;
+﻿using Interfaces;
+using Level;
 using PlayerCharacter;
 using UnityEngine;
 
 namespace Environment
 {
-    public class WarpBlock : MonoBehaviour
+    public class WarpBlock : MonoBehaviour, IBlock
     {
         private void OnCollisionEnter2D(Collision2D other)
         {

@@ -9,11 +9,16 @@ namespace Foe
     {
         private float _lowerBound;
         private float _upperBound;
-        private bool _isFlying;
+        protected bool IsFlying;
 
         public new void Start()
         {
             DoInitialization();
+        }
+
+        protected new void DoInitialization()
+        {
+            base.DoInitialization();
             Rigidbody.gravityScale = 0.0f;
             _lowerBound = InitialPosition.y - Range.x;
             _upperBound = InitialPosition.y + Range.y;
@@ -29,26 +34,29 @@ namespace Foe
             StopFlying();
         }
 
-        private void StopFlying()
+        protected void StopFlying()
         {
-            _isFlying = false;
+            IsFlying = false;
             Rigidbody.velocity = new Vector2(0, 0);
         }
 
-        private void Fly()
+        protected void Fly()
         {
             if (!EnableMovement)
             {
                 return;
             }
 
-            if (!_isFlying)
+            if (!IsFlying)
             {
-                _isFlying = true;
+                IsFlying = true;
             }
-
+            CheckDirection();
             Rigidbody.velocity = new Vector2(0, Speed * Direction);
+        }
 
+        protected void CheckDirection()
+        {
             switch (Direction)
             {
                 case -1:
@@ -71,6 +79,7 @@ namespace Foe
                     Direction = 1;
                     break;
             }
+            
         }
 
         protected override void TurnAround()
