@@ -1,6 +1,4 @@
 ﻿using System;
-using Interfaces;
-using TriggerArea;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

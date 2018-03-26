@@ -7,7 +7,7 @@ namespace Foe
 {
     public class SimpleWalkerBoss : SimpleWalkerEnemy, IKillable, IBoss, IPowerful
     {
-        public BossPowerUpType Type = BossPowerUpType.NONE;
+        public BossPowerUpType Type = BossPowerUpType.None;
         public int BuffedSpeedModifier = 2;
         public int BuffedRangeModifier = 10;
         public int BuffedScaleModifier = 3;
@@ -46,15 +46,19 @@ namespace Foe
             Range *= BuffedRangeModifier;
             switch (Type)
             {
-                case BossPowerUpType.NIMBLY:
+                case BossPowerUpType.Nimbly:
                     _nimblicizing = true;
                     break;
-                case BossPowerUpType.GARGANTUAN:
+                case BossPowerUpType.Gargantuan:
                     gameObject.transform.localScale *= BuffedScaleModifier;
                     break;
-                case BossPowerUpType.SPEEDY_GONZALES:
+                case BossPowerUpType.SpeedyGonzales:
                     Speed *= 3;
                     break;
+                case BossPowerUpType.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             ResetBounds();

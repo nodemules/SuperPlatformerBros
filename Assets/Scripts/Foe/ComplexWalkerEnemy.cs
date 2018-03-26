@@ -1,6 +1,4 @@
 ﻿using System;
-using Interfaces;
-using PlayerCharacter;
 using UnityEngine;
 using Random = System.Random;
 

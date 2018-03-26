@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Interfaces;
+﻿using Interfaces;
 using UnityEngine;
 
 namespace TriggerArea

@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-using Foe;
-using Interfaces;
+﻿using Interfaces;
 using PlayerCharacter;
 using UnityEngine;
 
