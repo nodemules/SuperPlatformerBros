@@ -29,7 +29,7 @@ namespace System
             {
                 SetDefaults();
             }
-            
+
             CameraSystemDebug.PrintBounds(MinVector, MaxVector);
 
             _originalMinVector = MinVector;
@@ -52,7 +52,13 @@ namespace System
             Vector3 playerPos = _player.transform.position;
             float x = Mathf.Clamp(playerPos.x, MinVector.x, MaxVector.x);
             float y = Mathf.Clamp(playerPos.y, MinVector.y, MaxVector.y);
-            gameObject.transform.position = new Vector3(x, y, gameObject.transform.position.z);
+            Vector3 newCameraPosition = new Vector3(x, y, gameObject.transform.position.z);
+            Vector3 currentCameraPosition = gameObject.transform.position;
+            Vector3 zero = Vector3.zero;
+            const float smoothTime = 0.1f;
+            gameObject.transform.position = Vector3.SmoothDamp(currentCameraPosition,
+                newCameraPosition,
+                ref zero, smoothTime);
         }
 
         private void SetCameraFromBackdrop()
@@ -68,6 +74,7 @@ namespace System
                 CameraSystemDebug.PrintBackdropNotAttached();
                 return;
             }
+
             print("Setting Backdrop Bound");
 
             Vector3 pPos = _parentTransform.transform.position;
@@ -89,7 +96,7 @@ namespace System
                 CameraSystemDebug.PrintPlayerNotFound();
                 return;
             }
-            
+
             print("Setting default Bound");
 
             Vector3 playerPos = _player.transform.position;
