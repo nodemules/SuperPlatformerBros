@@ -1,6 +1,8 @@
 ﻿using System;
 using Interfaces;
+using PlayerCharacter;
 using UnityEngine;
+using Util;
 
 namespace Foe
 {
@@ -20,6 +22,7 @@ namespace Foe
         public bool EnableMovement;
         public float Speed;
         public Vector2 Range;
+        public float DeathGravityScale = 1;
 
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
@@ -34,7 +37,7 @@ namespace Foe
             get { return _vaporizable; }
             set { _vaporizable = value; }
         }
-        
+
         public bool FriendlyFire
         {
             get { return _friendlyFire; }
@@ -94,14 +97,14 @@ namespace Foe
         protected void OnCollisionEnter2D(Collision2D other)
         {
             Collider2D otherCollider = other.collider;
-            
+
             IEnemy enemy = otherCollider.GetComponent<IEnemy>();
             if (enemy != null)
             {
                 TurnAround();
                 if (!FriendlyFire)
                 {
-                    return;  
+                    return;
                 }
             }
 
@@ -134,7 +137,7 @@ namespace Foe
             Rigidbody.isKinematic = false;
             Rigidbody.mass = 100.0f;
             Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            Rigidbody.gravityScale = 10.0f;
+            Rigidbody.gravityScale = 10.0f * DeathGravityScale;
             EnableMovement = false;
             DiedAt = Time.timeSinceLevelLoad;
         }

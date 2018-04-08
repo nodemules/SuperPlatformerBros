@@ -246,6 +246,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114343588395481278, guid: bcf39cf1bd6f94f74938cf0b0aa321b0,
+        type: 2}
+      propertyPath: DeathGravityScale
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bcf39cf1bd6f94f74938cf0b0aa321b0, type: 2}
   m_IsPrefabParent: 0
@@ -845,6 +850,11 @@ Prefab:
     - target: {fileID: 50603156198729146, guid: d87a9cfff261548e5be61abf1ccc8348,
         type: 2}
       propertyPath: m_GravityScale
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114085498569403200, guid: d87a9cfff261548e5be61abf1ccc8348,
+        type: 2}
+      propertyPath: DeathGravityScale
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1801,6 +1811,11 @@ Prefab:
       propertyPath: m_GravityScale
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114664920918807074, guid: 3222b06bc31564430add81ecd16916f8,
+        type: 2}
+      propertyPath: DeathGravityScale
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3222b06bc31564430add81ecd16916f8, type: 2}
   m_IsPrefabParent: 0
@@ -2080,6 +2095,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114084298154284382, guid: 3d04fe61146114456b71e115b16de081,
+        type: 2}
+      propertyPath: DeathGravityScale
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d04fe61146114456b71e115b16de081, type: 2}
   m_IsPrefabParent: 0
@@ -2323,6 +2343,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114080549286704320, guid: 49dc90542fbed4abda0ec9d3657f98e9,
+        type: 2}
+      propertyPath: DeathGravityScale
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49dc90542fbed4abda0ec9d3657f98e9, type: 2}
   m_IsPrefabParent: 0
@@ -2485,6 +2510,11 @@ Prefab:
       propertyPath: m_GravityScale
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114085498569403200, guid: d87a9cfff261548e5be61abf1ccc8348,
+        type: 2}
+      propertyPath: DeathGravityScale
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d87a9cfff261548e5be61abf1ccc8348, type: 2}
   m_IsPrefabParent: 0
@@ -2567,6 +2597,11 @@ Prefab:
     - target: {fileID: 50603156198729146, guid: d87a9cfff261548e5be61abf1ccc8348,
         type: 2}
       propertyPath: m_GravityScale
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114085498569403200, guid: d87a9cfff261548e5be61abf1ccc8348,
+        type: 2}
+      propertyPath: DeathGravityScale
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2663,6 +2698,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114080549286704320, guid: 49dc90542fbed4abda0ec9d3657f98e9,
+        type: 2}
+      propertyPath: DeathGravityScale
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49dc90542fbed4abda0ec9d3657f98e9, type: 2}
   m_IsPrefabParent: 0
@@ -2744,6 +2784,11 @@ Prefab:
     - target: {fileID: 50603156198729146, guid: d87a9cfff261548e5be61abf1ccc8348,
         type: 2}
       propertyPath: m_GravityScale
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114085498569403200, guid: d87a9cfff261548e5be61abf1ccc8348,
+        type: 2}
+      propertyPath: DeathGravityScale
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
