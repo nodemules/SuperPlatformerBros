@@ -16,6 +16,7 @@ namespace System
         public Vector2 MinVector;
         public Vector2 MaxVector;
         public Vector2 PlayerOffset;
+        public float SmoothTime = 0.1f;
 
         private Transform _parentTransform;
 
@@ -57,10 +58,9 @@ namespace System
             Vector3 newCameraPosition = new Vector3(x, y, gameObject.transform.position.z);
             Vector3 currentCameraPosition = gameObject.transform.position;
             Vector3 zero = Vector3.zero;
-            const float smoothTime = 0.01f;
             gameObject.transform.position = Vector3.SmoothDamp(currentCameraPosition,
                 newCameraPosition,
-                ref zero, smoothTime);
+                ref zero, SmoothTime);
         }
 
         private void SetCameraFromBackdrop()
