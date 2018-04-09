@@ -22,7 +22,7 @@ namespace Environment
         public new void OnCollisionEnter2D(Collision2D other)
         {
             Player player = other.collider.GetComponent<Player>();
-            if (player != null)
+            if (player != null && !player.IsDead)
             {
                 if (LevelNumber > 0)
                 {

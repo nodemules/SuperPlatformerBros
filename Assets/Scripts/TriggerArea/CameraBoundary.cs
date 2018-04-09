@@ -35,7 +35,7 @@ namespace TriggerArea
         private void OnTriggerExit2D(Collider2D other)
         {
             Player player = other.GetComponent<Player>();
-            if (player != null)
+            if (player != null && !player.IsDead)
             {
                 CameraSystem cameraSystem = _camera.GetComponent<CameraSystem>();
                 cameraSystem.ResetCamera();

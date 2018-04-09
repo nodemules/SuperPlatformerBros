@@ -60,6 +60,10 @@ namespace PlayerCharacter
                 Move(moveX);
                 PlayerGravity();
             }
+            else
+            {
+                _playerRigidbody.velocity = Physics2D.gravity * _playerRigidbody.gravityScale;
+            }
         }
 
         private void PlayerGravity()

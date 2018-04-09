@@ -34,7 +34,7 @@ namespace Environment
         private void OnTriggerEnter2D(Collider2D other)
         {
             Player player = other.GetComponent<IPlayer>() as Player;
-            if (player != null)
+            if (player != null && !player.IsDead)
             {
                 Collect();
             }

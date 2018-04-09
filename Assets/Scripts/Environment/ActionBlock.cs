@@ -24,7 +24,7 @@ namespace Environment
         {
             base.OnCollisionEnter2D(other);
             Player player = other.collider.GetComponent<Player>();
-            if (player != null)
+            if (player != null && !player.IsDead)
             {
                 if (Triggerable != null && (IsToggle || TriggerFiredCount < NumberOfTriggers))
                 {
