@@ -233,9 +233,12 @@ MonoBehaviour:
   _vaporizeAudioClip: {fileID: 0}
   _invulnerable: 0
   _vaporizable: 0
+  _friendlyFire: 0
   EnableMovement: 1
   Speed: 3
   Range: {x: 3, y: 3}
+  DeathGravityScale: 1
+  IgnoreDeathCollision: 0
   IsMoonwalking: 1
 --- !u!212 &212869447266973036
 SpriteRenderer:

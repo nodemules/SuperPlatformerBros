@@ -233,10 +233,12 @@ MonoBehaviour:
   _vaporizeAudioClip: {fileID: 0}
   _invulnerable: 1
   _vaporizable: 0
-  _enemyFriendlyFire: 0
+  _friendlyFire: 0
   EnableMovement: 1
   Speed: 5
   Range: {x: 3, y: 3}
+  DeathGravityScale: 1
+  IgnoreDeathCollision: 0
   Player: {fileID: 0}
   SmoothTime: 5
 --- !u!212 &212074256329840144

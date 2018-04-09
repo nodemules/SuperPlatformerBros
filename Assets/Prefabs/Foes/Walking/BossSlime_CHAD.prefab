@@ -186,10 +186,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a63ebe5b4cc4e7f99b203304a63a4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathAudioClip: {fileID: 8300000, guid: a87ff5cb491164357a9294f9fdc0bf0a, type: 3}
+  _vaporizeAudioClip: {fileID: 0}
+  _invulnerable: 0
+  _vaporizable: 0
+  _friendlyFire: 0
   EnableMovement: 1
   Speed: 1
   Range: {x: 3, y: 3}
-  _deathAudioClip: {fileID: 8300000, guid: a87ff5cb491164357a9294f9fdc0bf0a, type: 3}
+  DeathGravityScale: 1
+  IgnoreDeathCollision: 0
   IsMoonwalking: 0
   Type: 0
   BuffedSpeedModifier: 2

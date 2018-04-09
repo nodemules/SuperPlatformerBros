@@ -230,10 +230,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deathAudioClip: {fileID: 8300000, guid: 6a926be4e347f480ba25a935d86d3f42, type: 3}
+  _vaporizeAudioClip: {fileID: 0}
   _invulnerable: 1
+  _vaporizable: 0
+  _friendlyFire: 0
   EnableMovement: 1
   Speed: 3
   Range: {x: 3, y: 3}
+  DeathGravityScale: 1
+  IgnoreDeathCollision: 0
   IsMoonwalking: 1
 --- !u!212 &212105945759660738
 SpriteRenderer:

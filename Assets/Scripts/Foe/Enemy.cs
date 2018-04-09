@@ -23,6 +23,7 @@ namespace Foe
         public float Speed;
         public Vector2 Range;
         public float DeathGravityScale = 1;
+        public bool IgnoreDeathCollision = true;
 
         public Rigidbody2D Rigidbody { get; set; }
         public Vector3 InitialPosition { get; set; }
@@ -98,6 +99,20 @@ namespace Foe
         {
             Collider2D otherCollider = other.collider;
 
+            if (IsDead)
+            {
+                if (IgnoreDeathCollision)
+                {
+                    Player player = otherCollider.GetComponent<Player>();
+                    if (player != null)
+                    {
+                        Physics2D.IgnoreCollision(otherCollider, GetComponent<Collider2D>());
+                    }
+                }
+
+                return;
+            }
+
             IEnemy enemy = otherCollider.GetComponent<IEnemy>();
             if (enemy != null)
             {
@@ -109,7 +124,7 @@ namespace Foe
             }
 
             IKillable killable = otherCollider.GetComponent<IKillable>();
-            if (killable != null && !IsDead)
+            if (killable != null)
             {
                 killable.Kill();
             }
