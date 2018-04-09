@@ -14,6 +14,7 @@ namespace System
         #region properties
 
         private const int MaxLives = 3;
+        private const int CoinsForExtraLife = 10;
         private const string MainMenuScene = "MainMenu";
         private const string GameOverScene = "GameOver";
 
@@ -127,6 +128,17 @@ namespace System
             }
 
             Coins++;
+
+            if (Coins % CoinsForExtraLife == 0)
+            {
+                ExtraLife();
+            }
+            
+        }
+
+        private static void ExtraLife()
+        {
+            Lives++;
         }
 
         private static void DisableCollectedCoins(Scene scene)

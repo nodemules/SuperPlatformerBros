@@ -2534,7 +2534,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2578,6 +2578,7 @@ MonoBehaviour:
   EnableCameraBoundaries: 1
   MinVector: {x: 50, y: 0}
   MaxVector: {x: 150, y: 275}
+  PlayerOffset: {x: 0, y: 0}
 --- !u!1001 &293743968
 Prefab:
   m_ObjectHideFlags: 0

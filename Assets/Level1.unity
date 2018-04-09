@@ -1789,6 +1789,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114924084880853302, guid: c7fd80fded1f2456bb867ed8571f897b,
+        type: 2}
+      propertyPath: IsHidden
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7fd80fded1f2456bb867ed8571f897b, type: 2}
   m_IsPrefabParent: 0
@@ -2986,6 +2991,7 @@ MonoBehaviour:
   EnableCameraBoundaries: 1
   MinVector: {x: -50, y: 0}
   MaxVector: {x: 50, y: 10}
+  PlayerOffset: {x: 0, y: 0}
 --- !u!61 &1806317734
 BoxCollider2D:
   m_ObjectHideFlags: 0

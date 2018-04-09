@@ -15,6 +15,7 @@ namespace System
 
         public Vector2 MinVector;
         public Vector2 MaxVector;
+        public Vector2 PlayerOffset;
 
         private Transform _parentTransform;
 
@@ -50,12 +51,13 @@ namespace System
             }
 
             Vector3 playerPos = _player.transform.position;
-            float x = Mathf.Clamp(playerPos.x, MinVector.x, MaxVector.x);
-            float y = Mathf.Clamp(playerPos.y, MinVector.y, MaxVector.y);
+            Vector2 offsetPos = playerPos + new Vector3(PlayerOffset.x, PlayerOffset.y);
+            float x = Mathf.Clamp(offsetPos.x, MinVector.x, MaxVector.x);
+            float y = Mathf.Clamp(offsetPos.y, MinVector.y, MaxVector.y);
             Vector3 newCameraPosition = new Vector3(x, y, gameObject.transform.position.z);
             Vector3 currentCameraPosition = gameObject.transform.position;
             Vector3 zero = Vector3.zero;
-            const float smoothTime = 0.1f;
+            const float smoothTime = 0.01f;
             gameObject.transform.position = Vector3.SmoothDamp(currentCameraPosition,
                 newCameraPosition,
                 ref zero, smoothTime);
