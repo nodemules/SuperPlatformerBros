@@ -444,12 +444,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de30b1bab43b41439a514eb9a1c51a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIText: {fileID: 372633826}
+  UiText: {fileID: 372633826}
   TextToType: I cannot believe you have made it this far, Marsh. Unfortunately I cannot
     allow you to continue. It's a shame we could not live in harmony. Prepare to be
     roasted!
   TimeToType: 24
-  SpeechMusic: {fileID: 8300000, guid: 63513c56ca62145b1b391193267c3678, type: 3}
   FightMusic: {fileID: 8300000, guid: 16af6116b4cb346949d3f4cc0a129145, type: 3}
   Player: {fileID: 150766277}
 --- !u!1001 &300935731
@@ -919,6 +918,8 @@ MonoBehaviour:
   EnableCameraBoundaries: 1
   MinVector: {x: -2000, y: -2000}
   MaxVector: {x: 2000, y: 2000}
+  PlayerOffset: {x: 0, y: 0}
+  SmoothTime: 0.1
 --- !u!1001 &655537769
 Prefab:
   m_ObjectHideFlags: 0
