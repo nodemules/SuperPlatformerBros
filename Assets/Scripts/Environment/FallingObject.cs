@@ -13,16 +13,19 @@ namespace Environment
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _rigidbody2D.isKinematic = true;
         }
 
         public void Trigger()
         {
             if (EnableDirectionalForce)
             {
+                _rigidbody2D.isKinematic = false;
                 _rigidbody2D.AddForce(Direction * ForceFactor);
             }
             else
             {
+                _rigidbody2D.isKinematic = false;
                 _rigidbody2D.gravityScale = 1;
             }
 
