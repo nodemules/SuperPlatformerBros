@@ -216,11 +216,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4875311507300544, guid: bcf39cf1bd6f94f74938cf0b0aa321b0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.33
+      value: -14.04
       objectReference: {fileID: 0}
     - target: {fileID: 4875311507300544, guid: bcf39cf1bd6f94f74938cf0b0aa321b0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.3499985
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 4875311507300544, guid: bcf39cf1bd6f94f74938cf0b0aa321b0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1243,6 +1243,8 @@ MonoBehaviour:
   EnableCameraBoundaries: 1
   MinVector: {x: -50, y: 0}
   MaxVector: {x: 50, y: 50}
+  PlayerOffset: {x: 0, y: 0}
+  SmoothTime: 0.1
 --- !u!81 &836369390
 AudioListener:
   m_ObjectHideFlags: 0
