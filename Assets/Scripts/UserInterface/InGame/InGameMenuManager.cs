@@ -20,7 +20,7 @@ namespace UserInterface.InGame
 
         private void Update()
         {
-            if (!GlobalGameState.IsPaused && Input.GetKeyDown(KeyCode.Escape))
+            if (!GlobalGameState.IsPaused && Input.GetButtonDown("Cancel"))
             {
                 print("Escape pressed while in game, pausing");
                 _pauseMenu.Show();

@@ -271,7 +271,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PRESS `JUMP` TO START
 
-    PRESS `ESC` TO QUIT (MAYBE)'
+    PRESS `ESC` TO QUIT'
 --- !u!114 &114498811191926590
 MonoBehaviour:
   m_ObjectHideFlags: 1

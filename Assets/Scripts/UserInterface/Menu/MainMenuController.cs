@@ -12,7 +12,7 @@ namespace UserInterface.Menu
                 GlobalGameState.RestartGame();
             }
 
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetButtonDown("Cancel"))
             {
 #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;

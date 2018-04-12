@@ -27,7 +27,7 @@ namespace UserInterface.Menu
         {
             if (GlobalGameState.IsPaused)
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetButtonDown("Cancel"))
                 {
                     ResumeGame();
                     GlobalGameState.LoadMainMenu();
