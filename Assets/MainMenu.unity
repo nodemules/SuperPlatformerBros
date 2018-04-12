@@ -306,10 +306,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'PRESS `JUMP` TO START
 
-    PRESS `ESC` TO QUIT (MAYBE)
-
-
-    WE NEED A BETTER FONT'
+    PRESS `ESC` TO QUIT'
 --- !u!222 &714545720
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -383,7 +380,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PLACEHOLDER FOR WHEN WE''RE MORE CREATIVE
+  m_Text: 'USE OF A CONTROLLER IS HIGHLY RECOMMENDED.
 
 '
 --- !u!222 &1185353691
