@@ -5,21 +5,19 @@ namespace UserInterface.Menu
 {
     public class MainMenuController : MonoBehaviour
     {
-        public void Update()
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                GlobalGameState.RestartGame();
-            }
 
-            if (Input.GetButtonDown("Cancel"))
-            {
+        public void StartGame()
+        {
+            GlobalGameState.RestartGame();
+        }
+
+        public void QuitGame()
+        {
 #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
             Application.Quit ();
 #endif
-            }
         }
     }
 }
