@@ -43,7 +43,7 @@ namespace Level
             if (level == HighestLevel)
             {
                 ApplicationState.Ending = -100;
-                SceneManager.LoadScene("GameOver");
+                SceneManager.LoadScene("WinScreen");
             }
         }
 
