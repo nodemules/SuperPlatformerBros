@@ -23,34 +23,10 @@ namespace UserInterface.Menu
             Initialized = true;
         }
 
-        public void Update()
-        {
-            if (GlobalGameState.IsPaused)
-            {
-                if (Input.GetButtonDown("Cancel"))
-                {
-                    ResumeGame();
-                    GlobalGameState.LoadMainMenu();
-                    return;
-                }
-
-                if (Input.GetButtonDown("Jump"))
-                {
-                    Hide();
-                }
-            }
-        }
-
         private static void PauseGame()
         {
             print("Pausing game");
             GlobalGameState.PauseGame();
-        }
-
-        private static void ResumeGame()
-        {
-            print("Resuming game");
-            GlobalGameState.ResumeGame();
         }
 
         public void Show()
@@ -61,8 +37,8 @@ namespace UserInterface.Menu
 
         public void Hide()
         {
-            ResumeGame();
             gameObject.SetActive(false);
+            GlobalGameState.ResumeGame();
         }
     }
 }

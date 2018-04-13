@@ -19,5 +19,11 @@ namespace UserInterface.Menu
             Application.Quit ();
 #endif
         }
+
+        public void ResumeGame()
+        {
+            GetComponentInParent<PauseMenu>().Hide();
+        }
+        
     }
 }

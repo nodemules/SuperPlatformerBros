@@ -6178,6 +6178,7 @@ MonoBehaviour:
   Speed: 0
   Range: {x: 0, y: 0}
   DeathGravityScale: 1
+  IgnoreDeathCollision: 1
 --- !u!60 &639117354
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14757,6 +14758,7 @@ MonoBehaviour:
   MinVector: {x: -300, y: -150}
   MaxVector: {x: 50, y: 200}
   PlayerOffset: {x: 0, y: 0}
+  SmoothTime: 0.1
 --- !u!81 &1501258265
 AudioListener:
   m_ObjectHideFlags: 0
@@ -15018,6 +15020,7 @@ MonoBehaviour:
   Speed: 0
   Range: {x: 0, y: 0}
   DeathGravityScale: 1
+  IgnoreDeathCollision: 1
 --- !u!1001 &1526547034
 Prefab:
   m_ObjectHideFlags: 0
@@ -15932,20 +15935,33 @@ Prefab:
     - target: {fileID: 224033112642757970, guid: 3c6a7c62882c44b689d8e38f15667ffc,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224123008400003496, guid: 3c6a7c62882c44b689d8e38f15667ffc,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224166634085702780, guid: 3c6a7c62882c44b689d8e38f15667ffc,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1863017386654828, guid: 3c6a7c62882c44b689d8e38f15667ffc, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271778315148368, guid: 3c6a7c62882c44b689d8e38f15667ffc, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224497127511423722, guid: 3c6a7c62882c44b689d8e38f15667ffc,
+        type: 2}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -16291,9 +16307,9 @@ Transform:
   - {fileID: 448192608}
   - {fileID: 1770862825}
   - {fileID: 353685826}
-  - {fileID: 2133169078}
   - {fileID: 1071839797}
   - {fileID: 2143726188}
+  - {fileID: 2133169078}
   - {fileID: 108170682}
   - {fileID: 1647200003}
   - {fileID: 1706612260}
@@ -20101,7 +20117,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2029133382}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!1 &2022356426
@@ -20245,6 +20261,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4499597852924414, guid: 9df76e66f42224724a0b55e0377964a2,
     type: 2}
   m_PrefabInternal: {fileID: 1153500792}
+--- !u!1 &2029133382 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1976076527429376, guid: 3c6a7c62882c44b689d8e38f15667ffc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1613813997}
 --- !u!4 &2029709470 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4658107900450336, guid: 16bc5b6a580db406c91a7d8135bcb96b,
