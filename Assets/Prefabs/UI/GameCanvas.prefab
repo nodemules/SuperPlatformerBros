@@ -713,7 +713,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114821963991670514}
-        m_MethodName: QuitGame
+        m_MethodName: GoToTitleScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

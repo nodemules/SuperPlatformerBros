@@ -24,6 +24,11 @@ namespace UserInterface.Menu
         {
             GetComponentInParent<PauseMenu>().Hide();
         }
+
+        public void GoToTitleScreen()
+        {
+            GlobalGameState.LoadMainMenu();
+        }
         
     }
 }
