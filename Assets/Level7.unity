@@ -5570,7 +5570,7 @@ Transform:
   - {fileID: 1288434411}
   - {fileID: 901215457}
   m_Father: {fileID: 1206362005}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &544361635
 Prefab:
@@ -6178,6 +6178,7 @@ MonoBehaviour:
   Speed: 0
   Range: {x: 0, y: 0}
   DeathGravityScale: 1
+  IgnoreDeathCollision: 1
 --- !u!60 &639117354
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11364,7 +11365,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1501258263}
-  - {fileID: 2018177417}
   - {fileID: 1233167902}
   - {fileID: 1613813998}
   - {fileID: 540961923}
@@ -11612,7 +11612,7 @@ RectTransform:
   m_Children:
   - {fileID: 609497941}
   m_Father: {fileID: 1206362005}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14648,7 +14648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4452032058186198, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42043fef6aa424fc99fc88860d10b9eb, type: 2}
@@ -14757,6 +14757,7 @@ MonoBehaviour:
   MinVector: {x: -300, y: -150}
   MaxVector: {x: 50, y: 200}
   PlayerOffset: {x: 0, y: 0}
+  SmoothTime: 0.1
 --- !u!81 &1501258265
 AudioListener:
   m_ObjectHideFlags: 0
@@ -15018,6 +15019,7 @@ MonoBehaviour:
   Speed: 0
   Range: {x: 0, y: 0}
   DeathGravityScale: 1
+  IgnoreDeathCollision: 1
 --- !u!1001 &1526547034
 Prefab:
   m_ObjectHideFlags: 0
@@ -15872,7 +15874,7 @@ Prefab:
     - target: {fileID: 224990972762982014, guid: 3c6a7c62882c44b689d8e38f15667ffc,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224990972762982014, guid: 3c6a7c62882c44b689d8e38f15667ffc,
         type: 2}
@@ -15929,25 +15931,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1501258267}
-    - target: {fileID: 224033112642757970, guid: 3c6a7c62882c44b689d8e38f15667ffc,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224123008400003496, guid: 3c6a7c62882c44b689d8e38f15667ffc,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224166634085702780, guid: 3c6a7c62882c44b689d8e38f15667ffc,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863017386654828, guid: 3c6a7c62882c44b689d8e38f15667ffc, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c6a7c62882c44b689d8e38f15667ffc, type: 2}
   m_IsPrefabParent: 0
@@ -16291,9 +16274,9 @@ Transform:
   - {fileID: 448192608}
   - {fileID: 1770862825}
   - {fileID: 353685826}
-  - {fileID: 2133169078}
   - {fileID: 1071839797}
   - {fileID: 2143726188}
+  - {fileID: 2133169078}
   - {fileID: 108170682}
   - {fileID: 1647200003}
   - {fileID: 1706612260}
@@ -17915,7 +17898,7 @@ Transform:
   - {fileID: 1932168021}
   - {fileID: 777466497}
   m_Father: {fileID: 1206362005}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1795398593 stripped
 Transform:
@@ -18363,7 +18346,7 @@ Transform:
   - {fileID: 1003251300}
   - {fileID: 17917293}
   m_Father: {fileID: 1206362005}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1867226056
 Prefab:
@@ -19397,7 +19380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4010522412867920, guid: a53d2b81e5f744631a8305feabfec0fd, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114423778080072336, guid: a53d2b81e5f744631a8305feabfec0fd,
         type: 2}
@@ -20042,68 +20025,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 806f21f12d1b648e5a00c7d5a79da4b9, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2018177416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2018177417}
-  - component: {fileID: 2018177419}
-  - component: {fileID: 2018177418}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2018177417
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018177416}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1206362005}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2018177418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018177416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &2018177419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018177416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
 --- !u!1 &2022356426
 GameObject:
   m_ObjectHideFlags: 0

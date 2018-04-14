@@ -101,7 +101,6 @@ namespace System
             Lives--;
             if (Lives == 0)
             {
-                SetDefaults();
                 ApplicationState.Ending = -1;
                 print("Player has run out of lives, Game over");
                 SceneManager.LoadScene(GameOverScene);

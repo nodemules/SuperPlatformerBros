@@ -123,7 +123,7 @@ namespace Level
         private void WinGame()
         {
             ApplicationState.Ending = -100;
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("WinScreen");
         }
 
         private void RemoveText()
