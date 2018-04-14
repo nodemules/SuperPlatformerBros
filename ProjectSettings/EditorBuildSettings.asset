@@ -47,3 +47,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level10.unity
     guid: b424b363e614a433088c28839746481c
+  - enabled: 1
+    path: Assets/WinScreen.unity
+    guid: 4c8371b7aa69845d3a90520d9223bae1
