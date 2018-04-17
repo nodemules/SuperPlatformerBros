@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,13 +7,13 @@ namespace UserInterface.InGame
 {
     public class HudLivesController : MonoBehaviour
     {
-        private Text _lifeText;
+        private TextMeshProUGUI _lifeText;
         private int _oldLifeCount;
-        private static int _defaultFontSize = 18;
+        private static float _defaultFontSize = 18.0f;
         
         public void Start()
         {
-            _lifeText = GetComponentInChildren<Text>();
+            _lifeText = GetComponentInChildren<TextMeshProUGUI>();
             _oldLifeCount = GlobalGameState.Lives;
         }
 
@@ -29,7 +30,7 @@ namespace UserInterface.InGame
         
         private void ExtraLifeEffect()
         {
-            _lifeText.fontSize = 24;
+            _lifeText.fontSize = 24.0f;
             Invoke("ResetFontSize", 1);
         }
 
