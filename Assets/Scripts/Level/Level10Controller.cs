@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Foe;
 using PlayerCharacter;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ namespace Level
     public class Level10Controller : MonoBehaviour
     {
         private const string SceneName = "Level10";
-        public Text UiText;
+        public TextMeshProUGUI UiText;
         public string TextToType;
         public float TimeToType;
 
