@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 114258104278459372}
   - component: {fileID: 114900519766034772}
   m_Layer: 5
-  m_Name: GameCanvas 1
+  m_Name: GameCanvasLvl10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
