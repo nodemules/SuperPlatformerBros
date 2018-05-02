@@ -642,6 +642,11 @@ Prefab:
       propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114101084465215004, guid: a507725d38d00438fb62fd935d082801,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToTitleScreen
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a507725d38d00438fb62fd935d082801, type: 2}
   m_IsPrefabParent: 0
