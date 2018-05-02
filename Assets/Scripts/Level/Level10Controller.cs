@@ -20,8 +20,7 @@ namespace Level
         public AudioClip FightMusic;
 
         private float _textPercentage;
-        private List<IBoss> _allBosses = new List<IBoss>();
-        private List<IBoss> _currentBosses = new List<IBoss>();
+        private List<IBoss> _bosses = new List<IBoss>();
         private Scene _scene;
         private bool _bossesCleared;
         private bool _powerUpLastBoss;
@@ -55,36 +54,12 @@ namespace Level
 
             IntroSpeech();
 
-            _allBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(true));
-            _currentBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(false));
-            bool lastBoss = _allBosses.Count == 1;
-            if (lastBoss && !_powerUpLastBoss)
-            {
-                IPowerful boss = _allBosses[0] as IPowerful;
-                if (boss != null)
-                {
-                    _powerUpLastBoss = true;
-                    boss.PowerUp();
-                }
-            }
+            _bosses = new List<IBoss>(GetComponentsInChildren<IBoss>());
 
-            if (_currentBosses.Count == 0)
-            {
-                NextWave();
-            }
-
-            if (_allBosses.Count == 0)
+            if (_bosses.Count == 0)
             {
                 _bossesCleared = true;
                 Invoke("WinGame", 3);
-            }
-        }
-
-        private void NextWave()
-        {
-            foreach (IBoss b in _allBosses)
-            {
-                b.EnableBoss();
             }
         }
 
@@ -109,8 +84,7 @@ namespace Level
             _backgroundMusicSystem.StopBackgroundMusic();
             _backgroundMusicSystem.BackgroundMusicAudioClip = FightMusic;
             _backgroundMusicSystem.StartBackgroundMusic();
-            _currentBosses = new List<IBoss>(GetComponentsInChildren<IBoss>(false));
-            foreach (IBoss boss in _currentBosses)
+            foreach (IBoss boss in _bosses)
             {
                 boss.StartMoving();
             }
